@@ -14,7 +14,7 @@ a {
 
 #navbarContainer {
     padding-top: 17px;
-    padding-bottom: 17px;
+    padding-bottom: 7px;
     padding-left: 5px;
 }
 
@@ -43,7 +43,7 @@ a {
 }
 
 .banner p {
-    margin: 13px;
+    margin: 7px;
 }
 
 button {
@@ -58,23 +58,53 @@ li {
     margin: 2px;
 }
 
+.instructions {
+    text-align: center;
+}
+
 #instructionsGist {
     font-size: 18px;
     line-height: 1.2;
-    text-align: center;
 }
 
 #instructionsWarning {
     font-size: 20px;
     color: #ff0000;
-    text-align: center;
     font-weight: 800;
     text-decoration: underline;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #instructionsList {
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.4;
+    text-align: left;
+    padding-left: 52px;
+}
+
+.menu-buttons {
+    margin-top: 20px;
+}
+
+.menu-buttons button {
+    padding: 12px;
+    width: 79%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10%;
+    font-size: 27px;
+    color: white;
+}
+
+#playButton {
+    background-color: #04a12b;    
+}
+
+#difficultyButton {
+    background-color: #cc5500;
+}
+
+#settingsButton {
+    background-color: #ff0000;
 }

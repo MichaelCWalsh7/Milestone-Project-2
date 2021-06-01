@@ -45,3 +45,15 @@ a {
 .banner p {
     margin: 13px;
 }
+
+button {
+    display: block;
+}
+
+.home-menu-container {
+    margin: 2px;
+}
+
+#instructionsGist {
+    font-size: 2px;
+}

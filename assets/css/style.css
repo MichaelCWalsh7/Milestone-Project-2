@@ -4,7 +4,7 @@ body {
 
 h2 {
     display: inherit;
-    
+
 }
 
 a {
@@ -33,5 +33,15 @@ a {
 }
 
 .banner {
-   
+    background-color: #fc46aa;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    line-height: 1.1;
+    margin: 3px;
+    border: 1px solid black;
+}
+
+.banner p {
+    margin: 13px;
 }

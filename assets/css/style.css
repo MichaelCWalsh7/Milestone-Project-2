@@ -167,13 +167,18 @@ td {
     font-size: 27px;
 }
 
+.anagram-container p {
+    margin-top: 14px;
+    margin-bottom: 0px;
+}
+
 
 
 #textInput {
     font-size: 16px;
     border: 2px solid orangered;
     margin: 10px;
-    text-align: center;  
+    text-align: center;
 
 }
 
@@ -197,4 +202,18 @@ td {
 
 #deleteButton {
     background-color: #ff0000;
+}
+
+.word-buttons {
+    margin-top: 17px;
+}
+
+.word-buttons button {
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-top: 9px;
+    width: 70px;
 }

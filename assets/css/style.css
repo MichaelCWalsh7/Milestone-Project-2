@@ -50,10 +50,31 @@ button {
     display: block;
 }
 
+li {
+    padding-top: 7px;
+}
+
 .home-menu-container {
     margin: 2px;
 }
 
 #instructionsGist {
-    font-size: 2px;
+    font-size: 18px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+#instructionsWarning {
+    font-size: 20px;
+    color: #ff0000;
+    text-align: center;
+    font-weight: 800;
+    text-decoration: underline;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#instructionsList {
+    font-size: 16px;
+    line-height: 1.4;
 }

@@ -108,3 +108,33 @@ li {
 #settingsButton {
     background-color: #ff0000;
 }
+
+.score-container {
+    font-size: inherit;
+    width: 50%;
+}
+
+.timer-container {
+    color: brown;
+    display: inline;
+    float: right;
+    width: 50%;
+}
+
+.score-container, .timer-container {
+    display: inline-block;
+}
+
+.score-container p, .timer-container p {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.score-container p {
+    margin-left: 10px;
+}
+
+.timer-container p {
+    float: right;
+    margin-right: 10px;
+}

@@ -57,3 +57,6 @@ function Shuffle(anagram) {
 //             consonantsUsed.push(consonants[consonantIndexer])
 //         }
 //     }  The "* 2" line here allows duplicate consonants.
+
+// Current Score: <span id="currentScore">X</span>/<span id="maxScore">20</span>
+// Time Remaing:<span>0:00</span>

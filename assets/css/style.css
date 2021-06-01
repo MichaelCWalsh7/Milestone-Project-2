@@ -12,9 +12,10 @@ a {
     color: inherit;
 }
 
-#navbarLink, #navbarButtons {
+#navbarLink,
+#navbarButtons {
     display: inline-block;
-    padding-top: 17px;
+    padding-top: 10px;
     padding-bottom: 7px;
     padding-left: 5px;
 }
@@ -23,7 +24,8 @@ a {
     float: right;
 }
 
-.fa-info-circle, .fa-cog {   
+.fa-info-circle,
+.fa-cog {
     font-size: 25px;
     padding-right: 12px;
 }
@@ -99,7 +101,7 @@ li {
 }
 
 #playButton {
-    background-color: #04a12b;    
+    background-color: #04a12b;
 }
 
 #difficultyButton {
@@ -122,11 +124,13 @@ li {
     width: 50%;
 }
 
-.score-container, .timer-container {
+.score-container,
+.timer-container {
     display: inline-block;
 }
 
-.score-container p, .timer-container p {
+.score-container p,
+.timer-container p {
     margin-top: 6px;
     margin-bottom: 6px;
 }
@@ -138,4 +142,28 @@ li {
 .timer-container p {
     float: right;
     margin-right: 10px;
+}
+
+.words-blackboard {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-left: 4%;
+    margin-right: 4%;
+    background-color: black;
+    color: white;
+}
+
+.words-blackboard table {
+    padding-left: 5px;
+}
+
+td {
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.anagram-container {
+    text-align: center;
 }

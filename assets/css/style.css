@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+}
+
+h2 {
+    display: inherit;
+    
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#navbarContainer {
+    padding-top: 17px;
+    padding-bottom: 17px;
+    padding-left: 5px;
+}
+
+.fa-info-circle {
+    padding-left: 80px;
+    font-size: 25px;
+}
+
+.fa-cog {
+    padding-left: 24px;
+    font-size: 25px;
+}
+
+#navbar {
+    border-bottom: 2px solid black;
+}
+
+.banner {
+   
+}

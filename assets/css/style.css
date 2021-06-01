@@ -49,9 +49,6 @@ a {
     margin: 7px;
 }
 
-button {
-    display: block;
-}
 
 li {
     padding-top: 7px;
@@ -98,6 +95,7 @@ li {
     margin-left: 10%;
     font-size: 27px;
     color: white;
+    display: block;
 }
 
 #playButton {
@@ -166,4 +164,37 @@ td {
 
 .anagram-container {
     text-align: center;
+    font-size: 27px;
+}
+
+
+
+#textInput {
+    font-size: 16px;
+    border: 2px solid orangered;
+    margin: 10px;
+    text-align: center;  
+
+}
+
+#textInput p {
+    opacity: .7;
+}
+
+.enter-delete-buttons {
+    margin-left: 30px;
+}
+
+.enter-delete-buttons button {
+    font-size: 23px;
+    margin-left: 15px;
+    color: white;
+}
+
+#enterButton {
+    background-color: #04a12b;
+}
+
+#deleteButton {
+    background-color: #ff0000;
 }

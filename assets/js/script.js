@@ -7,14 +7,31 @@ let anagram = [];
 let vowelsUsed = [];
 let consonantsUsed = [];
 
+let vNum = 3;
+let cNum = 6;
+
+
+
 //  --------Functions:
 
 function vowelGenerator(vNum) {
-
+    // Generates a number of random non-repeating vowels
+    while (vowelsUsed.length < vNum) {
+        let vowelIndexer = Math.floor(Math.random() * 5);
+        if (vowelsUsed.includes(vowels[vowelIndexer]) === false) {
+            vowelsUsed.push(vowels[vowelIndexer])
+        }
+    }
 }
 
 function consonantGenerator(cNum) {
-
+    // Generates a number of random non-repeating consonants
+    while (consonantsUsed.length < cNum) {
+        let consonantIndexer = Math.floor(Math.random() * 21);
+        if (consonantsUsed.includes(consonants[consonantIndexer]) === false) {
+            consonantsUsed.push(consonants[consonantIndexer])
+        }
+    }
 }
 
 function arrayShuffler(array) {

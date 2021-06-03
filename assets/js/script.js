@@ -75,7 +75,7 @@ function letterButtonsGenerator() {
         $(`#button${k}`).text(anagramArray[k]);
     }
     $(`#button${9}`).text(anagramArray[0]);
-    // This is a fucking stupid fix But i have no idea why it's not working for the first character in the array
+    // This is a stupid fix But i have no idea why it's not working for the first character in the array
 }
 
 function gameGenerator(diffculty, time) {

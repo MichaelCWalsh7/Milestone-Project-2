@@ -24,6 +24,7 @@ $("#deleteButton").on("click", consoleLogger);
 function consoleLogger() {
     anagramGenerator();
     anagramStringGenerator();
+    letterButtonsGenerator();
 }
 
 function anagramGenerator() {
@@ -70,7 +71,11 @@ function anagramStringGenerator() {
 }
 
 function letterButtonsGenerator() {
-
+    for (var k = 0; k <= anagramArray.length; k++) {
+        $(`#button${k}`).text(anagramArray[k]);
+    }
+    $(`#button${9}`).text(anagramArray[0]);
+    // This is a fucking stupid fix But i have no idea why it's not working for the first character in the array
 }
 
 function gameGenerator(diffculty, time) {

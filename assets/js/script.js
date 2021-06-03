@@ -7,20 +7,23 @@ let anagram = [];
 let anagramArray = [];
 let vowelsUsed = [];
 let consonantsUsed = [];
+let anagramString = "";
 
 let vNum = 3;
 let cNum = 6;
 
 //  --------Event Listeners:
 
+$(".anagram-container").on("click",  anagramStringGenerator)
 $("#enterButton").on("click", anagramGenerator);
-$("#deleteButton").on("click", vowelGenerator);
+$("#deleteButton").on("click", consoleLogger);
 
 //  --------Functions:
 
 
-function vowelGenerator() {
-    console.log(anagramArray)
+function consoleLogger() {
+    anagramGenerator();
+    anagramStringGenerator();
 }
 
 function anagramGenerator() {
@@ -56,34 +59,23 @@ function anagramGenerator() {
         var j = Math.floor(Math.random() * (i + 1)); //random index
         [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]]; // swap
     }
-    console.log(anagramArray);
-    
+    console.log(anagramArray);   
 
 }
 
-
-
-
-function consonantGenerator(cNum) {
-
-}
-
-function arrayShuffler(anagramArray) {
-
-}
-
-function arrayToStringConverter(anagram) {
-
-}
-
-function gameGenerator(diffculty, time) {
-
+function anagramStringGenerator() {
+    let anagramStringToModify = anagramArray.toString();
+    anagramString = anagramStringToModify.replace(/,/g, "");
+    $("#jumbledAnagram").text(`${anagramString}`);
 }
 
 function letterButtonsGenerator() {
 
 }
 
+function gameGenerator(diffculty, time) {
+
+}
 function setTimer(time) {
 
 }

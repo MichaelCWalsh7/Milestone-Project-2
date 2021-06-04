@@ -174,15 +174,14 @@ td {
 
 
 
-#textInput {
+.text-input-container {
     font-size: 16px;
     border: 2px solid orangered;
     margin: 10px;
     text-align: center;
-
 }
 
-#textInput p {
+#textInput {
     opacity: .7;
 }
 

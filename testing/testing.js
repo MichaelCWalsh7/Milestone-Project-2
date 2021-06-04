@@ -50,6 +50,17 @@ function Shuffle(anagram) {
     }
 }
 
+
+// let InputId = this.id;
+//     console.log(InputId)
+//     let letterToinput = $(`#${InputId}`).innerHtml;
+//     console.log(letterToinput)
+
+// console.log(InputId);
+// $("#textInput").children().text(this.id.text());
+
+
+
 //  --------Duplicate consonants allowed:
 // while (consonantsUsed.length < 6) {
 //         let consonantIndexer = Math.floor(Math.random() * 21);
@@ -60,3 +71,5 @@ function Shuffle(anagram) {
 
 // Current Score: <span id="currentScore">X</span>/<span id="maxScore">20</span>
 // Time Remaing:<span>0:00</span>
+
+// Merriam webster api request url:  https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=620f4bc9-4aa8-4c06-aa88-08358e30153a

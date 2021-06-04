@@ -8,6 +8,7 @@ let anagramArray = [];
 let vowelsUsed = [];
 let consonantsUsed = [];
 let anagramString = "";
+let inputLetters = [];
 
 let vNum = 3;
 let cNum = 6;
@@ -17,7 +18,15 @@ let cNum = 6;
 $(".anagram-container").on("click",  anagramStringGenerator)
 $("#enterButton").on("click", anagramGenerator);
 $("#deleteButton").on("click", consoleLogger);
-
+$(".letter-button").on("click", function(){
+    let inputId = this.id;
+    console.log(inputId);
+    let inputToPush = $(`#${inputId}`).text();
+    console.log(inputToPush);
+    inputLetters.push(inputToPush);
+    console.log(inputLetters);
+    $(`#${inputId}`).disabled = true;
+})
 //  --------Functions:
 
 
@@ -72,10 +81,15 @@ function anagramStringGenerator() {
 
 function letterButtonsGenerator() {
     for (var k = 0; k <= anagramArray.length; k++) {
-        $(`#button${k}`).text(anagramArray[k]);
+        $(`#button${k + 1}`).text(anagramArray[k]);
     }
-    $(`#button${9}`).text(anagramArray[0]);
+    // $(`#button${9}`).text(anagramArray[0]);
     // This is a stupid fix But i have no idea why it's not working for the first character in the array
+    // It's becasue there is no button 0!!
+}
+
+function addInputToAnswer() {
+   
 }
 
 function gameGenerator(diffculty, time) {

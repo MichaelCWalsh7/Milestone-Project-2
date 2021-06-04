@@ -204,11 +204,11 @@ td {
     background-color: #ff0000;
 }
 
-.word-buttons {
+.letter-button-container {
     margin-top: 17px;
 }
 
-.word-buttons button {
+.letter-button-container button {
     text-align: center;
     font-size: 28px;
     padding: 10px;

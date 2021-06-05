@@ -15,18 +15,26 @@ var data;
 let vNum = 3;
 let cNum = 6;
 
-var xhr = new XMLHttpRequest();
+function getData(cb) {
+    var xhr = new XMLHttpRequest();
 
-xhr.open("GET", "https://dictionaryapi.com/api/v3/references/collegiate/json/this?key=620f4bc9-4aa8-4c06-aa88-08358e30153a")
-xhr.send();
+    xhr.open("GET", `https://dictionaryapi.com/api/v3/references/collegiate/json/${$("#textInput").text()}?key=620f4bc9-4aa8-4c06-aa88-08358e30153a`);
+    xhr.send();
 
-xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status ==200) {
-        setData(JSON.parse(this.responseText));
-        
-    } else {
-        console.log("error")
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            cb(JSON.parse(this.responseText));
+
+        }
     }
+}
+
+
+
+function printDataToconsole() {
+    getData(function (data) {
+        console.log(data);
+    })
 }
 
 function setData(jsonData) {
@@ -37,23 +45,23 @@ function setData(jsonData) {
 //  --------Event Listeners:
 
 $(".anagram-container").on("click", consoleLogger)
-$("#enterButton").on("click", wordChecker);
+$("#enterButton").on("click", printDataToconsole);
 $("#deleteButton").on("click", deleteLetter);
-$(".letter-button").on("click", function(){
-    
-   
-    
+$(".letter-button").on("click", function () {
+
+
+
     // Gets the id of the button pushed and it's contents to the inputLettersArray
     let inputId = this.id;
     // Might be good to add a hashtag to the above code 
 
     // Disables the button to avoid duplicate letters appearing in string. 
     $(`#${inputId}`).prop('disabled', true);
-    
-    
-     // Adds the button pushed to an array to be displayed to the user
+
+
+    // Adds the button pushed to an array to be displayed to the user
     let inputToPush = $(`#${inputId}`).text();
-    inputLettersArray.push(inputToPush);    
+    inputLettersArray.push(inputToPush);
     console.log(inputLettersArray);
 
     // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted later. 
@@ -104,7 +112,7 @@ function anagramGenerator() {
         var j = Math.floor(Math.random() * (i + 1)); //random index
         [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]]; // swap
     }
-    console.log(anagramArray);   
+    console.log(anagramArray);
 
 }
 
@@ -134,25 +142,26 @@ function deleteLetter() {
 }
 
 function addInputToAnswer() {
-   
+
 }
 
 function gameGenerator(diffculty, time) {
 
 }
+
 function setTimer(time) {
 
 }
 
-function wordChecker(userInput) {
+// function wordChecker(userInput) {
 
-    // Stroes user input as a variable to compared
-    userInput = $("#textInput").text();
-    console.log(userInput);    
-    
-    let obj = JSON.parse(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
-    console.log(obj);
-}
+//     // Stroes user input as a variable to compared
+//     userInput = $("#textInput").text();
+//     console.log(userInput);
+
+//     let obj = JSON.parse(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
+//     console.log(obj);
+// }
 
 function wordStorer(userInput, storedWords) {
 

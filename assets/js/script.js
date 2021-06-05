@@ -8,7 +8,8 @@ let anagramArray = [];
 let vowelsUsed = [];
 let consonantsUsed = [];
 let anagramString = "";
-let inputLetters = [];
+let inputLettersArray = [""];
+let addLetter
 
 let vNum = 3;
 let cNum = 6;
@@ -19,13 +20,27 @@ $(".anagram-container").on("click",  anagramStringGenerator)
 $("#enterButton").on("click", anagramGenerator);
 $("#deleteButton").on("click", consoleLogger);
 $(".letter-button").on("click", function(){
+    
+   
+    
+    // Gets the id of the button pushed and it's contents to the inputLettersArray
     let inputId = this.id;
-    console.log(inputId);
+    // Might be good to add a hashtag to the above code 
+
+    // Disables the button to avoid duplicate letters appearing in string. 
+    $(`#${inputId}`).prop('disabled', true);
+    
+    
+     // Adds the button pushed to an array to be displayed to the user
     let inputToPush = $(`#${inputId}`).text();
-    console.log(inputToPush);
-    inputLetters.push(inputToPush);
-    console.log(inputLetters);
-    $(`#${inputId}`).disabled = true;
+    inputLettersArray.push(inputToPush);    
+    console.log(inputLettersArray);
+
+    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted later. 
+    let l = inputLettersArray.length;
+    console.log(l);
+    $(`#${inputId}`).addClass(`button-pressed-${l}`);
+     anagramStringGenerator()
 })
 //  --------Functions:
 
@@ -74,9 +89,9 @@ function anagramGenerator() {
 }
 
 function anagramStringGenerator() {
-    let anagramStringToModify = anagramArray.toString();
+    let anagramStringToModify = inputLettersArray.toString();
     anagramString = anagramStringToModify.replace(/,/g, "");
-    $("#jumbledAnagram").text(`${anagramString}`);
+    $("#textInput").text(`${anagramString}`);
 }
 
 function letterButtonsGenerator() {

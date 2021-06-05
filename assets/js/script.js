@@ -9,15 +9,35 @@ let vowelsUsed = [];
 let consonantsUsed = [];
 let anagramString = "";
 let inputLettersArray = [];
-let addLetter
+let addLetter;
+var data;
 
 let vNum = 3;
 let cNum = 6;
 
+var xhr = new XMLHttpRequest();
+
+xhr.open("GET", "https://dictionaryapi.com/api/v3/references/collegiate/json/this?key=620f4bc9-4aa8-4c06-aa88-08358e30153a")
+xhr.send();
+
+xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status ==200) {
+        setData(JSON.parse(this.responseText));
+        
+    } else {
+        console.log("error")
+    }
+}
+
+function setData(jsonData) {
+    data = jsonData;
+    console.log(data);
+}
+
 //  --------Event Listeners:
 
 $(".anagram-container").on("click", consoleLogger)
-$("#enterButton").on("click",);
+$("#enterButton").on("click", wordChecker);
 $("#deleteButton").on("click", deleteLetter);
 $(".letter-button").on("click", function(){
     
@@ -124,13 +144,15 @@ function setTimer(time) {
 
 }
 
-// function wordChecker(userInput) {
+function wordChecker(userInput) {
 
-//     // Stroes user input as a variable to compared
-//     userInput = $("#textInput").text();
-//     console.log(userInput);    
-//     console.log($.getJSON(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`));    
-// }
+    // Stroes user input as a variable to compared
+    userInput = $("#textInput").text();
+    console.log(userInput);    
+    
+    let obj = JSON.parse(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
+    console.log(obj);
+}
 
 function wordStorer(userInput, storedWords) {
 

@@ -8,7 +8,7 @@ let anagramArray = [];
 let vowelsUsed = [];
 let consonantsUsed = [];
 let anagramString = "";
-let inputLettersArray = [""];
+let inputLettersArray = [];
 let addLetter
 
 let vNum = 3;
@@ -16,9 +16,9 @@ let cNum = 6;
 
 //  --------Event Listeners:
 
-$(".anagram-container").on("click",  anagramStringGenerator)
-$("#enterButton").on("click", anagramGenerator);
-$("#deleteButton").on("click", consoleLogger);
+$(".anagram-container").on("click", consoleLogger)
+$("#enterButton").on("click",);
+$("#deleteButton").on("click", deleteLetter);
 $(".letter-button").on("click", function(){
     
    
@@ -37,10 +37,10 @@ $(".letter-button").on("click", function(){
     console.log(inputLettersArray);
 
     // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted later. 
-    let l = inputLettersArray.length;
+    var l = inputLettersArray.length;
     console.log(l);
     $(`#${inputId}`).addClass(`button-pressed-${l}`);
-     anagramStringGenerator()
+    anagramStringGenerator();
 })
 //  --------Functions:
 
@@ -103,6 +103,16 @@ function letterButtonsGenerator() {
     // It's becasue there is no button 0!!
 }
 
+function deleteLetter() {
+    // Removes the letter from the text input div    
+    inputLettersArray.pop();
+    anagramStringGenerator();
+    // Reactivates the button for possible later use. 
+    var m = inputLettersArray.length;
+    $(`.button-pressed-${m + 1}`).prop('disabled', false);
+
+}
+
 function addInputToAnswer() {
    
 }
@@ -114,9 +124,13 @@ function setTimer(time) {
 
 }
 
-function wordChecker(userInput) {
+// function wordChecker(userInput) {
 
-}
+//     // Stroes user input as a variable to compared
+//     userInput = $("#textInput").text();
+//     console.log(userInput);    
+//     console.log($.getJSON(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`));    
+// }
 
 function wordStorer(userInput, storedWords) {
 

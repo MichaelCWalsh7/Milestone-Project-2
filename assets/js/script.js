@@ -157,20 +157,28 @@ function wordChecker(userInput) {
 
     // Stroes user input as a variable to compared
     userInput = $("#textInput").text();
-    console.log(userInput);
+    
+    // Checks if the word is already present on the answers blackboard
+    let wordsPresent = $(".words-blackboard").text();
+    let repeatingWord = wordsPresent.toUpperCase().includes(`${userInput}`);
+    if (repeatingWord) {
+        console.log("Sorry, you've already inputted this word.")
+        // wordFail();
+    } else {
+        // Checks if the word exists in the dictionary
+        var xhr = new XMLHttpRequest();
 
-    var xhr = new XMLHttpRequest();
+        xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
+        xhr.send();
 
-    xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
-    xhr.send();
-
-    xhr.onreadystatechange = function () {        
-        if (this.readyState == 4 && this.status === 404) {
-            console.log('Error, word does not exist.')
-            // wordFail();
-        } else if (this.readyState == 4 && this.status == 200) {
-            console.log("Success, word exists.")
-            wordSuccess();
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status === 404) {
+                console.log('Error, word does not exist.')
+                // wordFail();
+            } else if (this.readyState == 4 && this.status == 200) {
+                console.log("Success, word exists.")
+                wordSuccess();
+            }
         }
     }
 }
@@ -179,6 +187,7 @@ function wordSuccess(userInput) {
 
     // Stroes user input as a variable
     userInput = $("#textInput").text();
+
 
     // Increments score counter & checks if user has won
     let currentScore = parseInt($("#currentScore").text());
@@ -189,11 +198,11 @@ function wordSuccess(userInput) {
         // gameWin();
     }
 
-    // Gives user success sting by flashing pushed buttons a green colour
+    // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
 
     // Plays successful word sting/sound if audio is enabled.
-    // sucessSting.play();
+    // successSting.play();
 
     // Adds the successful word to the blackboard in lower case
     let inputToBlackboard = userInput.toLowerCase();
@@ -204,13 +213,40 @@ function wordSuccess(userInput) {
         $(`.button-pressed-${n}`).prop("disabled", false);
         $(".letter-button").removeClass(`button-pressed-${n}`)
     }
-    
+
     $("#textInput").text("");
+    inputLettersArray = [];
 
 }
 
 function wordFail() {
-    
+
+    // Informs user this word does not exist by flashing pushed buttons a red colour
+    // colourchangeRed();
+
+    // Plays failure sting/sound if audio is enabled.
+    // failureSting.play();
+
+    // Reactivates buttons clears text input field
+    for (var n = 0; n <= 10; n++) {
+        $(`.button-pressed-${n}`).prop("disabled", false);
+        $(".letter-button").removeClass(`button-pressed-${n}`)
+    }
+
+    $("#textInput").text("");
+    inputLettersArray = [];
+}
+
+function gameWin() {
+
+}
+
+function colourChangeGreen() {
+
+}
+
+function colourChangeRed() {
+
 }
 
 function difficultySetter() {

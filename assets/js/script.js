@@ -15,37 +15,37 @@ var data;
 let vNum = 3;
 let cNum = 6;
 
-function getData(cb) {
-    var xhr = new XMLHttpRequest();
+// function getData(cb) {
+//     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", `https://dictionaryapi.com/api/v3/references/collegiate/json/${$("#textInput").text()}?key=620f4bc9-4aa8-4c06-aa88-08358e30153a`);
-    xhr.send();
+//     xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
+//     xhr.send();
 
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            cb(JSON.parse(this.responseText));
+//     xhr.onreadystatechange = function () {
+//         if (this.readyState == 4 && this.status == 200) {
+//             cb(JSON.parse(this.responseText));
 
-        }
-    }
-}
+//         }
+//     }
+// }
 
 
 
-function printDataToconsole() {
-    getData(function (data) {
-        console.log(data);
-    })
-}
+// function printDataToconsole() {
+//     getData(function (data) {
+//         console.log(data);
+//     })
+// }
 
-function setData(jsonData) {
-    data = jsonData;
-    console.log(data);
-}
+// function setData(jsonData) {
+//     data = jsonData;
+//     console.log(data);
+// }
 
 //  --------Event Listeners:
 
 $(".anagram-container").on("click", consoleLogger)
-$("#enterButton").on("click", printDataToconsole);
+$("#enterButton").on("click", wordChecker);
 $("#deleteButton").on("click", deleteLetter);
 $(".letter-button").on("click", function () {
 
@@ -62,11 +62,11 @@ $(".letter-button").on("click", function () {
     // Adds the button pushed to an array to be displayed to the user
     let inputToPush = $(`#${inputId}`).text();
     inputLettersArray.push(inputToPush);
-    console.log(inputLettersArray);
+
 
     // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted later. 
     var l = inputLettersArray.length;
-    console.log(l);
+
     $(`#${inputId}`).addClass(`button-pressed-${l}`);
     anagramStringGenerator();
 })
@@ -112,7 +112,7 @@ function anagramGenerator() {
         var j = Math.floor(Math.random() * (i + 1)); //random index
         [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]]; // swap
     }
-    console.log(anagramArray);
+
 
 }
 
@@ -153,15 +153,28 @@ function setTimer(time) {
 
 }
 
-// function wordChecker(userInput) {
+function wordChecker(userInput) {
 
-//     // Stroes user input as a variable to compared
-//     userInput = $("#textInput").text();
-//     console.log(userInput);
+    // Stroes user input as a variable to compared
+    userInput = $("#textInput").text();
+    console.log(userInput);
 
-//     let obj = JSON.parse(`https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
-//     console.log(obj);
-// }
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        
+        if (this.status === 404) {
+            console.log('Error, word does not exist.')
+            // wrongFail();
+        } else {
+            console.log("Success, word exists.")
+            // 
+        }
+    }
+}
 
 function wordStorer(userInput, storedWords) {
 

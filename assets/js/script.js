@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //  --------Event Listeners:
 
+$("#playButton").on("click", startGame)
 $(".anagram-container").on("click", consoleLogger)
 $("#enterButton").on("click", wordChecker);
 $("#deleteButton").on("click", deleteLetter);
@@ -49,7 +50,12 @@ $(".letter-button").on("click", function () {
     anagramStringGenerator();
 })
 //  --------Functions:
-
+function startGame() {
+    $(".banner").css("display", "none") 
+    $(".home-menu-container").css("display", "none") 
+    $(".game-container").css("display", "block")
+    $(".game-win-screen").css("display", "block")
+}
 
 function consoleLogger() {
     anagramGenerator();

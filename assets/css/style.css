@@ -217,3 +217,40 @@ td {
     margin-top: 9px;
     width: 70px;
 }
+
+.game-win-screen {
+    display: none;
+}
+
+.congratulations {
+    margin-top: 150px;
+    text-align: center;
+}
+
+.congratulations h1 {
+    color: #3bf554;
+    font-weight: 800;
+    border: #b6176f solid 3px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #b6176f;
+}
+
+.congratulations p {
+    margin-top: 50px;
+    font-size: 18px;
+}
+
+.back-to-game {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.back-to-game button {
+    font-size: 25px;
+    padding: 14px;
+    color: aqua;
+    background-color: crimson;
+}

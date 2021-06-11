@@ -163,7 +163,7 @@ function wordChecker(userInput) {
     let repeatingWord = wordsPresent.toUpperCase().includes(`${userInput}`);
     if (repeatingWord) {
         console.log("Sorry, you've already inputted this word.")
-        // wordFail();
+        wordFail();
     } else {
         // Checks if the word exists in the dictionary
         var xhr = new XMLHttpRequest();
@@ -174,7 +174,7 @@ function wordChecker(userInput) {
         xhr.onreadystatechange = function () {
             if (this.readyState == 4 && this.status === 404) {
                 console.log('Error, word does not exist.')
-                // wordFail();
+                wordFail();
             } else if (this.readyState == 4 && this.status == 200) {
                 console.log("Success, word exists.")
                 wordSuccess();

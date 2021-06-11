@@ -164,6 +164,9 @@ function wordChecker(userInput) {
     if (repeatingWord) {
         console.log("Sorry, you've already inputted this word.")
         wordFail();
+    } else if (userInput == "") {
+        // Checks if the user has, in fact, entered a word. 
+        console.log("Please enter a word.")
     } else {
         // Checks if the word exists in the dictionary
         var xhr = new XMLHttpRequest();
@@ -189,13 +192,15 @@ function wordSuccess(userInput) {
     userInput = $("#textInput").text();
 
 
-    // Increments score counter & checks if user has won
+    // Increments score counter
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
     $("#currentScore").text(`${newScore}`)
 
+    // Checks if user has won
+    let maxScore = parseInt($("#maxScore").text())
     if (newScore == maxScore) {
-        // gameWin();
+        gameWin();
     }
 
     // Informs user of their success by flashing pushed buttons a green colour
@@ -239,6 +244,9 @@ function wordFail() {
 
 function gameWin() {
 
+    // Changes the game screen to the game victory screen
+    $(".game-container").css("display", "none");
+    $(".game-win-screen").css("display", "block");
 }
 
 function colourChangeGreen() {

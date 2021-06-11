@@ -146,11 +146,12 @@ li {
     text-align: center;
     margin-top: 10px;
     font-size: 17px;
-    line-height: 1.8;
+    line-height: 1.4;
     margin-left: 4%;
     margin-right: 4%;
     background-color: black;
     color: white;
+    min-height: 100px;
 }
 
 .words-blackboard table {
@@ -180,6 +181,7 @@ td {
     margin: 10px;
     margin-top: 0px;
     text-align: center;
+    min-height: 50px;
 }
 
 #textInput {

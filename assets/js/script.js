@@ -184,6 +184,7 @@ function wordSuccess(userInput) {
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
     $("#currentScore").text(`${newScore}`)
+
     if (newScore == maxScore) {
         // gameWin();
     }
@@ -198,7 +199,13 @@ function wordSuccess(userInput) {
     let inputToBlackboard = userInput.toLowerCase();
     $(`.word-${newScore}`).text(`${inputToBlackboard}`);
 
+    // Reactivates buttons clears text input field
+    for (var n = 0; n <= 10; n++) {
+        $(`.button-pressed-${n}`).prop("disabled", false);
+        $(".letter-button").removeClass(`button-pressed-${n}`)
+    }
     
+    $("#textInput").text("");
 
 }
 

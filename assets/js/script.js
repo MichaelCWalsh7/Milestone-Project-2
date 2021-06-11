@@ -194,8 +194,11 @@ function wordSuccess(userInput) {
     // Plays successful word sting/sound if audio is enabled.
     // sucessSting.play();
 
-    // Adds 
+    // Adds the successful word to the blackboard in lower case
+    let inputToBlackboard = userInput.toLowerCase();
+    $(`.word-${newScore}`).text(`${inputToBlackboard}`);
 
+    
 
 }
 

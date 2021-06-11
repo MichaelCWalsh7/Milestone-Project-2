@@ -15,32 +15,10 @@ var data;
 let vNum = 3;
 let cNum = 6;
 
-// function getData(cb) {
-//     var xhr = new XMLHttpRequest();
-
-//     xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
-//     xhr.send();
-
-//     xhr.onreadystatechange = function () {
-//         if (this.readyState == 4 && this.status == 200) {
-//             cb(JSON.parse(this.responseText));
-
-//         }
-//     }
-// }
-
-
-
-// function printDataToconsole() {
-//     getData(function (data) {
-//         console.log(data);
-//     })
-// }
-
-// function setData(jsonData) {
-//     data = jsonData;
-//     console.log(data);
-// }
+document.addEventListener("DOMContentLoaded", function() {
+    $(".game-container").css("display", "none")
+    $(".game-win-screen").css("display", "none")
+})
 
 //  --------Event Listeners:
 

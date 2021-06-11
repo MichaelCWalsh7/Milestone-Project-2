@@ -220,10 +220,6 @@ td {
     width: 70px;
 }
 
-.game-win-screen {
-    display: none;
-}
-
 .congratulations {
     margin-top: 150px;
     text-align: center;

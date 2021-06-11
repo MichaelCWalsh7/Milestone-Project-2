@@ -44,12 +44,93 @@
 
             </div>
             <div class="menu-buttons">
-                <button id="playButton"><a href="game-screen.html">Play</a></button>
+                <button id="playButton">Play</button>
                 <button id="difficultyButton">Difficulty: <span><i class="fas fa-caret-down"></i></span> </button>
                 <button id="settingsButton">Settings</button>
             </div>
         </div>
     </section>
+
+    <div class="game-container">
+
+        <div class="score-container">
+            <p>Current Score - <span id="currentScore">0</span>/<span id="maxScore">5</span></p>
+        </div>
+
+        <div class="timer-container">
+            <p>Time Remaing - <span>0:00</span></p>
+        </div>
+
+        <div class="words-blackboard">
+            <table>
+                <tr>
+                    <td class="word-1">t</td>
+                    <td class="word-2">e</td>
+                    <td class="word-3">s</td>
+                    <td class="word-4">t</td>
+                    <td class="word-5">s</td>
+                </tr>
+                <tr>
+                    <td class="word-6">t</td>
+                    <td class="word-7">e</td>
+                    <td class="word-8">s</td>
+                    <td class="word-9">t</td>
+                    <td class="word-10">s</td>
+                </tr>
+                <tr>
+                    <td class="word-11">t</td>
+                    <td class="word-12">e</td>
+                    <td class="word-13">s</td>
+                    <td class="word-14">t</td>
+                    <td class="word-15">s</td>
+                </tr>
+                <tr>
+                    <td class="word-16">t</td>
+                    <td class="word-17">e</td>
+                    <td class="word-18">s</td>
+                    <td class="word-19">t</td>
+                    <td class="word-20">s</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="anagram-container">
+            <p id="jumbledAnagram">Jumbled Letters</p>
+        </div>
+
+        <div class="answers-container">
+            <div class="text-input-container">
+                <p id="textInput">Answers will be input here.</p>
+            </div>
+            <div class="enter-delete-buttons">
+                <button id="enterButton">ENTER!</button>
+                <button id="deleteButton">DELETE</button>
+            </div>
+        </div>
+
+        <div class="letter-button-container">
+            <button class="letter-button" id="button1">1</button>
+            <button class="letter-button" id="button2">2</button>
+            <button class="letter-button" id="button3">3</button>
+            <button class="letter-button" id="button4">4</button>
+            <button class="letter-button" id="button5">5</button>
+            <button class="letter-button" id="button6">6</button>
+            <button class="letter-button" id="button7">7</button>
+            <button class="letter-button" id="button8">8</button>
+            <button class="letter-button" id="button9">9</button>
+        </div>
+    </div>
+    <div class="game-win-screen">
+        <div class="congratulations">
+            <h1>Congratulations!</h1>
+            <p>Great job, you beat the game with some great vocabulary!!</p>
+        </div>
+
+        <div class="back-to-game">
+            <a href="game-screen.html"><button>Click here to play again!</button></a>
+        </div>
+    </div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>

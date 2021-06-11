@@ -170,17 +170,37 @@ function wordChecker(userInput) {
             // wordFail();
         } else if (this.readyState == 4 && this.status == 200) {
             console.log("Success, word exists.")
-            // wordSuccess();
+            wordSuccess();
         }
     }
 }
 
-function wordStorer(userInput, storedWords) {
+function wordSuccess(userInput) {
+
+    // Stroes user input as a variable
+    userInput = $("#textInput").text();
+
+    // Increments score counter & checks if user has won
+    let currentScore = parseInt($("#currentScore").text());
+    let newScore = currentScore + 1;
+    $("#currentScore").text(`${newScore}`)
+    if (newScore == maxScore) {
+        // gameWin();
+    }
+
+    // Gives user success sting by flashing pushed buttons a green colour
+    // colourChangeGreen(); 
+
+    // Plays successful word sting/sound if audio is enabled.
+    // sucessSting.play();
+
+    // Adds 
+
 
 }
 
-function addWordsToBlackboard(userInput) {
-
+function wordFail() {
+    
 }
 
 function difficultySetter() {

@@ -164,14 +164,13 @@ function wordChecker(userInput) {
     xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
     xhr.send();
 
-    xhr.onreadystatechange = function () {
-        
-        if (this.status === 404) {
+    xhr.onreadystatechange = function () {        
+        if (this.readyState == 4 && this.status === 404) {
             console.log('Error, word does not exist.')
-            // wrongFail();
-        } else {
+            // wordFail();
+        } else if (this.readyState == 4 && this.status == 200) {
             console.log("Success, word exists.")
-            // 
+            // wordSuccess();
         }
     }
 }

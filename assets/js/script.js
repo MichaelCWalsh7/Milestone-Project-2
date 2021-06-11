@@ -18,14 +18,15 @@ let cNum = 6;
 document.addEventListener("DOMContentLoaded", function() {
     $(".game-container").css("display", "none")
     $(".game-win-screen").css("display", "none")
+    $(".text-input-container").css("display", "none")
 })
 
 //  --------Event Listeners:
 
-$("#playButton").on("click", startGame)
-$(".anagram-container").on("click", consoleLogger)
+$("#playButton").on("click", gameScreenDisplay)
 $("#enterButton").on("click", wordChecker);
 $("#deleteButton").on("click", deleteLetter);
+$(".ready-button").on("click", gameStart)
 $(".letter-button").on("click", function () {
 
 
@@ -50,17 +51,21 @@ $(".letter-button").on("click", function () {
     anagramStringGenerator();
 })
 //  --------Functions:
-function startGame() {
+function gameScreenDisplay() {
+    // Displays the game screen and hides the menu
     $(".banner").css("display", "none") 
     $(".home-menu-container").css("display", "none") 
     $(".game-container").css("display", "block")
-    $(".game-win-screen").css("display", "block")
+
+    
 }
 
-function consoleLogger() {
+function gameStart() {
     anagramGenerator();
     anagramStringGenerator();
     letterButtonsGenerator();
+    $(".ready-button").css("display", "none");
+    $(".text-input-container").css("display", "none");
 }
 
 function anagramGenerator() {

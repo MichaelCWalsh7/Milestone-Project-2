@@ -61,11 +61,18 @@ function gameScreenDisplay() {
 }
 
 function gameStart() {
+
+    // Generates a random anagram with certain restrictions
     anagramGenerator();
-    anagramStringGenerator();
+
+    // Assigns each letter in the anagram to a letter button
     letterButtonsGenerator();
+
+    // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "none");
+    $(".ready-button").css("display", "none");
+    $(".game-win-screen").css("display", "none");
 }
 
 function anagramGenerator() {
@@ -105,11 +112,11 @@ function anagramGenerator() {
 
 }
 
-function anagramStringGenerator() {
-    let anagramStringToModify = inputLettersArray.toString();
-    anagramString = anagramStringToModify.replace(/,/g, "");
-    $("#textInput").text(`${anagramString}`);
-}
+// function anagramStringGenerator() {
+//     let anagramStringToModify = inputLettersArray.toString();
+//     anagramString = anagramStringToModify.replace(/,/g, "");
+//     $("#textInput").text(`${anagramString}`);
+// }
 
 function letterButtonsGenerator() {
     for (var k = 0; k <= anagramArray.length; k++) {

@@ -70,7 +70,7 @@ function gameStart() {
 
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
-    $(".text-input-container").css("display", "none");
+    $(".text-input-container").css("display", "block");
     $(".ready-button").css("display", "none");
     $(".game-win-screen").css("display", "none");
 }

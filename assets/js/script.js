@@ -23,7 +23,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 //  --------Event Listeners:
 
-$("#playButton").on("click", gameScreenDisplay)
+
+$("#playButton").on("click", gameScreenDisplay);
 $("#enterButton").on("click", wordChecker);
 $("#deleteButton").on("click", deleteLetter);
 $(".ready-button").on("click", gameStart)
@@ -112,11 +113,11 @@ function anagramGenerator() {
 
 }
 
-// function anagramStringGenerator() {
-//     let anagramStringToModify = inputLettersArray.toString();
-//     anagramString = anagramStringToModify.replace(/,/g, "");
-//     $("#textInput").text(`${anagramString}`);
-// }
+function anagramStringGenerator() {
+    let anagramStringToModify = inputLettersArray.toString();
+    anagramString = anagramStringToModify.replace(/,/g, "");
+    $("#textInput").text(`${anagramString}`);
+}
 
 function letterButtonsGenerator() {
     for (var k = 0; k <= anagramArray.length; k++) {

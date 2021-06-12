@@ -56,8 +56,9 @@ function gameStart() {
         $(`.word-${x}`).text("");
     }
 
-    // Resets score counter
+    // Resets score & incorrect answers counters
     $("#currentScore").text("0");
+    $("#currentWrong").text("0");
 
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
@@ -154,7 +155,7 @@ function wordValidator(userInput) {
     // Stroes user input as a variable to compared
     userInput = $("#textInput").text();
 
-    
+
     let wordPresent = $(".words-blackboard").text();
     let repeatingWord = wordPresent.toUpperCase().includes(` ${userInput} `);
     if (userInput == "") {
@@ -169,7 +170,7 @@ function wordValidator(userInput) {
         wordFail();
     } else {
         // Checks if the word exists in the dictionary
-        validWordCheck();        
+        validWordCheck();
     }
 }
 
@@ -180,18 +181,18 @@ function validWordCheck(userInput) {
 
     var xhr = new XMLHttpRequest();
 
-        xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
-        xhr.send();
+    xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
+    xhr.send();
 
-        xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status === 404) {
-                console.log('Error, word does not exist.')
-                wordFail();
-            } else if (this.readyState == 4 && this.status == 200) {
-                console.log("Success, word exists.")
-                wordSuccess();
-            }
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status === 404) {
+            console.log('Error, word does not exist.')
+            wordFail();
+        } else if (this.readyState == 4 && this.status == 200) {
+            console.log("Success, word exists.")
+            wordSuccess();
         }
+    }
 }
 
 function wordSuccess(userInput) {
@@ -199,17 +200,9 @@ function wordSuccess(userInput) {
     // Stroes user input as a variable
     userInput = $("#textInput").text();
 
-
-    // Increments score counter
-    scoreIncrement();
-    
-    // Informs user of their success by flashing pushed buttons a green colour
-    // colourChangeGreen(); 
-
-    // Plays successful word sting/sound if audio is enabled.
-    // successSting.play();
-
     // Adds the successful word to the blackboard in lower case
+    let currentScore = parseInt($("#currentScore").text());
+    let newScore = currentScore + 1;
     let inputToBlackboard = userInput.toLowerCase();
     $(`.word-${newScore}`).text(` ${inputToBlackboard} `);
 
@@ -220,6 +213,17 @@ function wordSuccess(userInput) {
     }
 
     $("#textInput").text("");
+
+    // Increments score counter
+    scoreIncrement();
+
+    // Informs user of their success by flashing pushed buttons a green colour
+    // colourChangeGreen(); 
+
+    // Plays successful word sting/sound if audio is enabled.
+    // successSting.play();
+
+
 
 }
 
@@ -282,8 +286,15 @@ function incorrectIncremenet() {
     // Checks if user has lost
     let maxWrong = parseInt($("#maxWrong").text())
     if (newWrong == maxWrong) {
-        // gameLose();
+        gameLose();
     }
+}
+
+
+function gameLose() {
+    // Changes the game screen to the game defeat screen
+    $(".game-container").css("display", "none");
+    $(".game-lose-screen").css("display", "block");
 }
 
 function difficultySetter() {

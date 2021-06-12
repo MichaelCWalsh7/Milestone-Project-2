@@ -130,7 +130,7 @@ li {
 .score-container p,
 .timer-container p {
     margin-top: 6px;
-    margin-bottom: 6px;
+    margin-bottom: 3px;
 }
 
 .score-container p {
@@ -140,6 +140,10 @@ li {
 .timer-container p {
     float: right;
     margin-right: 10px;
+}
+
+.wrong-container p {
+    margin: 0 4px;
 }
 
 .words-blackboard {

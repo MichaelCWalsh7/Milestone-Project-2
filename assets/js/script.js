@@ -28,6 +28,7 @@ $("#playButton").on("click", gameScreenDisplay);
 $("#enterButton").on("click", wordChecker);
 $("#deleteButton").on("click", deleteLetter);
 $(".ready-button").on("click", gameStart)
+$(".back-to-game").on("click", gameStart)
 $(".letter-button").on("click", function () {
 
 
@@ -69,11 +70,20 @@ function gameStart() {
     // Assigns each letter in the anagram to a letter button
     letterButtonsGenerator();
 
+    // Clears the table of words in the event that the user has started the game from the game over screen
+    for (var x = 0; x <= 20; x++) {
+        $(`.word-${x}`).text("");
+    }
+
+    // Resets score counter
+    $("")    
+
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");
-    $(".ready-button").css("display", "none");
+    $(".game-container").css("display", "block");
     $(".game-win-screen").css("display", "none");
+    
 }
 
 function anagramGenerator() {

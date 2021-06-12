@@ -167,7 +167,7 @@ function wordChecker(userInput) {
     
     // Checks if the word is already present on the answers blackboard
     let wordsPresent = $(".words-blackboard").text();
-    let repeatingWord = wordsPresent.toUpperCase().includes(`${userInput}`);
+    let repeatingWord = wordsPresent.toUpperCase().includes(` ${userInput} `);
     if (repeatingWord) {
         console.log("Sorry, you've already inputted this word.")
         wordFail();
@@ -218,7 +218,7 @@ function wordSuccess(userInput) {
 
     // Adds the successful word to the blackboard in lower case
     let inputToBlackboard = userInput.toLowerCase();
-    $(`.word-${newScore}`).text(`${inputToBlackboard}`);
+    $(`.word-${newScore}`).text(` ${inputToBlackboard} `);
 
     // Reactivates buttons clears text input field
     for (var n = 0; n <= 10; n++) {

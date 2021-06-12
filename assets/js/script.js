@@ -200,16 +200,8 @@ function wordSuccess(userInput) {
 
 
     // Increments score counter
-    let currentScore = parseInt($("#currentScore").text());
-    let newScore = currentScore + 1;
-    $("#currentScore").text(`${newScore}`)
-
-    // Checks if user has won
-    let maxScore = parseInt($("#maxScore").text())
-    if (newScore == maxScore) {
-        gameWin();
-    }
-
+    scoreIncrement();
+    
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
 
@@ -244,6 +236,9 @@ function wordFail() {
         $(".letter-button").removeClass(`button-pressed-${n}`)
     }
 
+    // Increments incorrect answers counter
+    incorrectIncremenet();
+
     $("#textInput").text("");
 }
 
@@ -260,6 +255,34 @@ function colourChangeGreen() {
 
 function colourChangeRed() {
 
+}
+
+function scoreIncrement() {
+
+    // Increments score
+    let currentScore = parseInt($("#currentScore").text());
+    let newScore = currentScore + 1;
+    $("#currentScore").text(`${newScore}`)
+
+    // Checks if user has won
+    let maxScore = parseInt($("#maxScore").text())
+    if (newScore == maxScore) {
+        gameWin();
+    }
+}
+
+function incorrectIncremenet() {
+
+    // Increments incorrect answers
+    let currentWrong = parseInt($("#currentWrong").text());
+    let newWrong = currentWrong + 1;
+    $("#currentWrong").text(`${newWrong}`);
+
+    // Checks if user has lost
+    let maxWrong = parseInt($("#maxWrong").text())
+    if (newWrong == maxWrong) {
+        // gameLose();
+    }
 }
 
 function difficultySetter() {

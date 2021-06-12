@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //  --------Event Listeners:
 
-$(".answers-container").on("click", anagramGenerator);
 $("#playButton").on("click", gameScreenDisplay);
-$("#enterButton").on("click", wordChecker);
+$("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $(".ready-button").on("click", gameStart)
 $(".back-to-game").on("click", gameStart)
 $(".letter-button").on("click", function () {
+
+    // CALLBACK POTENTIAL
 
     // Initialises a a variable of the letters currently present in the text input. 
     let currentLetters = $("#textInput").text();
@@ -48,9 +49,6 @@ function gameStart() {
 
     // Generates a random anagram with certain restrictions
     anagramGenerator();
-
-    // Assigns each letter in the anagram to a letter button
-    // letterButtonsGenerator();
 
     // Clears the table of words in the event that the user has started the game from the game over screen
     for (var x = 0; x <= 20; x++) {
@@ -117,21 +115,6 @@ function anagramGenerator() {
 
 }
 
-// function anagramStringGenerator() {
-//     let anagramString = "";
-//     let anagramStringToModify = inputLettersArray.toString();
-//     anagramString = anagramStringToModify.replace(/,/g, "");
-//     $("#textInput").text(`${anagramString}`);
-// }
-
-// function letterButtonsGenerator() {
-//     for (var k = 0; k <= anagramArray.length; k++) {
-//         $(`#button${k + 1}`).text(anagramArray[k]);
-//     }
-// $(`#button${9}`).text(anagramArray[0]);
-// This is a stupid fix But i have no idea why it's not working for the first character in the array
-// It's becasue there is no button 0!!
-// ]
 
 function deleteLetter() {
     // THIS FUNCTION IS JANK AND NEEDS TWEEKING
@@ -165,23 +148,36 @@ function setTimer(time) {
 
 }
 
-function wordChecker(userInput) {
+function wordValidator(userInput) {
 
     // Stroes user input as a variable to compared
     userInput = $("#textInput").text();
 
-    // Checks if the word is already present on the answers blackboard
-    let wordsPresent = $(".words-blackboard").text();
-    let repeatingWord = wordsPresent.toUpperCase().includes(` ${userInput} `);
-    if (repeatingWord) {
-        console.log("Sorry, you've already inputted this word.")
-        wordFail();
-    } else if (userInput == "") {
+    
+    let wordPresent = $(".words-blackboard").text();
+    let repeatingWord = wordPresent.toUpperCase().includes(` ${userInput} `);
+    if (userInput == "") {
         // Checks if the user has, in fact, entered a word. 
         console.log("Please enter a word.")
+    } else if (repeatingWord) {
+        // Checks if the word is already present on the answers blackboard
+        console.log("Sorry, you've already inputted this word.")
+        wordFail();
+    } else if (userInput.length < 3) {
+        console.log("Words must be a minimum of three letters long.")
+        wordFail();
     } else {
         // Checks if the word exists in the dictionary
-        var xhr = new XMLHttpRequest();
+        validWordCheck();        
+    }
+}
+
+function validWordCheck(userInput) {
+
+
+    userInput = $("#textInput").text();
+
+    var xhr = new XMLHttpRequest();
 
         xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
         xhr.send();
@@ -195,7 +191,6 @@ function wordChecker(userInput) {
                 wordSuccess();
             }
         }
-    }
 }
 
 function wordSuccess(userInput) {

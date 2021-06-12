@@ -99,3 +99,22 @@ $(".letter-button").on("click", function () {
     $(`#${inputId}`).addClass(`button-pressed-${l}`);
     
 })
+
+
+function deleteLetter() {
+    // Initialises a a variable of the letters currently present in the text input.
+    let currentLetters = $("#textInput").text();
+    
+
+    // Reactivates the button for possible later use. 
+    var m = currentLetters.length;
+    $(`.button-pressed-${m}`).prop('disabled', false);
+    
+    // Removes the letter from the text input div    
+    currentLetters.slice(0, m-1);
+    $("#textInput").text(`${currentLetters}`);
+    
+    
+    
+
+}

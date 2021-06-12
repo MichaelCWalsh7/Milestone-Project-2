@@ -134,6 +134,8 @@ function anagramGenerator() {
 // ]
 
 function deleteLetter() {
+    // THIS FUNCTION IS JANK AND NEEDS TWEEKING
+
     // Converts the text input into an array so the final entry can be popped and it's array letter stored. 
     let currentLetters = $("#textInput").text();
     let inputLettersArray = currentLetters.split('');
@@ -148,9 +150,6 @@ function deleteLetter() {
     let anagramStringToModify = inputLettersArray.toString();
     anagramString = anagramStringToModify.replace(/,/g, "");
     $("#textInput").text(`${anagramString}`);
-    
-    
-    
 
 }
 

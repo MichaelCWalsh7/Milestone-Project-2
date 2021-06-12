@@ -76,7 +76,7 @@ function gameStart() {
     }
 
     // Resets score counter
-    $("")    
+    $("#currentScore").text("0");    
 
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");

@@ -73,3 +73,29 @@ function Shuffle(anagram) {
 // Time Remaing:<span>0:00</span>
 
 // Merriam webster api request url:  https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=620f4bc9-4aa8-4c06-aa88-08358e30153a
+
+
+
+
+
+$(".letter-button").on("click", function () {
+
+    // Initialises a a variable of the letters currently present in the text input. 
+    let currentLetters = $("#textInput").text();
+
+    // Gets the id of the button pushed and it's contents to push to the inputLettersArray
+    let inputId = this.id
+
+    // Disables the button to avoid duplicate letters appearing in string. 
+    $(`#${inputId}`).prop('disabled', true);
+
+    // Adds the button pushed input to the text to be displayed to the user
+    let inputToPush = $(`#${inputId}`).text();
+    let newTextDisplay = `${currentLetters}${inputToPush}`
+    $("#textInput").text(`${newTextDisplay}`);
+
+    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted/deactivated later.
+    var l = newTextDisplay.length;
+    $(`#${inputId}`).addClass(`button-pressed-${l}`);
+    
+})

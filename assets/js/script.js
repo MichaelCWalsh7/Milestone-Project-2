@@ -3,19 +3,10 @@
 const vowels = ['A', 'E', 'I', 'O', 'U'];
 const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
 
-let anagram = [];
-let anagramArray = [];
-let vowelsUsed = [];
-let consonantsUsed = [];
-let anagramString = "";
-let inputLettersArray = [];
-let addLetter;
-var data;
-
 let vNum = 3;
 let cNum = 6;
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     $(".game-container").css("display", "none")
     $(".game-win-screen").css("display", "none")
     $(".text-input-container").css("display", "none")
@@ -31,35 +22,34 @@ $(".ready-button").on("click", gameStart)
 $(".back-to-game").on("click", gameStart)
 $(".letter-button").on("click", function () {
 
+    // Initialises a a variable of the letters currently present in the text input. 
+    let currentLetters = $("#textInput").text();
 
-
-    // Gets the id of the button pushed and it's contents to the inputLettersArray
-    let inputId = this.id;
-    // Might be good to add a hashtag to the above code 
+    // Gets the id of the button pushed and it's contents to push to the inputLettersArray
+    let inputId = this.id
 
     // Disables the button to avoid duplicate letters appearing in string. 
     $(`#${inputId}`).prop('disabled', true);
 
-
-    // Adds the button pushed to an array to be displayed to the user
+    // Adds the button pushed input to the text to be displayed to the user
     let inputToPush = $(`#${inputId}`).text();
-    inputLettersArray.push(inputToPush);
+    let newTextDisplay = `${currentLetters}${inputToPush}`
+    $("#textInput").text(`${newTextDisplay}`);
 
-
-    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted later. 
-    var l = inputLettersArray.length;
-
+    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted/deactivated later.
+    var l = newTextDisplay.length;
     $(`#${inputId}`).addClass(`button-pressed-${l}`);
-    anagramStringGenerator();
+
+ 
 })
 //  --------Functions:
 function gameScreenDisplay() {
     // Displays the game screen and hides the menu
-    $(".banner").css("display", "none") 
-    $(".home-menu-container").css("display", "none") 
+    $(".banner").css("display", "none")
+    $(".home-menu-container").css("display", "none")
     $(".game-container").css("display", "block")
 
-    
+
 }
 
 function gameStart() {
@@ -68,7 +58,7 @@ function gameStart() {
     anagramGenerator();
 
     // Assigns each letter in the anagram to a letter button
-    letterButtonsGenerator();
+    // letterButtonsGenerator();
 
     // Clears the table of words in the event that the user has started the game from the game over screen
     for (var x = 0; x <= 20; x++) {
@@ -76,22 +66,22 @@ function gameStart() {
     }
 
     // Resets score counter
-    $("#currentScore").text("0");    
+    $("#currentScore").text("0");
 
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");
     $(".game-container").css("display", "block");
     $(".game-win-screen").css("display", "none");
-    
+
 }
 
 function anagramGenerator() {
 
     //Clears all arrays so the anagram stays the desired number of characters
-    anagramArray = [];
-    vowelsUsed = [];
-    consonantsUsed = [];
+    let anagramArray = [];
+    let vowelsUsed = [];
+    let consonantsUsed = [];
 
     // Generates a number of random non-repeating vowels
     while (vowelsUsed.length < vNum) {
@@ -121,30 +111,46 @@ function anagramGenerator() {
     }
 
 
-}
-
-function anagramStringGenerator() {
-    let anagramStringToModify = inputLettersArray.toString();
-    anagramString = anagramStringToModify.replace(/,/g, "");
-    $("#textInput").text(`${anagramString}`);
-}
-
-function letterButtonsGenerator() {
     for (var k = 0; k <= anagramArray.length; k++) {
         $(`#button${k + 1}`).text(anagramArray[k]);
     }
+
+}
+
+// function anagramStringGenerator() {
+//     let anagramString = "";
+//     let anagramStringToModify = inputLettersArray.toString();
+//     anagramString = anagramStringToModify.replace(/,/g, "");
+//     $("#textInput").text(`${anagramString}`);
+// }
+
+// function letterButtonsGenerator() {
+//     for (var k = 0; k <= anagramArray.length; k++) {
+//         $(`#button${k + 1}`).text(anagramArray[k]);
+//     }
     // $(`#button${9}`).text(anagramArray[0]);
     // This is a stupid fix But i have no idea why it's not working for the first character in the array
     // It's becasue there is no button 0!!
-}
+// ]
 
 function deleteLetter() {
-    // Removes the letter from the text input div    
-    inputLettersArray.pop();
-    anagramStringGenerator();
+    // Converts the text input into an array so the final entry can be popped and it's array letter stored. 
+    let currentLetters = $("#textInput").text();
+    let inputLettersArray = currentLetters.split('');
+
     // Reactivates the button for possible later use. 
     var m = inputLettersArray.length;
-    $(`.button-pressed-${m + 1}`).prop('disabled', false);
+    $(`.button-pressed-${m}`).prop('disabled', false);
+    
+    // Removes the letter from the text input div    
+    inputLettersArray.pop();
+    let anagramString = ""
+    let anagramStringToModify = inputLettersArray.toString();
+    anagramString = anagramStringToModify.replace(/,/g, "");
+    $("#textInput").text(`${anagramString}`);
+    
+    
+    
 
 }
 
@@ -164,7 +170,7 @@ function wordChecker(userInput) {
 
     // Stroes user input as a variable to compared
     userInput = $("#textInput").text();
-    
+
     // Checks if the word is already present on the answers blackboard
     let wordsPresent = $(".words-blackboard").text();
     let repeatingWord = wordsPresent.toUpperCase().includes(` ${userInput} `);
@@ -227,7 +233,6 @@ function wordSuccess(userInput) {
     }
 
     $("#textInput").text("");
-    inputLettersArray = [];
 
 }
 
@@ -246,7 +251,6 @@ function wordFail() {
     }
 
     $("#textInput").text("");
-    inputLettersArray = [];
 }
 
 function gameWin() {

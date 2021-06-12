@@ -145,8 +145,8 @@ function deleteLetter() {
 
 
 function startTimer() {
-    var minute = 1;
-    var sec = 59;
+    var minute = 2;
+    var sec = 30;
     setInterval(function () {
         if (sec < 10) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
@@ -155,7 +155,7 @@ function startTimer() {
             document.getElementById("timer").innerHTML = minute + ":" + sec;
             sec--;
         } 
-        
+
         if (sec == 00 && minute != 0) {
             minute--;
             sec = 59;

@@ -56,6 +56,11 @@ function gameStart() {
         $(`.word-${x}`).text("");
     }
 
+    let threeMinutes = 60 * 3,
+        display = document.querySelector('#timer');
+    startTimer(threeMinutes, display);
+
+
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");
     $("#currentWrong").text("0");
@@ -72,7 +77,7 @@ function anagramGenerator() {
 
     const vowels = ['A', 'E', 'I', 'O', 'U'];
     const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'W', 'Y'];
-    const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+    // const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
 
     // Initialises block scope variables needed to succinctly generate an anagram. 
     let anagramArray = [];
@@ -138,16 +143,26 @@ function deleteLetter() {
 
 }
 
-function addInputToAnswer() {
 
-}
-
-function gameGenerator(diffculty, time) {
-
-}
-
-function setTimer(time) {
-
+function startTimer() {
+    var minute = 1;
+    var sec = 59;
+    setInterval(function () {
+        if (sec < 10) {
+            document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
+            sec--;
+        } else {
+            document.getElementById("timer").innerHTML = minute + ":" + sec;
+            sec--;
+        } 
+        
+        if (sec == 00 && minute != 0) {
+            minute--;
+            sec = 59;
+        } else if (sec == 00 && minute == 0) {
+                gameLose();
+        }
+    }, 1000);
 }
 
 function wordValidator(userInput) {

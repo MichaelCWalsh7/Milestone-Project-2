@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     $(".game-container").css("display", "none")
     $(".game-win-screen").css("display", "none")
+    $(".game-lose-screen").css("display", "none")
     $(".text-input-container").css("display", "none")
 })
 

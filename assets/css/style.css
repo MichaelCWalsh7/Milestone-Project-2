@@ -257,6 +257,14 @@ td {
     font-size: 18px;
 }
 
+.game-lose-screen {
+    max-width: 100vw;
+}
+
+.bad-luck img {
+    width: 100%;
+}
+
 .back-to-game {
     margin-top: 50px;
     text-align: center;

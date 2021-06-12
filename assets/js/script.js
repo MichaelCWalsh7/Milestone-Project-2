@@ -1,11 +1,3 @@
-// --------Essential Variables:
-
-const vowels = ['A', 'E', 'I', 'O', 'U'];
-const consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
-
-let vNum = 3;
-let cNum = 6;
-
 document.addEventListener("DOMContentLoaded", function () {
     $(".game-container").css("display", "none")
     $(".game-win-screen").css("display", "none")
@@ -40,7 +32,7 @@ $(".letter-button").on("click", function () {
     var l = newTextDisplay.length;
     $(`#${inputId}`).addClass(`button-pressed-${l}`);
 
- 
+
 })
 //  --------Functions:
 function gameScreenDisplay() {
@@ -78,10 +70,19 @@ function gameStart() {
 
 function anagramGenerator() {
 
-    //Clears all arrays so the anagram stays the desired number of characters
+    const vowels = ['A', 'E', 'I', 'O', 'U'];
+    const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'W',];
+    const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+
+    // Initialises block scope variables needed to succinctly generate an anagram. 
     let anagramArray = [];
     let vowelsUsed = [];
     let consonantsUsed = [];
+
+    // These variables are arbritarily declared here, but they could be read from a div contained in the settings modal!!
+    let vNum = 3;
+    let cNum = 6;
+
 
     // Generates a number of random non-repeating vowels
     while (vowelsUsed.length < vNum) {
@@ -94,9 +95,8 @@ function anagramGenerator() {
     // Generates a number of random non-repeating consonants
     while (consonantsUsed.length < cNum) {
         let consonantIndexer = Math.floor(Math.random() * 21);
-        if (consonantsUsed.includes(consonants[consonantIndexer]) === false) {
-            consonantsUsed.push(consonants[consonantIndexer])
-
+        if (consonantsUsed.includes(consonantsEasy[consonantIndexer]) === false) {
+            consonantsUsed.push(consonantsEasy[consonantIndexer])
         }
     }
 
@@ -128,9 +128,9 @@ function anagramGenerator() {
 //     for (var k = 0; k <= anagramArray.length; k++) {
 //         $(`#button${k + 1}`).text(anagramArray[k]);
 //     }
-    // $(`#button${9}`).text(anagramArray[0]);
-    // This is a stupid fix But i have no idea why it's not working for the first character in the array
-    // It's becasue there is no button 0!!
+// $(`#button${9}`).text(anagramArray[0]);
+// This is a stupid fix But i have no idea why it's not working for the first character in the array
+// It's becasue there is no button 0!!
 // ]
 
 function deleteLetter() {
@@ -143,7 +143,7 @@ function deleteLetter() {
     // Reactivates the button for possible later use. 
     var m = inputLettersArray.length;
     $(`.button-pressed-${m}`).prop('disabled', false);
-    
+
     // Removes the letter from the text input div    
     inputLettersArray.pop();
     let anagramString = ""

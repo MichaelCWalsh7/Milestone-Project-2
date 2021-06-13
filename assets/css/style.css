@@ -112,7 +112,7 @@ li {
 
 .score-container {
     font-size: inherit;
-    width: 50%;
+    width: 90%;
 }
 
 .timer-container {
@@ -135,6 +135,7 @@ li {
 
 .score-container p {
     margin-left: 10px;
+    display: inline-block;
 }
 
 .timer-container p {
@@ -142,8 +143,17 @@ li {
     margin-right: 10px;
 }
 
-.wrong-container p {
-    margin: 0 4px;
+#rightScore {
+    color: #04A136;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+#wrongScore {
+    float: right;
+    color: #ff0000;
+    font-size: 21px;
+    font-weight: 700;
 }
 
 .words-blackboard {
@@ -198,6 +208,7 @@ td {
     padding: 8px;
     background-color: blueviolet;
     color: antiquewhite;
+    margin-top: 35px;
 }
 
 #textInput {

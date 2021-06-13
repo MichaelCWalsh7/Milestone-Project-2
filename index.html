@@ -39,7 +39,8 @@
                 <ul id="instructionsList">
                     <li>Words must be at least 3 letters long</li>
                     <li>Words must appear in the dictionary</li>
-                    <li>And... the clock is ticking!! <span><i class="fas fa-stopwatch"></i></span></li>
+                    <li>5 strikes and you're out!</li>
+                    <!-- <li>And... the clock is ticking!! <span><i class="fas fa-stopwatch"></i></span></li> -->
                 </ul>
 
             </div>
@@ -54,15 +55,16 @@
     <div class="game-container">
 
         <div class="score-container">
-            <p>Current Score - <span id="currentScore">0</span>/<span id="maxScore">20</span></p>
+            <p id="rightScore">Score - <span id="currentScore">0</span>/<span id="maxScore">20</span></p>
+            <p id="wrongScore">Lives Left - <span id="currentWrong">0</span>/<span id="maxWrong">5</span></p>
         </div>
 
-        <div class="timer-container">
+        <!-- <div class="timer-container">
             <p>Time Remaing - <span id="timer">2:30</span></p>
-        </div>
+        </div> -->
 
         <div class="wrong-container">
-            <p>Incorrect Attempts - <span id="currentWrong">0</span>/<span id="maxWrong">5</span></p>
+            
         </div>
 
         <div class="words-blackboard">

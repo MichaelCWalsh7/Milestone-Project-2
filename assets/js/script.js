@@ -280,7 +280,7 @@ function messageFadeGreen() {
 
 }
 
-function rmessageFadeRed() {
+function messageFadeRed() {
 
 }
 

@@ -201,7 +201,12 @@ td {
 }
 
 #textInput {
-    opacity: .7;
+    float: left;
+    margin-top: 12px;
+    margin-bottom: 10px;
+    margin-left: 26px;
+    font-size: 25px;
+    letter-spacing: 5px;
 }
 
 .enter-delete-buttons {
@@ -218,8 +223,18 @@ td {
     background-color: #04a12b;
 }
 
+#clearButton {
+    background-color: #FF7900;
+}
+
 #deleteButton {
     background-color: #ff0000;
+    display: inline;
+    float: right;
+}
+
+.fa-backspace {
+    font-size: 21px;
 }
 
 .letter-button-container {

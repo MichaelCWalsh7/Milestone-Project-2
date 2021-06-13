@@ -56,10 +56,8 @@ function gameStart() {
         $(`.word-${x}`).text("");
     }
 
-    let threeMinutes = 60 * 3,
-        display = document.querySelector('#timer');
-    startTimer(threeMinutes, display);
-
+    // Calls the timer
+    // startTimer()
 
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");
@@ -144,26 +142,26 @@ function deleteLetter() {
 }
 
 
-function startTimer() {
-    var minute = 2;
-    var sec = 30;
-    setInterval(function () {
-        if (sec < 10) {
-            document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
-            sec--;
-        } else {
-            document.getElementById("timer").innerHTML = minute + ":" + sec;
-            sec--;
-        } 
+// function startTimer() {
+//     var minute = 0;
+//     var sec = 5;
+//     setInterval(function () {
+//         if (sec < 10 && sec != 00) {
+//             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
+//             sec--;
+//         } else if (sec != 00) {
+//             document.getElementById("timer").innerHTML = minute + ":" + sec;
+//             sec--;
+//         }
 
-        if (sec == 00 && minute != 0) {
-            minute--;
-            sec = 59;
-        } else if (sec == 00 && minute == 0) {
-                gameLose();
-        }
-    }, 1000);
-}
+//         if (sec == 00 && minute != 0) {
+//             minute--;
+//             sec = 59;
+//         } else if (sec == 00 && minute == 0) {
+//             gameLose();
+//         }
+//     }, 1000);
+// }
 
 function wordValidator(userInput) {
 
@@ -190,7 +188,6 @@ function wordValidator(userInput) {
 }
 
 function validWordCheck(userInput) {
-
 
     userInput = $("#textInput").text();
 

@@ -10,8 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
 $("#playButton").on("click", gameScreenDisplay);
 $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
-$(".ready-button").on("click", gameStart)
-$(".back-to-game").on("click", gameStart)
+$("#clearButton").on("click", clearInput);
+$(".ready-button").on("click", gameStart);
+$(".back-to-game").on("click", gameStart);
+
 $(".letter-button").on("click", function () {
 
     // CALLBACK POTENTIAL
@@ -218,13 +220,9 @@ function wordSuccess(userInput) {
     let inputToBlackboard = userInput.toLowerCase();
     $(`.word-${newScore}`).text(` ${inputToBlackboard} `);
 
-    // Reactivates buttons clears text input field
-    for (var n = 0; n <= 10; n++) {
-        $(`.button-pressed-${n}`).prop("disabled", false);
-        $(".letter-button").removeClass(`button-pressed-${n}`)
-    }
+    // Reactivates buttons & clears the text input
+    clearInput();
 
-    $("#textInput").text("");
 
     // Increments score counter
     scoreIncrement();
@@ -247,16 +245,23 @@ function wordFail() {
     // Plays failure sting/sound if audio is enabled.
     // failureSting.play();
 
-    // Reactivates buttons clears text input field
-    for (var n = 0; n <= 10; n++) {
-        $(`.button-pressed-${n}`).prop("disabled", false);
-        $(".letter-button").removeClass(`button-pressed-${n}`)
-    }
+
+    // Reactivates buttons & clears the text input
+    clearInput();
 
     // Increments incorrect answers counter
     incorrectIncremenet();
+}
 
-    $("#textInput").text("");
+function clearInput() {
+    // Reactivates buttons 
+    for (var n = 0; n <= 10; n++) {
+        $(`.button-pressed-${n}`).prop("disabled", false);
+        $(".letter-button").removeClass(`button-pressed-${n}`)
+
+        // Clears text input field
+        $("#textInput").text("");
+    }
 }
 
 function gameWin() {

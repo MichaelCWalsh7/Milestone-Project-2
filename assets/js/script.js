@@ -174,24 +174,32 @@ function wordValidator(userInput) {
     let wordPresent = $(".words-blackboard").text();
     let repeatingWord = wordPresent.toUpperCase().includes(` ${userInput} `);
     if (userInput == "") {
-        // Checks if the user has, in fact, entered a word. 
-        console.log("Please enter a word.")
+        // Checks if the user has, in fact, entered a word.
+        errorMessage = "Please enter a word."
+        invalidWord(errorMessage);
     } else if (repeatingWord) {
         // Checks if the word is already present on the answers blackboard
-        console.log("Sorry, you've already inputted this word.")
-        wordFail();
+        errorMessage = "Sorry, you've already inputted this word."
+        invalidWord(errorMessage); 
     } else if (userInput.length < 3) {
-        console.log("Words must be a minimum of three letters long.")
-        wordFail();
+        // Checks that the word is a least 3 letters long
+        errorMessage = "Words must be a minimum of three letters long."
+        invalidWord(errorMessage);
     } else {
         // Checks if the word exists in the dictionary
-        validWordCheck();
+        validWordCheck(userInput);
     }
 }
 
-function validWordCheck(userInput) {
+function invalidWord(errorMessage) {
+    // Displays the appropriate error message to the user
+    $("#message").text(`${errorMessage}`)
 
-    userInput = $("#textInput").text();
+    // Resets the buttons so the user doesn't have to manually do so
+    clearInput();
+}
+
+function validWordCheck(userInput) {
 
     var xhr = new XMLHttpRequest();
 
@@ -204,15 +212,12 @@ function validWordCheck(userInput) {
             wordFail();
         } else if (this.readyState == 4 && this.status == 200) {
             console.log("Success, word exists.")
-            wordSuccess();
+            wordSuccess(userInput);
         }
     }
 }
 
 function wordSuccess(userInput) {
-
-    // Stroes user input as a variable
-    userInput = $("#textInput").text();
 
     // Adds the successful word to the blackboard in lower case
     let currentScore = parseInt($("#currentScore").text());
@@ -271,11 +276,11 @@ function gameWin() {
     $(".game-win-screen").css("display", "block");
 }
 
-function colourChangeGreen() {
+function messageFadeGreen() {
 
 }
 
-function colourChangeRed() {
+function rmessageFadeRed() {
 
 }
 

@@ -177,14 +177,14 @@ td {
     padding-right: 7px;
 }
 
-.anagram-container {
+.message-container {
     text-align: center;
-    font-size: 27px;
+    min-height: 30px;
 }
 
-.anagram-container p {
-    margin-top: 7px;
-    margin-bottom: 0px;
+.message-container p {
+    margin: 0;
+    padding-top: 14px;
 }
 
 
@@ -193,7 +193,6 @@ td {
     font-size: 16px;
     border: 2px solid orangered;
     margin: 10px;
-    margin-top: 35px;
     text-align: center;
     min-height: 43px;
 }
@@ -208,9 +207,12 @@ td {
     padding: 8px;
     background-color: blueviolet;
     color: antiquewhite;
-    margin-top: 35px;
+
 }
 
+.text-input-container, .ready-button {
+    margin-top: 20px;
+}
 #textInput {
     float: left;
     margin-top: 8px;

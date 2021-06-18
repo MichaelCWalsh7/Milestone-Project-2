@@ -241,8 +241,9 @@ function abbreviationCheck(apiData, userInput) {
 
     /* Checks if the word entered has any definitions that constitute as an abbreviation
     and stores the number of these in the previously initialized variable. */
-    if (apiData.includes("abbreivation")) {
-        aCount = apiData.match(/abbreviation/g).length
+    if (apiData.includes("abbreviation")) {
+        aCount = apiData.match(/abbreviation/g).length;
+        console.log(aCount);
     }
     
     /* Checks if the number of abbreviative definitions a word has is equal to the number 
@@ -255,6 +256,7 @@ function abbreviationCheck(apiData, userInput) {
      } else {
         // Adds the word to the blackboard and increments the score. 
         wordSuccess(userInput);
+        console.log(apiData);
      }    
 }
 

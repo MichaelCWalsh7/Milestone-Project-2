@@ -329,7 +329,8 @@ function wrongMessagePicker() {
 }
 
 function clearInput() {
-    // Reactivates buttons 
+    // Reactivates buttons
+    $("#enterButton").prop('disabled', false);
     for (var n = 0; n <= 10; n++) {
         $(`.button-pressed-${n}`).prop("disabled", false);
         $(".letter-button").removeClass(`button-pressed-${n}`)

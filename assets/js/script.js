@@ -297,13 +297,10 @@ function wordFail() {
 
     // Turns the current lives left and total lives into variables
     currentWrong = parseInt($("#currentWrong").text());
-    console.log(currentWrong)
     maxWrong = parseInt($("#maxWrong").text());
-    console.log(maxWrong)
     
     // Subtracts the variables 
     let wrongDiff = maxWrong - (currentWrong + 1);
-    console.log(wrongDiff);
 
     // Warns the user when they've only one incorrect guess remaining.
     if (wrongDiff == 1) {

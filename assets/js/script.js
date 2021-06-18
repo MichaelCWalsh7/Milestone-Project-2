@@ -109,13 +109,13 @@ function anagramGenerator() {
     anagramArray = vowelsUsed.concat(consonantsUsed);
 
 
-    // Then they are put through a Fisher-Yates algorithm to mix the vowels and adjectives
+    // Then they are put through a Fisher-Yates algorithm to mix the vowels and consonants
     for (var i = anagramArray.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1)); //random index
         [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]]; // swap
     }
 
-
+    // Adds the content of the array to the buttons
     for (var k = 0; k <= anagramArray.length; k++) {
         $(`#button${k + 1}`).text(anagramArray[k]);
     }
@@ -167,11 +167,14 @@ function deleteLetter() {
 
 function wordValidator(userInput) {
 
-    // Stroes user input as a variable to compared
+    // Disables the enter button to avoid double clicking errors
+    $("#enterButton").prop('disabled', true);
+
+    // Stroes user input as a variable
     userInput = $("#textInput").text();
-
-
+    // Stores the words on the black board as a variable
     let wordPresent = $(".words-blackboard").text();
+    // Initializes a boolean to check if the user has repeated a word.
     let repeatingWord = wordPresent.toUpperCase().includes(` ${userInput} `);
     if (userInput == "") {
         // Checks if the user has, in fact, entered a word.

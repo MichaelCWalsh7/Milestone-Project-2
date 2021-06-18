@@ -220,17 +220,49 @@ function validWordCheck(userInput) {
     xhr.send();
 
     xhr.onreadystatechange = function () {
+        // Initializes the response text as a variable
+        let  apiData = this.responseText;      
+
+        // Checks if the word exists in the dictionary
         if (this.readyState == 4 && this.status === 404) {
-            console.log('Error, word does not exist.')
             wordFail();
+
+            // Checks if the word is an abbreviation
         } else if (this.readyState == 4 && this.status == 200) {
-            console.log("Success, word exists.")
-            wordSuccess(userInput);
+            abbreviationCheck(apiData, userInput)            
         }
     }
 }
 
+function abbreviationCheck(apiData, userInput) {
+    /* Initializes a variable to check how many times "abbreviation" occurs
+    in the response text. */
+    let aCount = 0;
+
+    /* Checks if the word entered has any definitions that constitute as an abbreviation
+    and stores the number of these in the previously initialized variable. */
+    if (apiData.includes("abbreivation")) {
+        aCount = apiData.match(/abbreviation/g).length
+    }
+    
+    /* Checks if the number of abbreviative definitions a word has is equal to the number 
+    of definitions it has in general. This way, the user is not punished if they input a 
+    that exists in the dictionary, but also has an abbreviative definition.*/
+    if (aCount == apiData.match(/partOfSpeech/g).length) {
+        // Informs the user when a word has only abbreviative definitions.
+        $("#message").css("color", "#FF7900").text("Sorry, no abbreviations allowed.");
+        clearInput();
+     } else {
+        // Adds the word to the blackboard and increments the score. 
+        wordSuccess(userInput);
+     }    
+}
+
+
 function wordSuccess(userInput) {
+
+    // Checks if the word is an abbreviation
+
 
     // Finds out what position in the blackboard the answer should be written
     let currentScore = parseInt($("#currentScore").text());

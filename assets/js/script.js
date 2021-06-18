@@ -221,9 +221,11 @@ function validWordCheck(userInput) {
 
 function wordSuccess(userInput) {
 
-    // Adds the successful word to the blackboard in lower case
+    // Finds out what position in the blackboard the answer should be written
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
+
+    // Adds the successful word to the blackboard with only the first letter capitalized
     let inputToBlackboard = userInput.charAt(0) + userInput.slice(1).toLowerCase();
     $(`.word-${newScore}`).text(` ${inputToBlackboard} `);
 
@@ -245,19 +247,54 @@ function wordSuccess(userInput) {
 }
 
 function wordFail() {
+    // Initialises a variable to push to the user for later
+    let wrongMessage = "";
 
-    // Informs user this word does not exist by flashing pushed buttons a red colour
+    // Turns the current lives left and total lives into variables
+    currentWrong = parseInt($("#currentWrong").text());
+    console.log(currentWrong)
+    maxWrong = parseInt($("#maxWrong").text());
+    console.log(maxWrong)
+    
+    // Subtracts the variables 
+    let wrongDiff = maxWrong - (currentWrong + 1);
+    console.log(wrongDiff);
+
+    // Warns the user when they've only one incorrect guess remaining.
+    if (wrongDiff == 1) {
+        wrongMessage = "Only 1 life left! Be Careful!"
+        $("#message").css("color", "red").text(`${wrongMessage}`)
+      // Warns the user when they've only twoincorrect guesses remaining.
+    } else if (wrongDiff == 2) {
+        wrongMessage = "Heads up, just 2 lives remaining!"
+        $("#message").css("color", "red").text(`${wrongMessage}`)
+      /*  Generates a random error message that is different to the previous one,
+        so that the user knows their guess is incorrect without having to refer
+        to the Lives Left tracker. */
+    } else if (wrongDiff >= 3) {
+        wrongMessagePicker();
+    }
+    
+    // Increments incorrect answers counter
+    incorrectIncremenet(maxWrong, currentWrong);
+
+    // Flashes buttons pressed a red colour to immediately inform the user that word doesn't exist.
     // colourchangeRed();
 
     // Plays failure sting/sound if audio is enabled.
     // failureSting.play();
 
-
     // Reactivates buttons & clears the text input
     clearInput();
 
-    // Increments incorrect answers counter
-    incorrectIncremenet();
+   
+}
+
+function wrongMessagePicker() {
+    $("#message").css("color", "red").text(`u wrong boi`)
+    // Initialises an array of error messages
+    // let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!"]
+    // Math.floor(Math.random() * 10)
 }
 
 function clearInput() {
@@ -300,15 +337,13 @@ function scoreIncrement() {
     }
 }
 
-function incorrectIncremenet() {
+function incorrectIncremenet(maxWrong, currentWrong) {
 
     // Increments incorrect answers
-    let currentWrong = parseInt($("#currentWrong").text());
     let newWrong = currentWrong + 1;
     $("#currentWrong").text(`${newWrong}`);
 
     // Checks if user has lost
-    let maxWrong = parseInt($("#maxWrong").text())
     if (newWrong == maxWrong) {
         gameLose();
     }

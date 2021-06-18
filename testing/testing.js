@@ -118,3 +118,8 @@ function deleteLetter() {
     
 
 }
+
+let message = $("#message").text();
+if (wrongMessages.includes(message)) {
+    
+}

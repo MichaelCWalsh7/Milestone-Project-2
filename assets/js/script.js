@@ -291,10 +291,30 @@ function wordFail() {
 }
 
 function wrongMessagePicker() {
-    $("#message").css("color", "red").text(`u wrong boi`)
-    // Initialises an array of error messages
-    // let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!"]
-    // Math.floor(Math.random() * 10)
+    
+    // Initialises an array of eleven error messages
+    let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!", 
+    "Nope, not according to our dictionary.", "Unfortunately, that's not a word...",
+    "You might have made that one up...", "No points for that I'm afraid!",
+    "Is that some sort of slang?", "That's not a word in English, unfortunately!",
+    "Sadly that is not a word.", "We can't give you that one I'm afraid!",
+    "Oof, not that one!"];
+
+    // Generates a random number between zero and ten
+    let x = Math.floor(Math.random() * 10);
+
+    // Checks if the random message is equal to the one already present
+    if ($("#message").text() == wrongMessages[x]) {
+        // Removes the error message from the array
+        wrongMessages.splice(x, 1);
+        // Generates a new random number between zero and nine
+        x = Math.floor(Math.random() * 9);
+        // Adds the new message to the message div.
+        $("#message").css("color", "red").text(`${wrongMessages[x]}`);
+    } else {
+        // Adds the new message to the message div.
+        $("#message").css("color", "red").text(`${wrongMessages[x]}`);
+    };    
 }
 
 function clearInput() {

@@ -193,8 +193,10 @@ function wordValidator(userInput) {
 
 function invalidWord(errorMessage) {
     // Displays the appropriate error message to the user
-    $("#message").text(`${errorMessage}`)
-
+    $("#message").css("color", "#FF7900").text(`${errorMessage}`)
+    // Look into using the FadeOut feature to make this text smoother. 
+    // The problem with it right now is that after one message it breaks.
+        
     // Resets the buttons so the user doesn't have to manually do so
     clearInput();
 }
@@ -222,7 +224,7 @@ function wordSuccess(userInput) {
     // Adds the successful word to the blackboard in lower case
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
-    let inputToBlackboard = userInput.toLowerCase();
+    let inputToBlackboard = userInput.charAt(0) + userInput.slice(1).toLowerCase();
     $(`.word-${newScore}`).text(` ${inputToBlackboard} `);
 
     // Reactivates buttons & clears the text input

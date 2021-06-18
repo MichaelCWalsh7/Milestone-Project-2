@@ -172,24 +172,32 @@ function wordValidator(userInput) {
 
     // Stroes user input as a variable
     userInput = $("#textInput").text();
+
     // Stores the words on the black board as a variable
     let wordPresent = $(".words-blackboard").text();
-    // Initializes a boolean to check if the user has repeated a word.
+
+    // Initializes a boolean to check if the user has repeated a word
     let repeatingWord = wordPresent.toUpperCase().includes(` ${userInput} `);
+
+    // Checks if the user has, in fact, entered a word
     if (userInput == "") {
-        // Checks if the user has, in fact, entered a word.
+        // Prompts the user to enter a word
         errorMessage = "Please enter a word."
         invalidWord(errorMessage);
+
+    // Checks if the word is already present on the answers blackboard
     } else if (repeatingWord) {
-        // Checks if the word is already present on the answers blackboard
+        // Prompts the user to enter a new word
         errorMessage = "Sorry, you've already inputted this word."
-        invalidWord(errorMessage); 
+        invalidWord(errorMessage);
+
+    // Checks that the word is a least 3 letters long
     } else if (userInput.length < 3) {
-        // Checks that the word is a least 3 letters long
+        // Prompts the user to enter a longer word
         errorMessage = "Words must be a minimum of three letters long."
         invalidWord(errorMessage);
-    } else {
-        // Checks if the word exists in the dictionary
+    // Checks if the word exists in the dictionary
+    } else {        
         validWordCheck(userInput);
     }
 }

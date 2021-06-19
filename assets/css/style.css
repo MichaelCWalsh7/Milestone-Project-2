@@ -134,7 +134,7 @@ li {
 }
 
 .score-container p {
-    margin-left: 10px;
+    margin-left: 7px;
     display: inline-block;
 }
 
@@ -156,6 +156,7 @@ li {
 #wrongScore {
     float: right;
     color: #ff0000;
+    margin-right: -15px;
 }
 
 .words-blackboard {

@@ -89,8 +89,27 @@ a {
     height: 15px;
     background: white;
     border-radius: 12px;
-    cursor: pointer;
-    
+    cursor: pointer;    
+}
+
+/* ************
+TRIANGLE CODE IMPORTED FROM 
+https://csslayout.io/patterns/triangle-buttons/ 
+************ */
+
+.left-button, .right-button {
+    border-style: solid;
+    height: 0px;
+    width: 0px;
+}
+.left-button {
+    border-color: transparent rgba(0, 0, 0, 0.7) transparent transparent;
+    border-width: 8px 8px 8px 0px;
+}
+
+.right-button {
+    border-color: transparent transparent transparent rgba(0, 0, 0, 0.7);
+    border-width: 8px 0px 8px 8px;
 }
 
 /* #offcanvasCloseButton {

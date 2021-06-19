@@ -13,6 +13,22 @@ $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
 $(".ready-button").on("click", gameStart);
 $(".back-to-game").on("click", gameStart);
+$("#volumeSlider").on("input", setVolume);
+
+function setVolume() {
+    // Changes the volume display figure on the offcanvas UI
+    sliderValue = document.getElementById("volumeSlider").value;
+    $("#volumeLevel").text(sliderValue + "%");
+
+    // Calls a function to change the gradient of the range slider
+    rangeGradientSet(sliderValue);
+}
+
+function rangeGradientSet(sliderValue) {
+    $("#volumeSlider").css("background", 
+    `linear-gradient(90deg, rgb(33, 150, 243) ${sliderValue}%, rgb(214, 214, 214) ${sliderValue}%)`)
+}
+
 
 $(".letter-button").on("click", function () {
 

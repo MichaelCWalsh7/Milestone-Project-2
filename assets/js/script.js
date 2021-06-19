@@ -194,7 +194,7 @@ function wordValidator(userInput) {
     // Checks that the word is a least 3 letters long
     } else if (userInput.length < 3) {
         // Prompts the user to enter a longer word
-        errorMessage = "Words must be a minimum of three letters long."
+        errorMessage = "Words must be at least three letters long."
         invalidWord(errorMessage);
     // Checks if the word exists in the dictionary
     } else {        

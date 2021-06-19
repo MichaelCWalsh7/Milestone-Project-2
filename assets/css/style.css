@@ -50,6 +50,37 @@ a {
     padding-left: 8px;
 }
 
+.form-range {
+    width: 50%;
+    float: right;
+}
+
+#volumeSlider {
+    -webkit-appearance: none;
+    margin-left: 17px;
+    background-color: black;
+    padding-top: 0px;
+    border-radius: 12px;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 15px;
+    background: pink;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#volumeSlider::-moz-range-thumb {
+     width: 10px;
+    height: 15px;
+    background: pink;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
 /* #offcanvasCloseButton {
     It's proving quite tricky to move the offcanvas 'x' button but that 
     problem will have to be dealt with later. 

@@ -143,17 +143,19 @@ li {
     margin-right: 10px;
 }
 
+#rightScore, #wrongScore {
+    font-size: 17px;
+    font-weight: 600;
+}
+
 #rightScore {
     color: #04A136;
-    font-size: 21px;
-    font-weight: 700;
+    
 }
 
 #wrongScore {
     float: right;
     color: #ff0000;
-    font-size: 21px;
-    font-weight: 700;
 }
 
 .words-blackboard {
@@ -212,15 +214,14 @@ td {
 
 #textInput {
     float: left;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    margin-left: 26px;
+    margin: 0;
     font-size: 25px;
     letter-spacing: 5px;
 }
 
 .enter-delete-buttons {
     margin-left: 30px;
+    padding-left: 16px;
 }
 
 .enter-delete-buttons button {
@@ -251,17 +252,18 @@ td {
 }
 
 .letter-button-container {
-    margin-top: 9px;
+    padding-left: 10px;
 }
 
 .letter-button-container button {
     text-align: center;
-    font-size: 28px;
+    font-size: 24px;
     padding: 10px;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     margin-top: 9px;
     width: 70px;
+    min-height: 51px;
 }
 
 .congratulations {

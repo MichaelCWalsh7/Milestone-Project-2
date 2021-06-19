@@ -1,3 +1,5 @@
+/* ************GENERAL STYLING************ */
+
 body {
     margin: 0;
 }
@@ -11,6 +13,8 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+/* ************NAVBAR************ */
 
 #navbarLink,
 #navbarButtons {
@@ -35,6 +39,13 @@ a {
     border-bottom: 2px solid black;
 }
 
+/* ************OFFCANVAS************ */
+
+.offcanvas-end {
+    width: 250px;
+}
+
+/* ************HOME SCREEN************ */
 .banner {
     background-color: #fc46aa;
     color: white;

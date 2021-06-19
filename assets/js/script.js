@@ -16,7 +16,7 @@ $(".back-to-game").on("click", gameStart);
 
 $(".letter-button").on("click", function () {
 
-    // CALLBACK POTENTIAL
+    // CALLBACK POTENTIAL/Needs to be rewritten
 
     // Initialises a a variable of the letters currently present in the text input. 
     let currentLetters = $("#textInput").text();

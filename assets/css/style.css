@@ -114,6 +114,8 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* ************OFFCANVAS (cont.)************ */
+
 #volume {
     margin-top: 23px;
 }
@@ -159,16 +161,16 @@ input:checked + .slider:before {
 } */
 
 #difficultySet {
-    margin-top: 10px;
+    margin-top: 21px;
 }
 
 .difficulty-arrow {
     font-size: 1.1em;
 }
 
-/* #difficulty {
-
-} */
+.ui-difficulty-display {
+    padding-left: 60px;
+}
 
 /* ************HOME SCREEN************ */
 .banner {

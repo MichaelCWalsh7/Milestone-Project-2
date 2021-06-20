@@ -130,8 +130,6 @@ function gameStart() {
 
     // Resets the error/success message div
     $("#message").text("");
-
-
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");

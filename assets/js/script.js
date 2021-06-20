@@ -66,15 +66,15 @@ function increaseDifficulty() {
     if (difficulty == "Easy") {
         // Changes difficulty from Easy to Medium
         $("#difficulty").text("Medium");
-        
+
     } else if (difficulty == "Medium") {
         // Changes difficulty from Medium to Easy
         $("#difficulty").text("Hard");
-        
+
     } else if (difficulty == "Hard") {
         // Changes difficulty from Hard to Genius
         $("#difficulty").text("Genius");
-        
+
 
         // Disables the increase difficulty button
         $("#increaseDifficultyArrow").prop("disabled", true);
@@ -94,15 +94,15 @@ function lowerDifficulty() {
     if (difficulty == "Genius") {
         // Changes difficulty from Genius to Hard
         $("#difficulty").text("Hard");
-        
+
     } else if (difficulty == "Hard") {
         // Changes difficulty from Hard to Medium
         $("#difficulty").text("Medium");
-        
+
     } else if (difficulty == "Medium") {
         // Changes difficulty from Medium to Easy
         $("#difficulty").text("Easy");
-        
+
 
         // Disables the lower difficulty button
         $("#lowerDifficultyArrow").prop("disabled", true);
@@ -127,6 +127,10 @@ function gameStart() {
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");
     $("#currentWrong").text("0");
+
+    // Resets the error/success message div
+    $("#message").text("");
+
 
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");

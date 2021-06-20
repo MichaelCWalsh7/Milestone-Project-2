@@ -173,6 +173,7 @@ input:checked + .slider:before {
 }
 
 /* ************HOME SCREEN************ */
+
 .banner {
     background-color: #fc46aa;
     color: white;
@@ -242,6 +243,8 @@ input:checked + .slider:before {
 #settingsButton {
     background-color: #ff0000;
 }
+
+/* ************GAME SCREEN************ */
 
 .score-container {
     font-size: inherit;

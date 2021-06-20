@@ -3,7 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
     $(".text-input-container").css("display", "none");
-    $(".left-button").prop("disabled", true);
+    $("#lowerDifficultyArrow").prop("disabled", true);
+    $("#lowerDifficultyArrow").css("opacity", ".5");
 })
 
 //  --------Event Listeners:
@@ -15,7 +16,9 @@ $("#clearButton").on("click", clearInput);
 $(".ready-button").on("click", gameStart);
 $(".back-to-game").on("click", gameStart);
 $("#volumeSlider").on("input", setVolume);
-$(".left-button").on("click", lowerDifficulty);
+$("#lowerDifficultyArrow").on("click", lowerDifficulty);
+$("#increaseDifficultyArrow").on("click", increaseDifficulty);
+
 
 $(".letter-button").on("click", function () {
 
@@ -49,6 +52,63 @@ function gameScreenDisplay() {
     $(".game-container").css("display", "block")
 
 
+}
+
+function increaseDifficulty() {
+    // Enusres that the lower difficulty button is now active
+    $("#lowerDifficultyArrow").prop("disabled", false);
+    $("#lowerDifficultyArrow").css("opacity", "1");
+
+    // Initialises a variable for the difficulty span
+    let difficulty = $("#difficulty").text();
+    
+    // Changes difficulties and the difficulty displayed to the user
+    if (difficulty == "Easy") {
+        // Changes difficulty from Easy to Medium
+        $("#difficulty").text("Medium");
+        
+    } else if (difficulty == "Medium") {
+        // Changes difficulty from Medium to Easy
+        $("#difficulty").text("Hard");
+        
+    } else if (difficulty == "Hard") {
+        // Changes difficulty from Hard to Genius
+        $("#difficulty").text("Genius");
+        
+
+        // Disables the increase difficulty button
+        $("#increaseDifficultyArrow").prop("disabled", true);
+        $("#increaseDifficultyArrow").css("opacity", ".5");
+    }
+}
+
+function lowerDifficulty() {
+    // Enusres that the increase difficulty button is now active
+    $("#increaseDifficultyArrow").prop("disabled", false);
+    $("#increaseDifficultyArrow").css("opacity", "1");
+
+    // Initialises a variable for the difficulty span
+    let difficulty = $("#difficulty").text();
+
+    // Changes difficulties and the difficulty displayed to the user
+    if (difficulty == "Genius") {
+        // Changes difficulty from Genius to Hard
+        $("#difficulty").text("Hard");
+        
+    } else if (difficulty == "Hard") {
+        // Changes difficulty from Hard to Medium
+        $("#difficulty").text("Medium");
+        
+    } else if (difficulty == "Medium") {
+        // Changes difficulty from Medium to Easy
+        $("#difficulty").text("Easy");
+        
+
+        // Disables the lower difficulty button
+        $("#lowerDifficultyArrow").prop("disabled", true);
+        $("#lowerDifficultyArrow").css("opacity", ".5")
+
+    }
 }
 
 function gameStart() {
@@ -141,10 +201,6 @@ function rangeGradientSet(sliderValue) {
 
     // Calls a function to change the audio volume
     // VolumeSet(sliderValue);
-}
-
-function lowerDifficulty() {
-
 }
 
 function deleteLetter() {

@@ -7,6 +7,7 @@
     <script src="https://kit.fontawesome.com/7d4a87edd3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>Anagrammer</title>
 </head>
@@ -41,7 +42,12 @@
                         <li id="volume">
                             Volume:
                             <input id="volumeSlider" type="range" min="0" max="100" value="50"></li>
-                        <li id="difficulty"><button class="left-button"></button><button class="right-button"></button></li>
+                        <li id="difficultySet">
+                            Difficulty: 
+                            <i class="difficulty-arrow bi bi-caret-left-fill"></i>
+                            <span id="difficulty">Easy</span>
+                            <i class="difficulty-arrow bi bi-caret-right-fill"></i>
+                        </li>
                         <li></li>
                         <li></li>
                         <li></li>

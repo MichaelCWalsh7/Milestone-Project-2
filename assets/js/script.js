@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
-    $(".game-container").css("display", "none")
-    $(".game-win-screen").css("display", "none")
-    $(".game-lose-screen").css("display", "none")
-    $(".text-input-container").css("display", "none")
+    $(".game-container").css("display", "none");
+    $(".game-win-screen").css("display", "none");
+    $(".game-lose-screen").css("display", "none");
+    $(".text-input-container").css("display", "none");
+    $(".left-button").prop("disabled", true);
 })
 
 //  --------Event Listeners:
@@ -14,21 +15,7 @@ $("#clearButton").on("click", clearInput);
 $(".ready-button").on("click", gameStart);
 $(".back-to-game").on("click", gameStart);
 $("#volumeSlider").on("input", setVolume);
-
-function setVolume() {
-    // Changes the volume display figure on the offcanvas UI
-    sliderValue = document.getElementById("volumeSlider").value;
-    $("#volumeLevel").text(sliderValue + "%");
-
-    // Calls a function to change the gradient of the range slider
-    rangeGradientSet(sliderValue);
-}
-
-function rangeGradientSet(sliderValue) {
-    $("#volumeSlider").css("background", 
-    `linear-gradient(90deg, rgb(33, 150, 243) ${sliderValue}%, rgb(214, 214, 214) ${sliderValue}%)`)
-}
-
+$(".left-button").on("click", lowerDifficulty);
 
 $(".letter-button").on("click", function () {
 
@@ -138,6 +125,27 @@ function anagramGenerator() {
 
 }
 
+function setVolume() {
+    // Changes the volume display figure on the offcanvas UI
+    sliderValue = document.getElementById("volumeSlider").value;
+    $("#volumeLevel").text(sliderValue + "%");
+
+    // Calls a function to change the gradient of the range slider
+    rangeGradientSet(sliderValue);
+}
+
+function rangeGradientSet(sliderValue) {
+    // Sets the gradient colour of the slider to the same as the range value
+    $("#volumeSlider").css("background", 
+    `linear-gradient(90deg, rgb(33, 150, 243) ${sliderValue}%, rgb(214, 214, 214) ${sliderValue}%)`)
+
+    // Calls a function to change the audio volume
+    // VolumeSet(sliderValue);
+}
+
+function lowerDifficulty() {
+
+}
 
 function deleteLetter() {
     // THIS FUNCTION IS JANK AND NEEDS TWEEKING

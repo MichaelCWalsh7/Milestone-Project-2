@@ -16,7 +16,7 @@ $("#playButton").on("click", gameScreenDisplay);
 $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
-$(".ready-button").on("click", gameStart);
+$(".ready-button").on("click", difficultyTracker);
 $(".back-to-game").on("click", gameStart);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
@@ -152,10 +152,26 @@ function displayGeniusDifficulty() {
     $("#settingsTimer").text("3:15");
 }
 
-function gameStart() {
+function difficultyTracker(vowelNumber, consonantNumber, timer, score) {
+    // Initialises a variable for the difficulty span
+    let difficulty = $("#difficulty").text();
 
-    // Generates a random anagram with certain restrictions
-    anagramGenerator();
+    
+    if (difficulty == "Easy") {
+        // Sets up variables for callbacks to play the game on Easy mode
+        vowelNumber = 4;
+        consonantNumber = 8;
+        timer = 4;
+        score = 20;
+        // Loads/removes the correct game screen elements
+        gameStart();        
+        $(".letter-button-container-easy").css("display", "block");        
+        // Generates and anagram of the approrpiate length
+        anagramGenerator(vowelNumber, consonantNumber);
+    }
+}
+
+function gameStart() {
 
     // Clears the table of words in the event that the user has started the game from the game over screen
     for (var x = 0; x <= 20; x++) {
@@ -168,9 +184,9 @@ function gameStart() {
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");
     $("#currentWrong").text("0");
-
     // Resets the error/success message div
     $("#message").text("");
+
     // Ensures only the correct elements are being displayed.
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");
@@ -179,7 +195,7 @@ function gameStart() {
 
 }
 
-function anagramGenerator() {
+function anagramGenerator(vowelNumber, consonantNumber) {
 
     const vowels = ['A', 'E', 'I', 'O', 'U'];
     const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'W', 'Y'];
@@ -191,12 +207,9 @@ function anagramGenerator() {
     let consonantsUsed = [];
 
     // These variables are arbritarily declared here, but they could be read from a div contained in the settings modal!!
-    let vNum = 3;
-    let cNum = 6;
-
-
+    
     // Generates a number of random non-repeating vowels
-    while (vowelsUsed.length < vNum) {
+    while (vowelsUsed.length < vowelNumber) {
         let vowelIndexer = Math.floor(Math.random() * 5);
         if (vowelsUsed.includes(vowels[vowelIndexer]) === false) {
             vowelsUsed.push(vowels[vowelIndexer])
@@ -204,7 +217,7 @@ function anagramGenerator() {
     }
 
     // Generates a number of random non-repeating consonants
-    while (consonantsUsed.length < cNum) {
+    while (consonantsUsed.length < consonantNumber) {
         let consonantIndexer = Math.floor(Math.random() * 17);
         if (consonantsUsed.includes(consonantsEasy[consonantIndexer]) === false) {
             consonantsUsed.push(consonantsEasy[consonantIndexer])

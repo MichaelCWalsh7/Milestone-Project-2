@@ -66,14 +66,17 @@ function increaseDifficulty() {
     if (difficulty == "Easy") {
         // Changes difficulty from Easy to Medium
         $("#difficulty").text("Medium");
+        displayMediumDifficulty();
 
     } else if (difficulty == "Medium") {
         // Changes difficulty from Medium to Easy
         $("#difficulty").text("Hard");
+        displayHardDifficulty();
 
     } else if (difficulty == "Hard") {
         // Changes difficulty from Hard to Genius
         $("#difficulty").text("Genius");
+        displayGeniusDifficulty();
 
 
         // Disables the increase difficulty button
@@ -94,14 +97,17 @@ function lowerDifficulty() {
     if (difficulty == "Genius") {
         // Changes difficulty from Genius to Hard
         $("#difficulty").text("Hard");
+        displayHardDifficulty();
 
     } else if (difficulty == "Hard") {
         // Changes difficulty from Hard to Medium
         $("#difficulty").text("Medium");
+        displayMediumDifficulty();
 
     } else if (difficulty == "Medium") {
         // Changes difficulty from Medium to Easy
         $("#difficulty").text("Easy");
+        displayEasyDifficulty();
 
 
         // Disables the lower difficulty button
@@ -109,6 +115,38 @@ function lowerDifficulty() {
         $("#lowerDifficultyArrow").css("opacity", ".5")
 
     }
+}
+
+function displayEasyDifficulty() {
+    /* Changes the offcanvas spans to display the correct difficulty
+    information */
+    $("#settingsLetters").text("12");
+    $("#settingsScore").text("20");
+    $("#settingsTimer").text("4:00");
+}
+
+function displayMediumDifficulty() {
+    /* Changes the offcanvas spans to display the correct difficulty
+    information */
+    $("#settingsLetters").text("11");
+    $("#settingsScore").text("20");
+    $("#settingsTimer").text("4:00");
+}
+
+function displayHardDifficulty() {
+    /* Changes the offcanvas spans to display the correct difficulty
+    information */
+    $("#settingsLetters").text("10");
+    $("#settingsScore").text("25");
+    $("#settingsTimer").text("3:30");
+}
+
+function displayGeniusDifficulty() {
+    /* Changes the offcanvas spans to display the correct difficulty
+    information */
+    $("#settingsLetters").text("9");
+    $("#settingsScore").text("25");
+    $("#settingsTimer").text("3:15");
 }
 
 function gameStart() {

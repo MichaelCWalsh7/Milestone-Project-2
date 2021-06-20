@@ -306,6 +306,7 @@ input:checked + .slider:before {
     background-color: black;
     color: white;
     min-height: 125px;
+    margin-bottom: 30px;
 }
 
 .words-blackboard table {
@@ -389,19 +390,16 @@ td {
     font-size: 21px;
 }
 
-.letter-button-container {
-    padding-left: 10px;
+.letters-container {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 30px;
 }
 
-.letter-button-container button {
-    text-align: center;
-    font-size: 24px;
-    padding: 10px;
-    margin-left: 20px;
-    margin-bottom: 3px;
-    margin-top: 9px;
-    width: 70px;
-    min-height: 51px;
+.letter-button {
+    margin: 7px;
+    font-size: 28px;
+    margin-top: 20px
 }
 
 .congratulations {

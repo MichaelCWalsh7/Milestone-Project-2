@@ -164,21 +164,26 @@ function difficultyTracker() {
 
     if (difficulty == "Easy") {
         // Calls a function to initialise the game in Easy mode
-        initEasyDifficulty()
+        initEasyDifficulty();
     } else if (difficulty == "Medium") {
         // Calls a function to initialise the game in Medium mode
-        initMediumDifficulty()
+        initMediumDifficulty();
+    } else if(difficulty == "Hard") {
+        initHardDifficulty();
     }
 }
 
 function initEasyDifficulty() {
+    /* Resets the display of the letter button containers in case the user 
+    has restarted the game and changed the difficulty */
+    letterButtonHide();
     // Sets up variables for callbacks to play the game on Easy mode
     vowelNumber = 4;
     consonantNumber = 8;
     timer = 4;
     score = 20;
     // Loads/removes the correct game screen elements
-    gameStart();
+    gameStart(score);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-easy").css("display", "block");
     // Generates and anagram of the approrpiate length
@@ -186,20 +191,49 @@ function initEasyDifficulty() {
 }
 
 function initMediumDifficulty() {
+    /* Resets the display of the letter button containers in case the user 
+    has restarted the game and changed the difficulty */
+    letterButtonHide();
     // Sets up variables for callbacks to play the game on Medium mode
     vowelNumber = 4;
     consonantNumber = 7;
     timer = 4;
     score = 20;
     // Loads/removes the correct game screen elements
-    gameStart();
+    gameStart(score);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-medium").css("display", "block");
     // Generates and anagram of the approrpiate length
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
 
-function gameStart() {
+function initHardDifficulty() {
+    /* Resets the display of the letter button containers in case the user 
+    has restarted the game and changed the difficulty */
+    letterButtonHide();
+    // Sets up variables for callbacks to play the game on Hard mode
+    vowelNumber = 3;
+    consonantNumber = 7;
+    timer = 3;
+    score = 25;
+    // Loads/removes the correct game screen elements
+    gameStart(score);
+    $(".letters-container").css("display", "block");
+    $(".letter-button-container-hard").css("display", "block");
+    // Generates and anagram of the approrpiate length
+    anagramGenerator(vowelNumber, consonantNumber, difficulty);
+}
+
+function letterButtonHide() {
+    /* Resets the display of the letter button containers in case the user 
+    has restarted the game and changed the difficulty */
+    $(".letter-button-container-easy").css("display", "none");
+    $(".letter-button-container-medium").css("display", "none");
+    $(".letter-button-container-hard").css("display", "none");
+    $(".letter-button-container-genius").css("display", "none");
+}
+
+function gameStart(score) {
 
     // Clears the table of words in the event that the user has started the game from the game over screen
     for (var x = 0; x <= 20; x++) {
@@ -208,6 +242,9 @@ function gameStart() {
 
     // Calls the timer
     // startTimer()
+
+    // Sets the appropriate score according to difficulty
+    $("#maxScore").text(score)
 
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");

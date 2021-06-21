@@ -402,12 +402,17 @@ td {
     margin-top: 20px
 }
 
+#mediumButton1, #mediumButton2, #mediumButton3,
+#hardButton1, #hardButton2 {
+    width: 20%;
+}
+
 #mediumButton1 {
     margin-left: 19%;
 }
 
-#mediumButton1, #mediumButton2, #mediumButton3 {
-    width: 20%;
+#hardButton1 {
+    margin-left: 30%;
 }
 
 .congratulations {

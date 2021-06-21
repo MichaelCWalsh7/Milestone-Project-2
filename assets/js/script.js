@@ -279,17 +279,19 @@ function gameStart(score) {
 
 }
 
-function anagramGenerator(vowelNumber, consonantNumber) {
+function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
 
     const vowels = ['A', 'E', 'I', 'O', 'U'];
-    const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'L', 'M', 'N', 'P', 'R', 'S', 'T', 'V', 'W', 'Y'];
-    // const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+    const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'L', 'M', 'N',
+     'P', 'R', 'S', 'T', 'V', 'W', 'Y'];
+    const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 
+    'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
 
     // Initialises block scope variables needed to succinctly generate an anagram. 
     let anagramArray = [];
     let vowelsUsed = [];
     let consonantsUsed = [];
-
+    let consonants = [];
     // These variables are arbritarily declared here, but they could be read from a div contained in the settings modal!!
 
     // Generates a number of random non-repeating vowels
@@ -299,12 +301,17 @@ function anagramGenerator(vowelNumber, consonantNumber) {
             vowelsUsed.push(vowels[vowelIndexer])
         }
     }
-
+    // Checks difficulty settings to determine which consonants will be used
+    if (difficulty == "Easy" || difficulty == "Medium") {
+        consonants = consonantsEasy;
+    } else if (difficulty == "Hard" || difficulty == "Genius") {
+        consonants = consonantsHard;
+    }
     // Generates a number of random non-repeating consonants
     while (consonantsUsed.length < consonantNumber) {
         let consonantIndexer = Math.floor(Math.random() * 17);
-        if (consonantsUsed.includes(consonantsEasy[consonantIndexer]) === false) {
-            consonantsUsed.push(consonantsEasy[consonantIndexer])
+        if (consonantsUsed.includes(consonants[consonantIndexer]) === false ) {
+            consonantsUsed.push(consonants[consonantIndexer])
         }
     }
 

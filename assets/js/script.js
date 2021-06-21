@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     $(".game-container").css("display", "none");
+    $(".letter-button-container-easy").css("display", "none");
     $(".letter-button-container-medium").css("display", "none");
     $(".letter-button-container-hard").css("display", "none");
     $(".letter-button-container-genius").css("display", "none");
@@ -158,7 +159,7 @@ function displayGeniusDifficulty() {
 
 function difficultyTracker(vowelNumber, consonantNumber, timer, score) {
     // Initialises a variable for the difficulty span
-    let difficulty = $("#difficulty").text();
+    difficulty = $("#difficulty").text();
 
     
     if (difficulty == "Easy") {
@@ -172,7 +173,19 @@ function difficultyTracker(vowelNumber, consonantNumber, timer, score) {
         $(".letters-container").css("display", "block");      
         $(".letter-button-container-easy").css("display", "block");        
         // Generates and anagram of the approrpiate length
-        anagramGenerator(vowelNumber, consonantNumber);
+        anagramGenerator(vowelNumber, consonantNumber, difficulty);
+    } else if (difficulty == "Medium") {
+        // Sets up variables for callbacks to play the game on Medium mode
+        vowelNumber = 4;
+        consonantNumber = 7;
+        timer = 4;
+        score = 20;
+        // Loads/removes the correct game screen elements
+        gameStart();
+        $(".letters-container").css("display", "block");      
+        $(".letter-button-container-medium").css("display", "block");        
+        // Generates and anagram of the approrpiate length
+        anagramGenerator(vowelNumber, consonantNumber, difficulty);
     }
 }
 
@@ -241,8 +254,9 @@ function anagramGenerator(vowelNumber, consonantNumber) {
     }
 
     // Adds the content of the array to the buttons
+    difficulty = difficulty.toLowerCase();
     for (var k = 0; k <= anagramArray.length; k++) {
-        $(`#button${k + 1}`).text(anagramArray[k]);
+        $(`#${difficulty}Button${k + 1}`).text(anagramArray[k]);
     }
 
 }

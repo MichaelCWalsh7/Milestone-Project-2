@@ -402,6 +402,14 @@ td {
     margin-top: 20px
 }
 
+#mediumButton1 {
+    margin-left: 19%;
+}
+
+#mediumButton1, #mediumButton2, #mediumButton3 {
+    width: 20%;
+}
+
 .congratulations {
     margin-top: 150px;
     text-align: center;

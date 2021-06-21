@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".text-input-container").css("display", "none");
     $("#lowerDifficultyArrow").prop("disabled", true);
     $("#lowerDifficultyArrow").css("opacity", ".5");
+    $(".letters-container").css("display", "none");
 })
 
 //  --------Event Listeners:
@@ -167,7 +168,8 @@ function difficultyTracker(vowelNumber, consonantNumber, timer, score) {
         timer = 4;
         score = 20;
         // Loads/removes the correct game screen elements
-        gameStart();        
+        gameStart();
+        $(".letters-container").css("display", "block");      
         $(".letter-button-container-easy").css("display", "block");        
         // Generates and anagram of the approrpiate length
         anagramGenerator(vowelNumber, consonantNumber);

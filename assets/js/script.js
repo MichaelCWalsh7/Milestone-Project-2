@@ -432,7 +432,9 @@ function wordValidator(userInput) {
 }
 
 function invalidWord(errorMessage) {
-    // Displays the appropriate error message to the user
+    // Clears any lingering css effects
+    $("#message").css("");
+    // Displays the appropriate error message to the user    
     $("#message").css("color", "#FF7900").text(`${errorMessage}`)
     // Look into using the FadeOut feature to make this text smoother. 
     // The problem with it right now is that after one message it breaks.
@@ -529,8 +531,46 @@ function lifeGain(userInput) {
     if (difficulty != "Genius" && userInput.length > 6) {
         // Increments the life counter
         $("#livesLeft").text(`${lives + 1}`)
+        lifeGainMessage();
     }
 }
+
+function lifeGainMessage() {
+    // 
+    let bonusMessages = ["Nice! You earned a life!", "Great job! Have a bonus life!", 
+        "Good spot, that got you a new life!", "Very impressive!! +1 lives!", 
+        "Excellent vocab, here's a bonus life!!", 
+        "*low whistle* One more life for that one!!"]
+
+    // Generates a random number between zero and 5
+    let x = Math.floor(Math.random() * 5);
+
+    // Checks if the random message is equal to the one already present
+    if ($("#message").text() == bonusMessages[x]) {
+        // Removes the error message from the array
+        bonusMessages.splice(x, 1);
+        // Generates a new random number between zero and nine
+        x = Math.floor(Math.random() * 9);
+        // // Gives the div a celebratory rainbow colour
+        // rainbowColour();
+        // Adds the new message to the message div.
+        $("#message").css("color", "green").text(`${bonusMessages[x]}`);
+    } else {
+        // // Gives the div a celebratory rainbow colour
+        // rainbowColour();
+        // Adds the new message to the message div.
+        $("#message").css("color", "green").text(`${bonusMessages[x]}`);
+    };
+}
+
+// function rainbowColour() {
+//     $("#message").css("background-image", `linear-gradient(to left, violet, indigo,
+//         blue, green, orange, red)`);
+//     $("#message").css("-webkit-background-clip", "text");
+//     $("#message").css("-webkit-text-fill-color", "transparent");
+//     $("#message").css("background-repeat", "repeat");
+
+// }
 
 function wordFail() {
     // Initialises a variable to push to the user for later
@@ -558,7 +598,7 @@ function wordFail() {
     }
 
     // Increments incorrect answers counter
-    incorrectIncremenet(maxWrong, currentWrong);
+    incorrectIncremenet(newLives);
 
     // Flashes buttons pressed a red colour to immediately inform the user that word doesn't exist.
     // colourchangeRed();
@@ -573,6 +613,9 @@ function wordFail() {
 }
 
 function wrongMessagePicker() {
+
+    // Clears any lingering css effects
+    // $("#message").css("");
 
     // Initialises an array of eleven error messages
     let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!",
@@ -644,7 +687,7 @@ function scoreIncrement() {
 function incorrectIncremenet(newLives) {
 
     // Increments incorrect answers
-    $("#currentWrong").text(`${newLives}`);
+    $("#livesLeft").text(`${newLives}`);
 
     // Checks if user has lost
     if (newLives == 0) {

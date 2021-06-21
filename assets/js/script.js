@@ -305,11 +305,11 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     if (difficulty == "Easy" || difficulty == "Medium") {
         consonants = consonantsEasy;
     } else if (difficulty == "Hard" || difficulty == "Genius") {
-        consonants = consonantsHard;
+        consonants = consonantsHard;        
     }
     // Generates a number of random non-repeating consonants
     while (consonantsUsed.length < consonantNumber) {
-        let consonantIndexer = Math.floor(Math.random() * 17);
+        let consonantIndexer = Math.floor(Math.random() * consonants.length);
         if (consonantsUsed.includes(consonants[consonantIndexer]) === false ) {
             consonantsUsed.push(consonants[consonantIndexer])
         }

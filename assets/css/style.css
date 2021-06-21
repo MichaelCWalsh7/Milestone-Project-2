@@ -279,18 +279,17 @@ input:checked + .slider:before {
     margin-right: 10px;
 }
 
-#rightScore,
-#wrongScore {
+#Score, #lives {
     font-size: 17px;
     font-weight: 600;
 }
 
-#rightScore {
+#Score {
     color: #04A136;
 
 }
 
-#wrongScore {
+#lives {
     float: right;
     color: #ff0000;
     margin-right: -15px;

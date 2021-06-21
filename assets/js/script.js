@@ -504,6 +504,8 @@ function wordSuccess(userInput) {
     // Reactivates buttons & clears the text input
     clearInput();
 
+    // Calls a function to increment life counter should a word meet the requirements
+    lifeGain(userInput);
 
     // Increments score counter
     scoreIncrement();
@@ -518,29 +520,40 @@ function wordSuccess(userInput) {
 
 }
 
+function lifeGain(userInput) {
+    // Initializes a variable to check difficulty
+    let difficulty = $("#difficulty").text();
+    // Initializes variables to increment the life counter
+    let lives = parseInt($("#livesLeft").text());
+    // Gives the user an extra life if their word is longer than 7 letters
+    if (difficulty != "Genius" && userInput.length > 6) {
+        // Increments the life counter
+        $("#livesLeft").text(`${lives + 1}`)
+    }
+}
+
 function wordFail() {
     // Initialises a variable to push to the user for later
     let wrongMessage = "";
 
-    // Turns the current lives left and total lives into variables
-    currentWrong = parseInt($("#currentWrong").text());
-    maxWrong = parseInt($("#maxWrong").text());
+    // Turns the current lives left into a variable
+    livesLeft = parseInt($("#livesLeft").text());
 
     // Subtracts the variables 
-    let wrongDiff = maxWrong - (currentWrong + 1);
+    let newLives = livesLeft - 1;
 
     // Warns the user when they've only one incorrect guess remaining.
-    if (wrongDiff == 1) {
+    if (newLives == 1) {
         wrongMessage = "Only 1 life left! Be Careful!"
         $("#message").css("color", "red").text(`${wrongMessage}`)
         // Warns the user when they've only twoincorrect guesses remaining.
-    } else if (wrongDiff == 2) {
+    } else if (newLives == 2) {
         wrongMessage = "Heads up, just 2 lives remaining!"
         $("#message").css("color", "red").text(`${wrongMessage}`)
         /*  Generates a random error message that is different to the previous one,
           so that the user knows their guess is incorrect without having to refer
           to the Lives Left tracker. */
-    } else if (wrongDiff >= 3) {
+    } else if (newLives >= 3) {
         wrongMessagePicker();
     }
 
@@ -628,14 +641,13 @@ function scoreIncrement() {
     }
 }
 
-function incorrectIncremenet(maxWrong, currentWrong) {
+function incorrectIncremenet(newLives) {
 
     // Increments incorrect answers
-    let newWrong = currentWrong + 1;
-    $("#currentWrong").text(`${newWrong}`);
+    $("#currentWrong").text(`${newLives}`);
 
     // Checks if user has lost
-    if (newWrong == maxWrong) {
+    if (newLives == 0) {
         gameLose();
     }
 }

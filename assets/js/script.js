@@ -17,7 +17,7 @@ $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
 $(".ready-button").on("click", difficultyTracker);
-$(".back-to-game").on("click", gameStart);
+$(".back-to-game").on("click", difficultyTracker);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
 $("#increaseDifficultyArrow").on("click", increaseDifficulty);
@@ -195,6 +195,7 @@ function gameStart() {
     $(".text-input-container").css("display", "block");
     $(".game-container").css("display", "block");
     $(".game-win-screen").css("display", "none");
+    $(".game-lose-screen").css("display", "none");
 
 }
 

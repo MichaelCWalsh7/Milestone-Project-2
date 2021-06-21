@@ -433,7 +433,7 @@ function wordValidator(userInput) {
 
 function invalidWord(errorMessage) {
     // Clears any lingering css effects
-    $("#message").css("");
+    // $("#message").css("");
     // Displays the appropriate error message to the user    
     $("#message").css("color", "#FF7900").text(`${errorMessage}`)
     // Look into using the FadeOut feature to make this text smoother. 

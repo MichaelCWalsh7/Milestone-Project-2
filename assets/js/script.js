@@ -69,7 +69,7 @@ function increaseDifficulty() {
 
     // Initialises a variable for the difficulty span
     let difficulty = $("#difficulty").text();
-    
+
     // Changes difficulties and the difficulty displayed to the user
     if (difficulty == "Easy") {
         // Changes difficulty from Easy to Medium
@@ -157,36 +157,46 @@ function displayGeniusDifficulty() {
     $("#settingsTimer").text("3:15");
 }
 
-function difficultyTracker(vowelNumber, consonantNumber, timer, score) {
+function difficultyTracker() {
     // Initialises a variable for the difficulty span
     difficulty = $("#difficulty").text();
 
-    
+
     if (difficulty == "Easy") {
-        // Sets up variables for callbacks to play the game on Easy mode
-        vowelNumber = 4;
-        consonantNumber = 8;
-        timer = 4;
-        score = 20;
-        // Loads/removes the correct game screen elements
-        gameStart();
-        $(".letters-container").css("display", "block");      
-        $(".letter-button-container-easy").css("display", "block");        
-        // Generates and anagram of the approrpiate length
-        anagramGenerator(vowelNumber, consonantNumber, difficulty);
+        // Calls a function to initialise the game in Easy mode
+        initEasyDifficulty()
     } else if (difficulty == "Medium") {
-        // Sets up variables for callbacks to play the game on Medium mode
-        vowelNumber = 4;
-        consonantNumber = 7;
-        timer = 4;
-        score = 20;
-        // Loads/removes the correct game screen elements
-        gameStart();
-        $(".letters-container").css("display", "block");      
-        $(".letter-button-container-medium").css("display", "block");        
-        // Generates and anagram of the approrpiate length
-        anagramGenerator(vowelNumber, consonantNumber, difficulty);
+        // Calls a function to initialise the game in Medium mode
+        initMediumDifficulty()
     }
+}
+
+function initEasyDifficulty() {
+    // Sets up variables for callbacks to play the game on Easy mode
+    vowelNumber = 4;
+    consonantNumber = 8;
+    timer = 4;
+    score = 20;
+    // Loads/removes the correct game screen elements
+    gameStart();
+    $(".letters-container").css("display", "block");
+    $(".letter-button-container-easy").css("display", "block");
+    // Generates and anagram of the approrpiate length
+    anagramGenerator(vowelNumber, consonantNumber, difficulty);
+}
+
+function initMediumDifficulty() {
+    // Sets up variables for callbacks to play the game on Medium mode
+    vowelNumber = 4;
+    consonantNumber = 7;
+    timer = 4;
+    score = 20;
+    // Loads/removes the correct game screen elements
+    gameStart();
+    $(".letters-container").css("display", "block");
+    $(".letter-button-container-medium").css("display", "block");
+    // Generates and anagram of the approrpiate length
+    anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
 
 function gameStart() {
@@ -226,7 +236,7 @@ function anagramGenerator(vowelNumber, consonantNumber) {
     let consonantsUsed = [];
 
     // These variables are arbritarily declared here, but they could be read from a div contained in the settings modal!!
-    
+
     // Generates a number of random non-repeating vowels
     while (vowelsUsed.length < vowelNumber) {
         let vowelIndexer = Math.floor(Math.random() * 5);
@@ -253,8 +263,9 @@ function anagramGenerator(vowelNumber, consonantNumber) {
         [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]]; // swap
     }
 
-    // Adds the content of the array to the buttons
+    // Changes the difficulty variable to lower case to match up with the button ids
     difficulty = difficulty.toLowerCase();
+    // Adds the content of the array to the buttons
     for (var k = 0; k <= anagramArray.length; k++) {
         $(`#${difficulty}Button${k + 1}`).text(anagramArray[k]);
     }
@@ -272,8 +283,8 @@ function setVolume() {
 
 function rangeGradientSet(sliderValue) {
     // Sets the gradient colour of the slider to the same as the range value
-    $("#volumeSlider").css("background", 
-    `linear-gradient(90deg, rgb(33, 150, 243) ${sliderValue}%, rgb(214, 214, 214) ${sliderValue}%)`)
+    $("#volumeSlider").css("background",
+        `linear-gradient(90deg, rgb(33, 150, 243) ${sliderValue}%, rgb(214, 214, 214) ${sliderValue}%)`)
 
     // Calls a function to change the audio volume
     // VolumeSet(sliderValue);
@@ -341,19 +352,19 @@ function wordValidator(userInput) {
         errorMessage = "Please enter a word."
         invalidWord(errorMessage);
 
-    // Checks if the word is already present on the answers blackboard
+        // Checks if the word is already present on the answers blackboard
     } else if (repeatingWord) {
         // Prompts the user to enter a new word
         errorMessage = "Sorry, you've already inputted this word."
         invalidWord(errorMessage);
 
-    // Checks that the word is a least 3 letters long
+        // Checks that the word is a least 3 letters long
     } else if (userInput.length < 3) {
         // Prompts the user to enter a longer word
         errorMessage = "Words must be at least three letters long."
         invalidWord(errorMessage);
-    // Checks if the word exists in the dictionary
-    } else {        
+        // Checks if the word exists in the dictionary
+    } else {
         validWordCheck(userInput);
     }
 }
@@ -363,7 +374,7 @@ function invalidWord(errorMessage) {
     $("#message").css("color", "#FF7900").text(`${errorMessage}`)
     // Look into using the FadeOut feature to make this text smoother. 
     // The problem with it right now is that after one message it breaks.
-        
+
     // Resets the buttons so the user doesn't have to manually do so
     clearInput();
 }
@@ -377,7 +388,7 @@ function validWordCheck(userInput) {
 
     xhr.onreadystatechange = function () {
         // Initializes the response text as a variable
-        let  apiData = this.responseText;      
+        let apiData = this.responseText;
 
         // Checks if the word exists in the dictionary
         if (this.readyState == 4 && this.status === 404) {
@@ -385,7 +396,7 @@ function validWordCheck(userInput) {
 
             // Checks if the word is an abbreviation
         } else if (this.readyState == 4 && this.status == 200) {
-            abbreviationCheck(apiData, userInput)            
+            abbreviationCheck(apiData, userInput)
         }
     }
 }
@@ -400,18 +411,18 @@ function abbreviationCheck(apiData, userInput) {
     if (apiData.includes("abbreviation")) {
         aCount = apiData.match(/abbreviation/g).length;
     }
-    
+
     /* Checks if the number of abbreviative definitions a word has is equal to the number 
     of definitions it has in general. This way, the user is not punished if they input a 
-    that exists in the dictionary, but also has an abbreviative definition.*/
+    word that exists in the dictionary, but also has an abbreviative definition.*/
     if (aCount == apiData.match(/partOfSpeech/g).length) {
         // Informs the user when a word has only abbreviative definitions.
         $("#message").css("color", "#FF7900").text("Sorry, no abbreviations allowed.");
         clearInput();
-     } else {
+    } else {
         // Adds the word to the blackboard and increments the score. 
         wordSuccess(userInput);
-     }    
+    }
 }
 
 
@@ -452,7 +463,7 @@ function wordFail() {
     // Turns the current lives left and total lives into variables
     currentWrong = parseInt($("#currentWrong").text());
     maxWrong = parseInt($("#maxWrong").text());
-    
+
     // Subtracts the variables 
     let wrongDiff = maxWrong - (currentWrong + 1);
 
@@ -460,17 +471,17 @@ function wordFail() {
     if (wrongDiff == 1) {
         wrongMessage = "Only 1 life left! Be Careful!"
         $("#message").css("color", "red").text(`${wrongMessage}`)
-      // Warns the user when they've only twoincorrect guesses remaining.
+        // Warns the user when they've only twoincorrect guesses remaining.
     } else if (wrongDiff == 2) {
         wrongMessage = "Heads up, just 2 lives remaining!"
         $("#message").css("color", "red").text(`${wrongMessage}`)
-      /*  Generates a random error message that is different to the previous one,
-        so that the user knows their guess is incorrect without having to refer
-        to the Lives Left tracker. */
+        /*  Generates a random error message that is different to the previous one,
+          so that the user knows their guess is incorrect without having to refer
+          to the Lives Left tracker. */
     } else if (wrongDiff >= 3) {
         wrongMessagePicker();
     }
-    
+
     // Increments incorrect answers counter
     incorrectIncremenet(maxWrong, currentWrong);
 
@@ -483,18 +494,19 @@ function wordFail() {
     // Reactivates buttons & clears the text input
     clearInput();
 
-   
+
 }
 
 function wrongMessagePicker() {
-    
+
     // Initialises an array of eleven error messages
-    let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!", 
-    "Nope, not according to our dictionary.", "Unfortunately, that's not a word...",
-    "You might have made that one up...", "No points for that I'm afraid!",
-    "Is that some sort of slang?", "That's not a word in English, unfortunately!",
-    "Sadly that is not a word.", "We can't give you that one I'm afraid!",
-    "Oof, not that one!"];
+    let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!",
+        "Nope, not according to our dictionary.", "Unfortunately, that's not a word...",
+        "You might have made that one up...", "No points for that I'm afraid!",
+        "Is that some sort of slang?", "That's not a word in English, unfortunately!",
+        "Sadly that is not a word.", "We can't give you that one I'm afraid!",
+        "Oof, not that one!"
+    ];
 
     // Generates a random number between zero and ten
     let x = Math.floor(Math.random() * 10);
@@ -510,7 +522,7 @@ function wrongMessagePicker() {
     } else {
         // Adds the new message to the message div.
         $("#message").css("color", "red").text(`${wrongMessages[x]}`);
-    };    
+    };
 }
 
 function clearInput() {

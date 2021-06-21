@@ -52,7 +52,9 @@ $(".letter-button").on("click", function () {
 
 
 })
-//  --------Functions:
+//  --------FUNCTIONS:
+
+
 function gameScreenDisplay() {
     // Displays the game screen and hides the menu
     $(".banner").css("display", "none")
@@ -61,6 +63,8 @@ function gameScreenDisplay() {
 
 
 }
+
+//  --------Difficulty Handling Functions:
 
 function increaseDifficulty() {
     // Enusres that the lower difficulty button is now active
@@ -161,6 +165,9 @@ function difficultyTracker() {
     // Initialises a variable for the difficulty span
     difficulty = $("#difficulty").text();
 
+    /* Resets the display of the letter button containers in case the user 
+    has restarted the game and changed the difficulty */
+    letterButtonHide();
 
     if (difficulty == "Easy") {
         // Calls a function to initialise the game in Easy mode
@@ -169,14 +176,15 @@ function difficultyTracker() {
         // Calls a function to initialise the game in Medium mode
         initMediumDifficulty();
     } else if(difficulty == "Hard") {
+        // Calls a function to initialise the game in Hard mode
         initHardDifficulty();
+    } else if (difficulty =="Genius") {
+        // Calls a function to initialise the game in Genius mode
+        initGeniusDifficulty();
     }
 }
 
 function initEasyDifficulty() {
-    /* Resets the display of the letter button containers in case the user 
-    has restarted the game and changed the difficulty */
-    letterButtonHide();
     // Sets up variables for callbacks to play the game on Easy mode
     vowelNumber = 4;
     consonantNumber = 8;
@@ -191,9 +199,6 @@ function initEasyDifficulty() {
 }
 
 function initMediumDifficulty() {
-    /* Resets the display of the letter button containers in case the user 
-    has restarted the game and changed the difficulty */
-    letterButtonHide();
     // Sets up variables for callbacks to play the game on Medium mode
     vowelNumber = 4;
     consonantNumber = 7;
@@ -208,9 +213,6 @@ function initMediumDifficulty() {
 }
 
 function initHardDifficulty() {
-    /* Resets the display of the letter button containers in case the user 
-    has restarted the game and changed the difficulty */
-    letterButtonHide();
     // Sets up variables for callbacks to play the game on Hard mode
     vowelNumber = 3;
     consonantNumber = 7;
@@ -223,6 +225,22 @@ function initHardDifficulty() {
     // Generates and anagram of the approrpiate length
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
+
+function initGeniusDifficulty() {
+    // Sets up variables for callbacks to play the game on Genius mode
+    vowelNumber = 3;
+    consonantNumber = 6;
+    timer = 3;
+    score = 25;
+    // Loads/removes the correct game screen elements
+    gameStart(score);
+    $(".letters-container").css("display", "block");
+    $(".letter-button-container-genius").css("display", "block");
+    // Generates and anagram of the approrpiate length
+    anagramGenerator(vowelNumber, consonantNumber, difficulty);
+}
+
+
 
 function letterButtonHide() {
     /* Resets the display of the letter button containers in case the user 
@@ -620,8 +638,4 @@ function gameLose() {
     // Changes the game screen to the game defeat screen
     $(".game-container").css("display", "none");
     $(".game-lose-screen").css("display", "block");
-}
-
-function difficultySetter() {
-
 }

@@ -96,6 +96,11 @@ a {
     Could also be modified using JavaScript?? */
 }
 
+.offcanvas-header, .offcanvas-body {
+    color: #003366;
+    background-color: #D6A419;
+}
+
 #settingsList {
     list-style-type: none;
     padding-left: 8px;
@@ -229,7 +234,7 @@ input:checked+.slider:before {
     background-color: #61172B;
     color: #3cb371;
     text-align: center;
-    font-size: 27px;
+    font-size: 20px;;
     line-height: 1.1;
     margin: 3px;
     border: 1px solid black;

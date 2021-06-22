@@ -358,6 +358,7 @@ input:checked+.slider:before {
 
 #Score {
     color: #04A136;
+    padding-left: 12px;
 
 }
 

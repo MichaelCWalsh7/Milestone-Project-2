@@ -239,6 +239,13 @@ input:checked+.slider:before {
     color: white;
     margin-top: 7px;
     margin-bottom: 2px;
+    margin-left: 30px;
+    padding-right: 8px;
+}
+
+#resetWarning {
+    font-size: 13px;
+    padding-left: 0;
 }
 
 /* ************HOME SCREEN************ */
@@ -248,7 +255,6 @@ input:checked+.slider:before {
     color: #3cb371;
     text-align: center;
     font-size: 20px;
-    ;
     line-height: 1.1;
     margin: 3px;
     border: 1px solid black;

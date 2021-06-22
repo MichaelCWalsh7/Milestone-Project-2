@@ -21,6 +21,8 @@ $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
 $(".ready-button").on("click", difficultyTracker);
 $("#navResetButton").on("click", difficultyTracker);
+$("#settingsResetButton").on("click", difficultyTracker);
+$("#settingsResetButton").on("click", gameScreenDisplay);
 $(".back-to-game").on("click", difficultyTracker);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);

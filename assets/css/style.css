@@ -110,6 +110,8 @@ a {
     padding-left: 8px;
 }
 
+
+
 .form-range {
     width: 50%;
     float: right;
@@ -230,6 +232,13 @@ input:checked+.slider:before {
 
 .ui-difficulty-display {
     padding-left: 17px;
+}
+
+#settingsResetButton {
+    background-color: #61172B;
+    color: white;
+    margin-top: 7px;
+    margin-bottom: 2px;
 }
 
 /* ************HOME SCREEN************ */

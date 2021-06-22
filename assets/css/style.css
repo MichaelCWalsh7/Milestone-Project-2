@@ -70,8 +70,10 @@ a {
 
 #navbarButtons {
     float: right;
-    font-size: 24px;
-    color: white;
+}
+
+#navResetButton {
+    color: #ff0000;
 }
 
 .fa-info-circle,
@@ -284,10 +286,6 @@ input:checked+.slider:before {
     text-align: left;
 }
 
-/* [class^="bi-"]::before, [class*=" bi-"]::before {
-    font-size: 12px;
-    color: #D6A419;
-} */
 
 .menu-buttons {
     margin-top: 50px;

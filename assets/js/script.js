@@ -20,6 +20,7 @@ $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
 $(".ready-button").on("click", difficultyTracker);
+$("#navResetButton").on("click", difficultyTracker);
 $(".back-to-game").on("click", difficultyTracker);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
@@ -170,6 +171,7 @@ function difficultyTracker() {
     /* Resets the display of the letter button containers in case the user 
     has restarted the game and changed the difficulty */
     letterButtonHide();
+    clearInput()
 
     if (difficulty == "Easy") {
         // Calls a function to initialise the game in Easy mode
@@ -651,7 +653,7 @@ function wrongMessagePicker() {
 function clearInput() {
     // Reactivates buttons
     $("#enterButton").prop('disabled', false);
-    for (var n = 0; n <= 10; n++) {
+    for (var n = 0; n <= 12; n++) {
         $(`.button-pressed-${n}`).prop("disabled", false);
         $(".letter-button").removeClass(`button-pressed-${n}`)
 

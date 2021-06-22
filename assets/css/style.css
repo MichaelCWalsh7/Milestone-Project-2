@@ -58,34 +58,32 @@ a {
 
 /* ************NAVBAR************ */
 #navbarLink {
-    font-size: 25px;
+    font-size: 25px;    
+    padding-top: 4px;
 }
 
 #navbarLink,
 #navbarButtons {
     display: inline-block;
-    padding-top: 4px;
     padding-left: 5px;
 }
-
-#navbarButtons {
-    float: right;
-}
-
 #navResetButton {
     color: #ff0000;
 }
 
+#navbarButtons, #navReset {
+    float: right;
+    padding-top: 10px;
+}
+
+
+
 .fa-info-circle,
 .fa-cog,
-.bi-arrow-counterclockwise {
+.fa-redo-alt {
     font-size: 25px;
     padding-right: 12px;
 }
-
-/* #settingsGearIcon {
-   
-} */
 
 #navbar {
     border-bottom: 2px solid black;

@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".letter-button-container-medium").css("display", "none");
     $(".letter-button-container-hard").css("display", "none");
     $(".letter-button-container-genius").css("display", "none");
+    $("#navResetButton").css("display", "none");
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
     $(".enter-delete-buttons").css("display", "none");
@@ -501,9 +502,6 @@ function abbreviationCheck(apiData, userInput) {
 
 function wordSuccess(userInput) {
 
-    // Checks if the word is an abbreviation
-
-
     // Finds out what position in the blackboard the answer should be written
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
@@ -520,6 +518,9 @@ function wordSuccess(userInput) {
 
     // Increments score counter
     scoreIncrement();
+
+    // Activates the reset button
+    navResetAllow();
 
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
@@ -570,6 +571,16 @@ function lifeGainMessage() {
         // Adds the new message to the message div.
         $("#message").css("color", "green").text(`${bonusMessages[x]}`);
     };
+}
+
+function navResetAllow() {
+    // Initializes a variable to check the score
+    let score = parseInt($("#currentScore").text());
+    // Checks if the reset button should be displayed
+    if (score > 1) {
+        // Displays it if so
+        $("#navResetButton").css("display", "inline-block");
+    }
 }
 
 // function rainbowColour() {

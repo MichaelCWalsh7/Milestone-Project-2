@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".letter-button-container-genius").css("display", "none");
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
+    $(".enter-delete-buttons").css("display", "none");
     $(".text-input-container").css("display", "none");
     $("#lowerDifficultyArrow").prop("disabled", true);
     $("#lowerDifficultyArrow").css("opacity", ".5");
@@ -60,7 +61,6 @@ function gameScreenDisplay() {
     $(".banner").css("display", "none")
     $(".home-menu-container").css("display", "none")
     $(".game-container").css("display", "block")
-
 
 }
 
@@ -334,6 +334,9 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
         $(`#${difficulty}Button${k + 1}`).text(anagramArray[k]);
     }
 
+
+    // Shows the enter and delete buttons
+    $(".enter-delete-buttons").css("display", "block");
 }
 
 function setVolume() {

@@ -40,6 +40,20 @@ a {
     color: #974958;
 }
 
+/* ************FONTS************ */
+
+.lakki-reddy {
+    font-family: 'Lakki Reddy', cursive;
+}
+
+.hind-siliguri {
+    font-family: 'Hind Siliguri', sans-serif;
+}
+
+.pt-sans {
+    font-family: 'PT Sans', sans-serif;
+}
+
 /* ************NAVBAR************ */
 
 #navbarLink,

@@ -4,6 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Lakki+Reddy&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/7d4a87edd3.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -51,7 +56,8 @@
                         <li class="ui-difficulty-display">Letters: <span id="settingsLetters">12</span></li>
                         <li class="ui-difficulty-display">Points: <span id="settingsScore">20</span></li>
                         <li class="ui-difficulty-display">Time: <span id="settingsTimer">4:00</span></li>
-                        <li class="ui-difficulty-display"><span id="settingsConsonants">Certain consonants are excluded: J, Q, X & Z</span></li>
+                        <li class="ui-difficulty-display"><span id="settingsConsonants">Certain consonants are excluded:
+                                J, Q, X & Z</span></li>
                     </ul>
                 </div>
             </div>
@@ -60,29 +66,27 @@
 
     <section>
         <div class="banner">
-            <p>Test your skills with Anagrammer!</p>
+            <p>Make as many words as you can with the random letters provided!</p>
         </div>
     </section>
 
     <section>
         <div class="home-menu-container">
             <div class="instructions">
-                <p id="instructionsGist">Make as many words as you can with the random letters provided!</p>
 
-                <p id="instructionsWarning">BUT BE CAREFUL!</p>
+                <p id="instructionsWarning">RULES:</p>
 
                 <ul id="instructionsList">
                     <li>Words must be at least 3 letters long</li>
                     <li>Words must appear in the dictionary</li>
-                    <li>5 strikes and you're out!</li>
-                    <li>Words over 7 letters long will earn you a bonus life!</li>
+                    <li>5 lives for wrong guesses</li>
+                    <li>Words 7 letters long or over will earn you a bonus life!</li>
                     <!-- <li>And... the clock is ticking!! <span><i class="fas fa-stopwatch"></i></span></li> -->
                 </ul>
 
             </div>
             <div class="menu-buttons">
                 <button id="playButton">Play</button>
-                <button id="difficultyButton">Difficulty: <span><i class="fas fa-caret-down"></i></span> </button>
                 <button id="settingsButton">Settings</button>
             </div>
         </div>

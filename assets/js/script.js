@@ -159,6 +159,7 @@ function displayGeniusDifficulty() {
     $("#settingsLetters").text("9");
     $("#settingsScore").text("25");
     $("#settingsTimer").text("3:15");
+    $("#settingsConsonants").text("All consonants are allowed");
 }
 
 function difficultyTracker() {

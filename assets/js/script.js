@@ -278,6 +278,7 @@ function gameStart(score) {
     $("#message").text("");
 
     // Ensures only the correct elements are being displayed.
+    $("#navResetButton").css("display", "none");
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");
     $(".game-container").css("display", "block");

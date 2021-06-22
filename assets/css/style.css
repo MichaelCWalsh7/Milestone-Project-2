@@ -429,10 +429,6 @@ td {
     letter-spacing: 5px;
 }
 
-/* .enter-delete-buttons {
-
-} */
-
 .enter-delete-buttons button {
     font-size: 23px;
     color: white;
@@ -452,13 +448,13 @@ td {
     background-color: #ff0000;
     display: inline;
     float: right;
-    margin: 4px;
-    margin-top: 8px;
+    margin: 3px;
+    margin-top: 3px;
     margin-right: 0;
 }
 
 .fa-backspace {
-    font-size: 21px;
+    font-size: 26px;
 }
 
 .letters-container {
@@ -537,6 +533,8 @@ td {
     color: aqua;
     background-color: crimson;
 }
+
+/* ************MEDIA QUERIES************ */
 
 @media(min-width: 600px) {
     #instructionsList {

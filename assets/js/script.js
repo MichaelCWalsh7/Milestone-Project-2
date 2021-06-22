@@ -151,6 +151,7 @@ function displayHardDifficulty() {
     $("#settingsLetters").text("10");
     $("#settingsScore").text("25");
     $("#settingsTimer").text("3:30");
+    $("#settingsConsonants").text("All consonants are allowed")
 }
 
 function displayGeniusDifficulty() {

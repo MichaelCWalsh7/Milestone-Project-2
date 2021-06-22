@@ -346,7 +346,7 @@ function setVolume() {
 function rangeGradientSet(sliderValue) {
     // Sets the gradient colour of the slider to the same as the range value
     $("#volumeSlider").css("background",
-        `linear-gradient(90deg, rgb(33, 150, 243) ${sliderValue}%, rgb(214, 214, 214) ${sliderValue}%)`)
+        `linear-gradient(90deg, rgb(0, 51, 102) ${sliderValue}%, rgb(166, 171, 189) ${sliderValue}%)`)
 
     // Calls a function to change the audio volume
     // VolumeSet(sliderValue);

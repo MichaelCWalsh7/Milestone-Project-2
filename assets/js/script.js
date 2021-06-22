@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".letter-button-container-medium").css("display", "none");
     $(".letter-button-container-hard").css("display", "none");
     $(".letter-button-container-genius").css("display", "none");
-    // $("#navResetButton").css("display", "none");
+    $("#navResetButton").css("display", "none");
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
     $(".enter-delete-buttons").css("display", "none");
@@ -278,7 +278,7 @@ function gameStart(score) {
     $("#message").text("");
 
     // Ensures only the correct elements are being displayed.
-    // $("#navResetButton").css("display", "none");
+    $("#navResetButton").css("display", "none");
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");
     $(".game-container").css("display", "block");

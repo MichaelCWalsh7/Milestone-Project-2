@@ -272,10 +272,21 @@ input:checked+.slider:before {
 #instructionsList {
     font-size: 17px;
     line-height: 1.8;
-    text-align: left;
     padding-left: 28px;
     color: white;
+    display: table;
+    margin: 0 auto;
+   
 }
+
+#instructionsList li {
+    text-align: left;
+}
+
+/* [class^="bi-"]::before, [class*=" bi-"]::before {
+    font-size: 12px;
+    color: #D6A419;
+} */
 
 .menu-buttons {
     margin-top: 20px;
@@ -426,7 +437,7 @@ td {
     font-size: 23px;
     color: white;
     display: inline;
-    
+
 }
 
 #enterButton {
@@ -507,6 +518,7 @@ td {
 .bad-luck img {
     width: 80%;
     max-height: 70vh;
+    margin-top: 10px;
 }
 
 .bad-luck p {
@@ -524,4 +536,10 @@ td {
     padding: 14px;
     color: aqua;
     background-color: crimson;
+}
+
+@media(min-width: 600px) {
+    #instructionsList {
+        text-align: center;
+    }
 }

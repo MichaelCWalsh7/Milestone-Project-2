@@ -268,7 +268,7 @@ function gameStart(score) {
 
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");
-    $("#currentWrong").text("0");
+    $("#livesLeft").text("5");
     // Resets the error/success message div
     $("#message").text("");
 

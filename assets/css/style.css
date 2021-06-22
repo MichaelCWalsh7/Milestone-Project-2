@@ -276,7 +276,7 @@ input:checked+.slider:before {
     color: white;
     display: table;
     margin: 0 auto;
-   
+
 }
 
 #instructionsList li {
@@ -289,7 +289,7 @@ input:checked+.slider:before {
 } */
 
 .menu-buttons {
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .menu-buttons button {
@@ -541,5 +541,23 @@ td {
 @media(min-width: 600px) {
     #instructionsList {
         text-align: center;
+    }
+}
+
+@media(max-width: 300px) {
+    .menu-buttons {
+        margin-top: 25px;
+    }
+}
+
+@media(min-width: 576px) {
+    .menu-buttons {
+        margin-top: 75px;
+    }
+}
+
+@media(min-width: 992px) {
+    .menu-buttons {
+        margin-top: 100px;
     }
 }

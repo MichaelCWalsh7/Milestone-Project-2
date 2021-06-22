@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $(".letter-button-container-medium").css("display", "none");
     $(".letter-button-container-hard").css("display", "none");
     $(".letter-button-container-genius").css("display", "none");
-    $("#navResetButton").css("display", "none");
+    // $("#navResetButton").css("display", "none");
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
     $(".enter-delete-buttons").css("display", "none");
@@ -278,7 +278,7 @@ function gameStart(score) {
     $("#message").text("");
 
     // Ensures only the correct elements are being displayed.
-    $("#navResetButton").css("display", "none");
+    // $("#navResetButton").css("display", "none");
     $(".ready-button").css("display", "none");
     $(".text-input-container").css("display", "block");
     $(".game-container").css("display", "block");
@@ -479,18 +479,24 @@ function validWordCheck(userInput) {
 function abbreviationCheck(apiData, userInput) {
     /* Initializes a variable to check how many times "abbreviation" occurs
     in the response text. */
-    let aCount = 0;
+    let abbreviationCount = 0;
+    let definitionCount = 1;
 
     /* Checks if the word entered has any definitions that constitute as an abbreviation
     and stores the number of these in the previously initialized variable. */
     if (apiData.includes("abbreviation")) {
-        aCount = apiData.match(/abbreviation/g).length;
+        abbreviationCount = apiData.match(/abbreviation/g).length;
+    }
+
+    // Checks that the 'partOfSpeech' tag appear to avoid breaking the game
+    if (apiData.includes("partOfSpeech")) {
+        definitionCount = apiData.match(/partOfSpeech/g).length
     }
 
     /* Checks if the number of abbreviative definitions a word has is equal to the number 
     of definitions it has in general. This way, the user is not punished if they input a 
     word that exists in the dictionary, but also has an abbreviative definition.*/
-    if (aCount == apiData.match(/partOfSpeech/g).length) {
+    if (abbreviationCount == definitionCount) {
         // Informs the user when a word has only abbreviative definitions.
         $("#message").css("color", "#FF7900").text("Sorry, no abbreviations allowed.");
         clearInput();

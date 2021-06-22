@@ -227,7 +227,7 @@ input:checked+.slider:before {
 
 .banner {
     background-color: #61172B;
-    color: white;
+    color: #3cb371;
     text-align: center;
     font-size: 27px;
     line-height: 1.1;
@@ -254,9 +254,9 @@ input:checked+.slider:before {
 }
 
 #instructionsWarning {
-    font-size: 20px;
-    color: #ff0000;
-    font-weight: 800;
+    font-size: 24px;
+    color: #FF0009;
+    font-weight: 600;
     text-decoration: underline;
     margin-top: 15px;
     margin-bottom: 15px;
@@ -264,9 +264,10 @@ input:checked+.slider:before {
 
 #instructionsList {
     font-size: 17px;
-    line-height: 1.4;
+    line-height: 1.8;
     text-align: left;
-    padding-left: 52px;
+    padding-left: 28px;
+    color: white;
 }
 
 .menu-buttons {

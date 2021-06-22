@@ -256,7 +256,7 @@ function letterButtonHide() {
 function gameStart(score) {
 
     // Clears the table of words in the event that the user has started the game from the game over screen
-    for (var x = 0; x <= 20; x++) {
+    for (var x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
     }
 

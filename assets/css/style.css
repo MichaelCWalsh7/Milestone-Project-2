@@ -75,7 +75,8 @@ a {
 }
 
 .fa-info-circle,
-.fa-cog {
+.fa-cog,
+.bi-arrow-counterclockwise {
     font-size: 25px;
     padding-right: 12px;
 }

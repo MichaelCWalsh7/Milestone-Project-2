@@ -319,7 +319,7 @@ input:checked+.slider:before {
 
 .score-container {
     font-size: inherit;
-    width: 90%;
+    width: 96%;
 }
 
 .timer-container {
@@ -364,7 +364,6 @@ input:checked+.slider:before {
 #lives {
     float: right;
     color: #ff0000;
-    margin-right: -15px;
 }
 
 .words-blackboard {

@@ -366,7 +366,7 @@ input:checked+.slider:before {
     background-color: black;
     color: white;
     min-height: 125px;
-    margin-bottom: 30px;
+    margin-bottom: 6px;
 }
 
 .words-blackboard table {
@@ -385,7 +385,6 @@ td {
 
 .message-container p {
     margin: 0;
-    padding-top: 7px;
 }
 
 
@@ -396,6 +395,7 @@ td {
     margin: 7px;
     text-align: center;
     min-height: 43px;
+    margin-top: 2px;
 }
 
 .ready-button {
@@ -453,7 +453,6 @@ td {
 .letters-container {
     margin-left: 25px;
     margin-right: 25px;
-    margin-top: 30px;
 }
 
 .letter-button {

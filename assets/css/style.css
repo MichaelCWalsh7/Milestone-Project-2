@@ -319,7 +319,9 @@ input:checked+.slider:before {
 
 .score-container {
     font-size: inherit;
-    width: 96%;
+    width: 100%;
+    padding-left: 17px;
+    padding-right: 17px;
 }
 
 .timer-container {
@@ -341,7 +343,6 @@ input:checked+.slider:before {
 }
 
 .score-container p {
-    margin-left: 7px;
     display: inline-block;
 }
 
@@ -358,7 +359,6 @@ input:checked+.slider:before {
 
 #Score {
     color: #04A136;
-    padding-left: 12px;
 
 }
 

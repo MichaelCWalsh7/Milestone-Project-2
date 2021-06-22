@@ -92,6 +92,8 @@ a {
 
 .offcanvas-end {
     width: 250px;
+    /* DEVNOTE: subject to change will need media queries
+    Could also be modified using JavaScript?? */
 }
 
 #settingsList {
@@ -224,13 +226,14 @@ input:checked+.slider:before {
 /* ************HOME SCREEN************ */
 
 .banner {
-    background-color: #fc46aa;
+    background-color: #61172B;
     color: white;
     text-align: center;
-    font-size: 25px;
+    font-size: 27px;
     line-height: 1.1;
     margin: 3px;
     border: 1px solid black;
+    margin-top: 24px;
 }
 
 .banner p {

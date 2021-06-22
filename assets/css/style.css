@@ -418,15 +418,14 @@ td {
     letter-spacing: 5px;
 }
 
-.enter-delete-buttons {
-    margin-left: 30px;
-    padding-left: 16px;
-}
+/* .enter-delete-buttons {
+    margin-left: 2%;
+} */
 
 .enter-delete-buttons button {
     font-size: 23px;
-    margin-left: 15px;
     color: white;
+    display: inline;
 }
 
 #enterButton {

@@ -419,13 +419,14 @@ td {
 }
 
 /* .enter-delete-buttons {
-    margin-left: 2%;
+
 } */
 
 .enter-delete-buttons button {
     font-size: 23px;
     color: white;
     display: inline;
+    
 }
 
 #enterButton {

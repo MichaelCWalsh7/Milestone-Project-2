@@ -489,7 +489,8 @@ td {
     margin-right: 0;
 }
 
-.letter-button-container-hard .row button {
+.letter-button-container-hard .row button,
+.letter-button-container-genius .row button {
     max-width: 225px;
 }
 

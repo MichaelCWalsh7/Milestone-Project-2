@@ -743,7 +743,7 @@ function gameLose() {
 function playSound(sound) {
     // Initializes a variable to check if sound is turned on
     let soundOn = false;    
-    if ($("#muteButton").prop("checked", true)) {
+    if (document.getElementById('muteButton').checked == true) {
         soundOn = true
     } 
 

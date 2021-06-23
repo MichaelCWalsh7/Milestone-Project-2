@@ -187,10 +187,10 @@ function difficultyTracker() {
     } else if (difficulty == "Medium") {
         // Calls a function to initialise the game in Medium mode
         initMediumDifficulty();
-    } else if(difficulty == "Hard") {
+    } else if (difficulty == "Hard") {
         // Calls a function to initialise the game in Hard mode
         initHardDifficulty();
-    } else if (difficulty =="Genius") {
+    } else if (difficulty == "Genius") {
         // Calls a function to initialise the game in Genius mode
         initGeniusDifficulty();
     }
@@ -296,9 +296,11 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
 
     const vowels = ['A', 'E', 'I', 'O', 'U'];
     const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'L', 'M', 'N',
-     'P', 'R', 'S', 'T', 'V', 'W', 'Y'];
-    const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 
-    'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
+        'P', 'R', 'S', 'T', 'V', 'W', 'Y'
+    ];
+    const consonantsHard = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M',
+        'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'
+    ];
 
     // Initialises block scope variables needed to succinctly generate an anagram. 
     let anagramArray = [];
@@ -318,12 +320,12 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     if (difficulty == "Easy" || difficulty == "Medium") {
         consonants = consonantsEasy;
     } else if (difficulty == "Hard" || difficulty == "Genius") {
-        consonants = consonantsHard;        
+        consonants = consonantsHard;
     }
     // Generates a number of random non-repeating consonants
     while (consonantsUsed.length < consonantNumber) {
         let consonantIndexer = Math.floor(Math.random() * consonants.length);
-        if (consonantsUsed.includes(consonants[consonantIndexer]) === false ) {
+        if (consonantsUsed.includes(consonants[consonantIndexer]) === false) {
             consonantsUsed.push(consonants[consonantIndexer])
         }
     }
@@ -565,10 +567,11 @@ function lifeGain(userInput) {
 
 function lifeGainMessage() {
     // 
-    let bonusMessages = ["Nice! You earned a life!", "Great job! Have a bonus life!", 
-        "Good spot, that got you a new life!", "Very impressive!! +1 lives!", 
-        "Excellent vocab, here's a bonus life!!", 
-        "*low whistle* One more life for that one!!"]
+    let bonusMessages = ["Nice! You earned a life!", "Great job! Have a bonus life!",
+        "Good spot, that got you a new life!", "Very impressive!! +1 lives!",
+        "Excellent vocab, here's a bonus life!!",
+        "*low whistle* One more life for that one!!"
+    ]
 
     // Generates a random number between zero and 5
     let x = Math.floor(Math.random() * 5);
@@ -635,14 +638,14 @@ function wordFail() {
         wrongMessagePicker();
     }
 
+
     // Increments incorrect answers counter
     incorrectIncremenet(newLives);
 
     // Flashes buttons pressed a red colour to immediately inform the user that word doesn't exist.
     // colourchangeRed();
 
-    // Plays failure sound if sounds are enabled.
-    wordFailSound();
+
 
     // Reactivates buttons & clears the text input
     clearInput();
@@ -730,6 +733,9 @@ function incorrectIncremenet(newLives) {
     // Checks if user has lost
     if (newLives == 0) {
         gameLose();
+    } else {
+        // Plays failure sound if sounds are enabled.
+        wordFailSound();
     }
 }
 
@@ -738,14 +744,17 @@ function gameLose() {
     // Changes the game screen to the game defeat screen
     $(".game-container").css("display", "none");
     $(".game-lose-screen").css("display", "block");
+
+    // Plays a failure sting if sounds are enabled
+    gameOverSound();
 }
 
 function playSound(sound) {
     // Initializes a variable to check if sound is turned on
-    let soundOn = false;    
+    let soundOn = false;
     if (document.getElementById('muteButton').checked == true) {
         soundOn = true
-    } 
+    }
 
     // Checks if sound is turned on
     if (soundOn == true) {
@@ -796,7 +805,7 @@ function wordSuccessSound() {
 
 function wordFailSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/wrong-word-sting.mp3');
+    sound = new Audio('assets/sounds/wrong-word.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -805,6 +814,14 @@ function wordFailSound() {
 function lifeGainSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
     sound = new Audio('assets/sounds/life-gain.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function gameOverSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/game-over.mp3');
 
     // Calls the playSound function
     playSound(sound);

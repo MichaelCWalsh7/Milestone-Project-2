@@ -641,8 +641,8 @@ function wordFail() {
     // Flashes buttons pressed a red colour to immediately inform the user that word doesn't exist.
     // colourchangeRed();
 
-    // Plays failure sting/sound if audio is enabled.
-    // failureSting.play();
+    // Plays failure sound if sounds are enabled.
+    wordFailSound();
 
     // Reactivates buttons & clears the text input
     clearInput();
@@ -789,6 +789,14 @@ function unmuteSound() {
 function wordSuccessSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
     sound = new Audio('assets/sounds/correct-word.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function wordFailSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/wrong-word.mp3');
 
     // Calls the playSound function
     playSound(sound);

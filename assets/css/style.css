@@ -56,6 +56,10 @@ a {
     font-family: 'PT Sans', sans-serif;
 }
 
+.benne {
+    font-family: 'Benne', serif;
+}
+
 /* ************NAVBAR************ */
 #navbarLink {
     font-size: 25px;
@@ -445,6 +449,90 @@ td {
     letter-spacing: 5px;
     padding-left: 10px;
     color: white;
+    padding-right: 0;
+}
+
+#cursorContainer {
+    float: left;
+    margin: 0;
+    font-size: 25px;
+    letter-spacing: 5px;
+    color: white;
+}
+/* THE FOLLOWING BLINKING CURSOR CODE WAS TAKEN FROM
+https://codepen.io/ArtemGordinsky/pen/GnLBq */
+
+.blinking-cursor {
+    font-weight: 100;
+    font-size: 25px;
+    padding-left: 5px;
+    letter-spacing: 5px;
+    color: white;
+    -webkit-animation: 1s blink step-end infinite;
+    -moz-animation: 1s blink step-end infinite;
+    -ms-animation: 1s blink step-end infinite;
+    -o-animation: 1s blink step-end infinite;
+    animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+}
+
+@-moz-keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+}
+
+@-webkit-keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+}
+
+@-ms-keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+}
+
+@-o-keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
 }
 
 .enter-delete-buttons button {
@@ -570,6 +658,7 @@ td {
     #instructionsWarning {
         margin-top: 50px;
     }
+
     .enter-delete-buttons {
         margin-top: 50px;
     }

@@ -26,7 +26,7 @@ $("#navResetButton").on("click", difficultyTracker);
 $("#settingsResetButton").on("click", difficultyTracker);
 $("#settingsResetButton").on("click", gameScreenDisplay);
 $(".back-to-game").on("click", difficultyTracker);
-// $("#muteButton").on("change", unmuteSound);
+$("#muteButton").on("change", unmuteSound);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
 $("#increaseDifficultyArrow").on("click", increaseDifficulty);

@@ -342,7 +342,7 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
 
 
     // Shows the enter and delete buttons
-    $(".enter-delete-buttons").css("display", "block");
+    $(".enter-delete-buttons").css("display", "flex");
 }
 
 function setVolume() {

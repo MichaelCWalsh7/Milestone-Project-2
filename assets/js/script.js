@@ -542,10 +542,6 @@ function wordSuccess(userInput) {
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
 
-    // Plays successful word sound if audio is enabled.
-    wordSuccessSound();
-
-
 
 }
 
@@ -698,6 +694,9 @@ function clearInput() {
 
 function gameWin() {
 
+    // Plays success audio if sounds are enabled
+    gameWinSound();
+
     // Changes the game screen to the game victory screen
     $(".game-container").css("display", "none");
     $(".game-win-screen").css("display", "block");
@@ -722,6 +721,9 @@ function scoreIncrement() {
     let maxScore = parseInt($("#maxScore").text())
     if (newScore == maxScore) {
         gameWin();
+    } else {
+        // Plays successful word sound if audio is enabled.
+        wordSuccessSound();
     }
 }
 
@@ -822,6 +824,14 @@ function lifeGainSound() {
 function gameOverSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
     sound = new Audio('assets/sounds/game-over.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function gameWinSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/game-win.mp3');
 
     // Calls the playSound function
     playSound(sound);

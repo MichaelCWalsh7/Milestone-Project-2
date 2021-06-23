@@ -796,7 +796,7 @@ function wordSuccessSound() {
 
 function wordFailSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/wrong-word.mp3');
+    sound = new Audio('assets/sounds/wrong-word-sting.mp3');
 
     // Calls the playSound function
     playSound(sound);

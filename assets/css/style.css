@@ -418,21 +418,23 @@ td {
     font-size: 16px;
     border: 2px solid orangered;
     margin: 7px;
-    text-align: center;
     min-height: 43px;
     margin-top: 2px;
+    width: 95%;
+    max-width: 600px;
 }
 
 .ready-button {
     min-width: 70%;
     margin: 10px 25%;
     font-size: 20px;
-    text-align: center;
     margin-left: 15%;
     margin-right: 15%;
     padding: 8px;
     background-color: blueviolet;
     color: antiquewhite;
+    width: 95%;
+    max-width: 600px6
 
 }
 
@@ -441,6 +443,7 @@ td {
     margin: 0;
     font-size: 25px;
     letter-spacing: 5px;
+    padding-left: 10px;
 }
 
 .enter-delete-buttons button {

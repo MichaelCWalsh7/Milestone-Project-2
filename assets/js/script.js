@@ -26,6 +26,7 @@ $("#navResetButton").on("click", difficultyTracker);
 $("#settingsResetButton").on("click", difficultyTracker);
 $("#settingsResetButton").on("click", gameScreenDisplay);
 $(".back-to-game").on("click", difficultyTracker);
+// $("#muteButton").on("change", unmuteSound);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
 $("#increaseDifficultyArrow").on("click", increaseDifficulty);
@@ -552,10 +553,13 @@ function lifeGain(userInput) {
     // Initializes variables to increment the life counter
     let lives = parseInt($("#livesLeft").text());
     // Gives the user an extra life if their word is longer than 7 letters
-    if (difficulty != "Genius" && userInput.length > 6) {
+    if (difficulty != "Genius" && userInput.length > 3) {
         // Increments the life counter
         $("#livesLeft").text(`${lives + 1}`)
+        // Informs the user they've gained a life
         lifeGainMessage();
+        // Plays the life gain sound if sounds are enabled
+        lifeGainSound();
     }
 }
 
@@ -769,6 +773,22 @@ function deleteButtonSound() {
 function clearButtonSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
     sound = new Audio('assets/sounds/clear-button.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function unmuteSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/sound-on.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function lifeGainSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/life-gain.mp3');
 
     // Calls the playSound function
     playSound(sound);

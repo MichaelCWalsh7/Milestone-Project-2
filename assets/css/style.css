@@ -467,7 +467,6 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
 .blinking-cursor {
     font-weight: 100;
     font-size: 25px;
-    padding-left: 5px;
     letter-spacing: 5px;
     color: white;
     -webkit-animation: 1s blink step-end infinite;

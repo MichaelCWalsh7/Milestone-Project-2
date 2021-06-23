@@ -566,6 +566,9 @@ td {
     #instructionsWarning {
         margin-top: 50px;
     }
+    .enter-delete-buttons {
+        margin-top: 50px;
+    }
 }
 
 @media(min-width: 576px) {
@@ -587,6 +590,8 @@ td {
     }
 }
 
-/* @media(min-width: 1200px) {
-    
-} */
+@media(min-width: 1024px) {
+    .enter-delete-buttons {
+        margin-top: 50px;
+    }
+}

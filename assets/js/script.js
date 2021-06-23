@@ -384,6 +384,9 @@ function deleteLetter() {
     anagramString = anagramStringToModify.replace(/,/g, "");
     $("#textInput").text(`${anagramString}`);
 
+    // Play a sound if sounds are enabled
+    deleteButtonSound();
+
 }
 
 
@@ -748,7 +751,23 @@ function playSound(sound) {
 
 function letterButtonSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/letter-button.mp3')
+    sound = new Audio('assets/sounds/letter-button.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function deleteButtonSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/delete-button.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function clearButtonSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/clear-button.mp3');
 
     // Calls the playSound function
     playSound(sound);

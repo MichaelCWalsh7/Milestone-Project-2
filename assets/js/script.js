@@ -55,6 +55,9 @@ $(".letter-button").on("click", function () {
     var l = newTextDisplay.length;
     $(`#${inputId}`).addClass(`button-pressed-${l}`);
 
+    // Plays the letter button sound if sounds are enabled
+    letterButtonSound();
+
 
 })
 //  --------FUNCTIONS:
@@ -727,4 +730,26 @@ function gameLose() {
     // Changes the game screen to the game defeat screen
     $(".game-container").css("display", "none");
     $(".game-lose-screen").css("display", "block");
+}
+
+function playSound(sound) {
+    // Initializes a variable to check if sound is turned on
+    let soundOn = false;    
+    if ($("#muteButton").prop("checked", true)) {
+        soundOn = true
+    } 
+
+    // Checks if sound is turned on
+    if (soundOn == true) {
+        // If so, plays the appropriate sound
+        sound.play();
+    }
+}
+
+function letterButtonSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/letter-button.mp3')
+
+    // Calls the playSound function
+    playSound(sound);
 }

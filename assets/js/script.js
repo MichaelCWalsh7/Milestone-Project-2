@@ -540,8 +540,8 @@ function wordSuccess(userInput) {
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
 
-    // Plays successful word sting/sound if audio is enabled.
-    // successSting.play();
+    // Plays successful word sound if audio is enabled.
+    wordSuccessSound();
 
 
 
@@ -553,7 +553,7 @@ function lifeGain(userInput) {
     // Initializes variables to increment the life counter
     let lives = parseInt($("#livesLeft").text());
     // Gives the user an extra life if their word is longer than 7 letters
-    if (difficulty != "Genius" && userInput.length > 3) {
+    if (difficulty != "Genius" && userInput.length > 6) {
         // Increments the life counter
         $("#livesLeft").text(`${lives + 1}`)
         // Informs the user they've gained a life
@@ -781,6 +781,14 @@ function clearButtonSound() {
 function unmuteSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
     sound = new Audio('assets/sounds/sound-on.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function wordSuccessSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/correct-word.mp3');
 
     // Calls the playSound function
     playSound(sound);

@@ -468,7 +468,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     font-weight: 100;
     font-size: 25px;
     letter-spacing: 5px;
-    color: white;
+    color: #D6A419;
     -webkit-animation: 1s blink step-end infinite;
     -moz-animation: 1s blink step-end infinite;
     -ms-animation: 1s blink step-end infinite;
@@ -484,7 +484,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     50% {
-        color: white;
+        color: #D6A419;
     }
 }
 
@@ -496,7 +496,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     50% {
-        color: white;
+        color: #D6A419;
     }
 }
 
@@ -508,7 +508,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     50% {
-        color: white;
+        color: #D6A419;
     }
 }
 
@@ -520,7 +520,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     50% {
-        color: white;
+        color: #D6A419;
     }
 }
 
@@ -532,7 +532,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     50% {
-        color: white;
+        color: #D6A419;
     }
 }
 

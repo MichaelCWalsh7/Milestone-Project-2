@@ -414,6 +414,7 @@ td {
 
 .message-container p {
     margin: 0;
+    font-weight: 700;
 }
 
 
@@ -459,6 +460,7 @@ td {
     letter-spacing: 5px;
     color: white;
 }
+
 /* THE FOLLOWING BLINKING CURSOR CODE WAS TAKEN FROM
 https://codepen.io/ArtemGordinsky/pen/GnLBq */
 

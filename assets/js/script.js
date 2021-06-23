@@ -20,6 +20,7 @@ $("#playButton").on("click", gameScreenDisplay);
 $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
+$("#clearButton").on("click", clearButtonSound);
 $(".ready-button").on("click", difficultyTracker);
 $("#navResetButton").on("click", difficultyTracker);
 $("#settingsResetButton").on("click", difficultyTracker);

@@ -489,21 +489,9 @@ td {
     margin-right: 0;
 }
 
-/* #mediumButton1,
-#mediumButton2,
-#mediumButton3,
-#hardButton1,
-#hardButton2 {
-    width: 20%;
-} */
-
-/* #mediumButton1 {
-    margin-left: 19%;
+.letter-button-container-hard .row button {
+    max-width: 225px;
 }
-
-#hardButton1 {
-    margin-left: 30%;
-} */
 
 .congratulations {
     margin-top: 150px;

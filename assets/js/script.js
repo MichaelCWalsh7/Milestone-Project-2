@@ -534,7 +534,7 @@ function wordSuccess(userInput) {
     lifeGain(userInput);
 
     // Increments score counter
-    scoreIncrement();
+    scoreIncrement(userInput);
 
     // Activates the reset button
     navResetAllow();
@@ -710,17 +710,25 @@ function messageFadeRed() {
 
 }
 
-function scoreIncrement() {
+function scoreIncrement(userInput) {
 
     // Increments score
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
     $("#currentScore").text(`${newScore}`)
 
+    // Initializes a variable to check how long the users word was 
+    let userInputLength = userInput.length;
+    let maxPossible = parseInt($("#settingsLetters").text());
+    console.log(userInputLength);
+    console.log(maxPossible);
+
     // Checks if user has won
     let maxScore = parseInt($("#maxScore").text())
     if (newScore == maxScore) {
         gameWin();
+    } else if (userInputLength == maxPossible) {
+        maxWordSound();
     } else {
         // Plays successful word sound if audio is enabled.
         wordSuccessSound();
@@ -832,6 +840,14 @@ function gameOverSound() {
 function gameWinSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
     sound = new Audio('assets/sounds/game-win.mp3');
+
+    // Calls the playSound function
+    playSound(sound);
+}
+
+function maxWordSound() {
+    // Initiliazes the correct sound file as a variable for the playSound function
+    sound = new Audio('assets/sounds/max-word.mp3');
 
     // Calls the playSound function
     playSound(sound);

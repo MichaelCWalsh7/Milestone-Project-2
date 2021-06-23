@@ -690,3 +690,10 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
         margin-top: 50px;
     }
 }
+
+@media(min-width: 1400px) {
+    .words-blackboard {
+        margin-bottom: 100px;
+        min-height: 200px;
+    }
+}

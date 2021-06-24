@@ -446,9 +446,10 @@ function wordValidator(userInput) {
         // Prompts the user to enter a longer word
         errorMessage = "Words must be at least three letters long."
         invalidWord(errorMessage);
-        // Checks if the word exists in the dictionary
+        // Checks if the API must be called to proceed
     } else {
-        validWordCheck(userInput);
+        noApiCheck(userInput);
+        // validWordCheck(userInput);
     }
 }
 
@@ -462,6 +463,32 @@ function invalidWord(errorMessage) {
 
     // Resets the buttons so the user doesn't have to manually do so
     clearInput();
+}
+
+function noApiCheck(userInput) {
+    // Initializes an array of words that the API mistakenly does not accept
+    let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
+    " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY "]
+    // Initializes variables to check if the word is already present in local storage
+    let localWords = localStorage;
+    let localArray = Object.values(localWords);
+
+    // Initializes two booleans that check if the word meets the specified conditions
+    let wordLocallyPresent = localArray.includes(`${userInput}`);
+    let errorWordSuccess = errorWords.includes(` ${userInput} `);
+
+    if (errorWordSuccess) {
+        wordSuccess(userInput);
+        // DEV CODE PLEASE DELETE**********
+        console.log("No API was called as this is an 'error word'");
+    } else if (wordLocallyPresent) {
+        wordSuccess(userInput);
+        // DEV CODE PLEASE DELETE**********
+        console.log("No API was called as this word was locally stored");
+    } else {
+        // If the word does NOT meet the requirements the API is called to analyze the word
+        validWordCheck(userInput);
+    }
 }
 
 function validWordCheck(userInput) {
@@ -498,7 +525,7 @@ function abbreviationCheck(apiData, userInput) {
         abbreviationCount = apiData.match(/abbreviation/g).length;
     }
 
-    // Checks that the 'partOfSpeech' tag appear to avoid breaking the game
+    // Checks that the 'partOfSpeech' tag appears to avoid breaking the game
     if (apiData.includes("partOfSpeech")) {
         definitionCount = apiData.match(/partOfSpeech/g).length
     }
@@ -539,7 +566,7 @@ function wordSuccess(userInput) {
     // Activates the reset button
     navResetAllow();
 
-    // Adds the word to local storage
+    // Checks if the word can be added to local storage
     storageInit(userInput);
 
     // Informs user of their success by flashing pushed buttons a green colour
@@ -572,9 +599,9 @@ function storageCheck(userInput, localWords) {
     // Checks if the word has been locally stored already
     if (wordLocallyPresent == false) {
         wordStore(userInput, localWords);
-    } else {
+    } else if (wordLocallyPresent) {
         // THIS IS DEV TESTING AND SHOULD BE REMOVED AT A LATER DATE**********************
-        console.log("Word is locally present.")
+        console.log("Word is locally present.");
     }
 }
 

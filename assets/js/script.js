@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //  --------Event Listeners:
 
 $("#playButton").on("click", gameScreenDisplay);
-$("#playButton").on("click", localStorageClear);
+// $("#playButton").on("click", localStorageClear);
 $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
@@ -541,7 +541,7 @@ function wordSuccess(userInput) {
     navResetAllow();
 
     // Adds the word to local storage
-    // storageCheck(userInput);
+    storageCheck(userInput);
 
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
@@ -549,26 +549,31 @@ function wordSuccess(userInput) {
 
 }
 
-// function storageCheck(userInput) {
-//     // Initiates a variable to check if the local storage object exists or not
-//     let localWords = localStorage.getItem("word-1");
+function storageCheck(userInput) {
+    // Initiates a variable to check if the local storage object exists or not
+    let localWordsCheck = localStorage.getItem("word0");
 
-//     // Checks if the local storage object exists
-//     if (localWords == null) {
-//         localStorage.setItem("word-1", `${userInput}`);
-//         console.log("Local storage has been created");
-        
-//     } else {        
-//         wordStore(userInput, localWords);
-//         console.log("The words list isn't empty")
-//     }
+    // Checks if the local storage object exists
+    if (localWordsCheck == null) {
+        localStorage["word0"] = `${userInput}`;
+        console.log("Local storage has been created");
+        localWords = localStorage;        
+    } else { 
+        localWords = localStorage;        
+        wordStore(userInput, localWords);
+        console.log("The words list isn't empty");
+    }
 
-// }
+}
 
-// function wordStore(userInput, localWords) {
-//     console.log("an attempt was made");
-//     console.log(localWords.keys());
-// }
+function wordStore(userInput, localWords) {
+    let localArray = Object.keys(localWords);
+    let newLocalIndex = localArray.length;
+    localWords[`word${newLocalIndex}`] = `${userInput}`;
+    console.log(localWords);
+}
+
+
 
 function lifeGain(userInput) {
     // Initializes a variable to check difficulty
@@ -880,7 +885,7 @@ function maxWordSound() {
     playSound(sound);
 }
 
-function localStorageClear() {
-    localStorage.clear();
-    console.log("Local storage has been cleared")
-}
+// function localStorageClear() {
+//     localStorage.clear();
+//     console.log("Local storage has been cleared")
+// }

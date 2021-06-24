@@ -142,7 +142,7 @@ function displayEasyDifficulty() {
     /* Changes the offcanvas spans to display the correct difficulty
     information */
     $("#settingsLetters").text("12");
-    $("#settingsScore").text("20");
+    $("#settingsScore").text("15");
     $("#settingsTimer").text("4:00");
 }
 
@@ -201,7 +201,7 @@ function initEasyDifficulty() {
     vowelNumber = 4;
     consonantNumber = 8;
     timer = 4;
-    score = 20;
+    score = 15;
     // Loads/removes the correct game screen elements
     gameStart(score);
     $(".letters-container").css("display", "block");
@@ -611,6 +611,8 @@ function wordStore(userInput, localWords) {
     let newLocalIndex = localArray.length;
     // Adds the new word to local storage
     localWords[`word${newLocalIndex}`] = ` ${userInput} `;
+    // THIS IS DEV TESTING AND SHOULD BE REMOVED AT A LATER DATE**********************
+        console.log("Word has been added");
 }
 
 

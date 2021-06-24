@@ -61,12 +61,14 @@ a {
 }
 
 /* ************NAVBAR************ */
-#navbarLink {
+#navbarLink,
+#infoNavbarLink {
     font-size: 25px;
     padding-top: 4px;
 }
 
 #navbarLink,
+#infoNavbarLink,
 #navbarButtons {
     display: inline-block;
     padding-left: 5px;
@@ -91,7 +93,8 @@ a {
     padding-right: 12px;
 }
 
-#navbar {
+#navbar,
+#infoNavbar {
     border-bottom: 2px solid black;
 }
 

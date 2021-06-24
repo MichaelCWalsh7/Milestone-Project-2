@@ -541,7 +541,7 @@ function wordSuccess(userInput) {
     navResetAllow();
 
     // Adds the word to local storage
-    storageCheck(userInput);
+    // storageCheck(userInput);
 
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
@@ -549,23 +549,25 @@ function wordSuccess(userInput) {
 
 }
 
-function storageCheck(userInput) {
-    // Initiates a variable to check if the local storage object exists or not
-    let localWords = localStorage.getItem("words");
+// function storageCheck(userInput) {
+//     // Initiates a variable to check if the local storage object exists or not
+//     let localWords = localStorage.getItem("word-1");
 
-    // Checks if the local storage object exists
-    if (localWords == null) {
-        localStorage.setItem("words", [`${userInput}`]);
-        console.log("Local storage has been created")
-    } else {
-        // wordStore(userInput);
-        console.log("The words list isn't empty")
-    }
+//     // Checks if the local storage object exists
+//     if (localWords == null) {
+//         localStorage.setItem("word-1", `${userInput}`);
+//         console.log("Local storage has been created");
+        
+//     } else {        
+//         wordStore(userInput, localWords);
+//         console.log("The words list isn't empty")
+//     }
 
-}
+// }
 
-// function wordStore(userInput) {
-
+// function wordStore(userInput, localWords) {
+//     console.log("an attempt was made");
+//     console.log(localWords.keys());
 // }
 
 function lifeGain(userInput) {

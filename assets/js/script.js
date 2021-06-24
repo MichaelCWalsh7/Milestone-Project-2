@@ -768,7 +768,11 @@ function playSound(sound) {
 
     // Checks if sound is turned on
     if (soundOn == true) {
-        // If so, plays the appropriate sound
+        // If so, sets the appropriate volume for souns
+        let setVolume = document.getElementById("volumeSlider").value
+        let volume = (setVolume / 100)
+        sound.volume = volume;
+        //  Plays the appropriate sound
         sound.play();
     }
 }

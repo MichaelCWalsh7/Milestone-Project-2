@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 //  --------Event Listeners:
 
 $("#playButton").on("click", gameScreenDisplay);
+$("#playButton").on("click", localStorageClear);
 $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
 $("#clearButton").on("click", clearInput);
@@ -539,11 +540,33 @@ function wordSuccess(userInput) {
     // Activates the reset button
     navResetAllow();
 
+    // Adds the word to local storage
+    storageCheck(userInput);
+
     // Informs user of their success by flashing pushed buttons a green colour
     // colourChangeGreen(); 
 
 
 }
+
+function storageCheck(userInput) {
+    // Initiates a variable to check if the local storage object exists or not
+    let localWords = localStorage.getItem("words");
+
+    // Checks if the local storage object exists
+    if (localWords == null) {
+        localStorage.setItem("words", [`${userInput}`]);
+        console.log("Local storage has been created")
+    } else {
+        // wordStore(userInput);
+        console.log("The words list isn't empty")
+    }
+
+}
+
+// function wordStore(userInput) {
+
+// }
 
 function lifeGain(userInput) {
     // Initializes a variable to check difficulty
@@ -720,8 +743,6 @@ function scoreIncrement(userInput) {
     // Initializes a variable to check how long the users word was 
     let userInputLength = userInput.length;
     let maxPossible = parseInt($("#settingsLetters").text());
-    console.log(userInputLength);
-    console.log(maxPossible);
 
     // Checks if user has won
     let maxScore = parseInt($("#maxScore").text())
@@ -855,4 +876,9 @@ function maxWordSound() {
 
     // Calls the playSound function
     playSound(sound);
+}
+
+function localStorageClear() {
+    localStorage.clear();
+    console.log("Local storage has been cleared")
 }

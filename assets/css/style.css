@@ -678,6 +678,28 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     margin-top: 20px;
 }
 
+/* ************MODAL************ */
+
+.modal-body,
+.modal-header,
+.form-control {
+    background-color: #D6A419 !important;
+    color: #003366 !important;
+}
+
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    background-color: #D6A419 !important;
+    color: #003366 !important;
+} */
+
 /* ************MEDIA QUERIES************ */
 
 /* Small phone screens */
@@ -700,7 +722,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     #instructionsList {
-    font-size: 21px;
+        font-size: 21px;
     }
 
     .enter-delete-buttons {
@@ -735,7 +757,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 
     #instructionsList {
-    font-size: 24px;
+        font-size: 24px;
     }
 }
 

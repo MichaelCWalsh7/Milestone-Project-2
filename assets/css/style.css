@@ -98,6 +98,10 @@ a {
     border-bottom: 2px solid black;
 }
 
+#infoNavbar {
+    text-align: center;
+}
+
 /* ************OFFCANVAS************ */
 
 .offcanvas-end {

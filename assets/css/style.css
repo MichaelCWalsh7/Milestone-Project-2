@@ -644,6 +644,40 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     background-color: crimson;
 }
 
+/* ************INFO PAGE************ */
+
+.about {
+    background-color: white;
+    color: black;
+    margin-top: 22%;
+    padding: 10px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 2px solid #D6A419;
+}
+
+.about p a {
+    color: #D6A419;
+}
+
+.info-button-container {
+    text-align: center;
+}
+
+#getInTouchButton {
+    background-color: #003366;
+    color: #D6A419;
+    font-weight: 700;
+}
+
+#infoBackToHome {
+    background-color: #D6A419;
+    color: #003366;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
 /* ************MEDIA QUERIES************ */
 
 /* Small phone screens */
@@ -687,6 +721,10 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     #instructionsList {
         text-align: center;
     }
+
+    .about {
+        text-align: center;
+    }
 }
 
 /* Large tablets */
@@ -712,6 +750,12 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
 @media(min-width: 1024px) {
     .enter-delete-buttons {
         margin-top: 50px;
+    }
+}
+
+@media(min-width: 1200px) {
+    .about {
+        margin-top: 15%;
     }
 }
 

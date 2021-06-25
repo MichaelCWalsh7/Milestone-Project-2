@@ -295,7 +295,7 @@ input:checked+.slider:before {
 }
 
 #instructionsList {
-    font-size: 17px;
+    font-size: 18px;
     line-height: 1.8;
     padding-left: 28px;
     color: white;
@@ -642,11 +642,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
 
 /* ************MEDIA QUERIES************ */
 
-@media(min-width: 600px) {
-    #instructionsList {
-        text-align: center;
-    }
-}
+/* Small phone screens */
 
 @media(max-width: 300px) {
     .menu-buttons {
@@ -658,15 +654,23 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 }
 
+/* Medium to large phones */
+
 @media(min-width: 414px) {
     #instructionsWarning {
         margin-top: 50px;
+    }
+
+    #instructionsList {
+    font-size: 21px;
     }
 
     .enter-delete-buttons {
         margin-top: 50px;
     }
 }
+
+/* Small tablets */
 
 @media(min-width: 576px) {
     .menu-buttons {
@@ -675,11 +679,25 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 }
 
+@media(min-width: 600px) {
+    #instructionsList {
+        text-align: center;
+    }
+}
+
+/* Large tablets */
+
 @media(min-width: 768px) {
     .menu-buttons {
         margin-top: 100px;
     }
+
+    #instructionsList {
+    font-size: 24px;
+    }
 }
+
+/* Desktops/Laptops */
 
 @media(max-width: 992px) {
     .letter-button-container-medium .row .col-2 {

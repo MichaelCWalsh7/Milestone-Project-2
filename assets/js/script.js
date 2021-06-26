@@ -36,7 +36,7 @@ $(".letter-button").on("click", function findLetter() {
 })
 
 function addLetterToInput(inputId) {
-    console.log(inputId);
+
      // Clears the message area
     $("#message").text("");
     // Initialises a a variable of the letters currently present in the text input. 
@@ -61,9 +61,6 @@ function addLetterToInput(inputId) {
     letterButtonSound();
 }
 
-function addKeyboardPressToInput() {
-    console.log(event.key);
-}
 //  --------FUNCTIONS:
 
 

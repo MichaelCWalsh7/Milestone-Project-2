@@ -30,20 +30,20 @@ $("#muteButton").on("change", unmuteSound);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
 $("#increaseDifficultyArrow").on("click", increaseDifficulty);
+$(".letter-button").on("click", function findLetter() {    
+    let inputId = this.id;
+    addLetterToInput(inputId);   
+})
 
-
-$(".letter-button").on("click", function () {
-
-    // Clears the message area
+function addLetterToInput(inputId) {
+    console.log(inputId);
+     // Clears the message area
     $("#message").text("");
-
-    // CALLBACK POTENTIAL/Needs to be rewritten
-
     // Initialises a a variable of the letters currently present in the text input. 
     let currentLetters = $("#textInput").text();
 
     // Gets the id of the button pushed and it's contents to push to the inputLettersArray
-    let inputId = this.id
+    
 
     // Disables the button to avoid duplicate letters appearing in string. 
     $(`#${inputId}`).prop('disabled', true);
@@ -54,14 +54,16 @@ $(".letter-button").on("click", function () {
     $("#textInput").text(`${newTextDisplay}`);
 
     // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted/deactivated later.
-    var l = newTextDisplay.length;
-    $(`#${inputId}`).addClass(`button-pressed-${l}`);
+    let i = newTextDisplay.length;
+    $(`#${inputId}`).addClass(`button-pressed-${i}`);
 
     // Plays the letter button sound if sounds are enabled
     letterButtonSound();
+}
 
-
-})
+function addKeyboardPressToInput() {
+    console.log(event.key);
+}
 //  --------FUNCTIONS:
 
 
@@ -307,7 +309,6 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     let vowelsUsed = [];
     let consonantsUsed = [];
     let consonants = [];
-    // These variables are arbritarily declared here, but they could be read from a div contained in the settings modal!!
 
     // Generates a number of random non-repeating vowels
     while (vowelsUsed.length < vowelNumber) {
@@ -346,10 +347,28 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     for (var k = 0; k <= anagramArray.length; k++) {
         $(`#${difficulty}Button${k + 1}`).text(anagramArray[k]);
     }
-
-
-    // Shows the enter and delete buttons
+    
+     // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
+
+    keyboardLetterEvent(anagramArray, difficulty);
+}
+
+function keyboardLetterEvent(anagramArray, difficulty) {
+    anagramArray = anagramArray.map(v => v.toLowerCase());
+    $(document).on("keydown", function() {
+        // Finds out what letter has been pressed and initializes it as a variable
+        let buttonPressed = event.key;
+        // Initializes variables to check if letter pressed has already been entered
+        let textInput = $("#textInput").text().toLowerCase();
+        let letterPresent = textInput.includes(buttonPressed)
+
+        if (anagramArray.includes(buttonPressed) && letterPresent == false) {
+            let idNumber = anagramArray.indexOf(buttonPressed);
+            let inputId = `${difficulty}Button${idNumber + 1}`;
+            addLetterToInput(inputId);
+        }
+    } );
 }
 
 function setVolume() {

@@ -682,23 +682,19 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
 
 .modal-body,
 .modal-header,
-.form-control {
+.form-control,
+.modal-footer {
     background-color: #D6A419 !important;
     color: #003366 !important;
 }
 
-/* input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-    background-color: #D6A419 !important;
-    color: #003366 !important;
-} */
+#modalSubmitBtn, #modalCloseBtn {
+    border: 2px solid #D6A419;
+    box-shadow: inset 0px 0px 2px 1px white;
+    background-color: #003366;
+    color: #D6A419;
+}
+
 
 /* ************MEDIA QUERIES************ */
 

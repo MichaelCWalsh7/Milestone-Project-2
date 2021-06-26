@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     $("#navResetButton").css("display", "none");
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
+    $(".bad-luck").css("display", "none");
     $(".enter-delete-buttons").css("display", "none");
     $(".text-input-container").css("display", "none");
     $("#lowerDifficultyArrow").prop("disabled", true);
@@ -860,12 +861,39 @@ function gameLose() {
 
     turnOffListeners();
 
-    // Changes the game screen to the game defeat screen
+    // Removes the game screen to prepare the game over screen
     $(".game-container").css("display", "none");
-    $(".game-lose-screen").css("display", "block");
+    // Dictates what type of image and message the player gets on game over
+    gameLossImageSelect();
+    
 
     // Plays a failure sting if sounds are enabled
     gameOverSound();
+}
+
+function gameLossImageSelect() {
+    // Displays the game lose screen container
+    $(".game-lose-screen").css("display", "block");
+    // Initializes variables to check what type of game over screen the user has incurred
+    let currentScore = parseInt($("#currentScore").text());
+    let maxScore = parseInt($("maxScore").text());
+
+    // DEV NOTE ******* THIS COULD BE A SWITCH STATEMENT?
+    if (currentScore == 0) {
+        $(".0-fail").css("display", "block");
+    } else if (currentScore == maxScore - 1) {
+        $(".1-away-fail").css("display", "block");
+    } else if (currentScore < 6) {
+        $(".1-5-fail").css("display", "block");
+    } else if (currentScore < 11) {
+        $(".6-10-fail").css("display", "block");
+    } else if (currentScore < 16) {
+        $(".11-15-fail").css("display", "block");
+    } else if (currentScore < 21) {
+        $(".16-20-fail").css("display", "block");
+    } else if (currentScore < 24) {
+        $(".21-24-fail").css("display", "block");
+    }
 }
 
 function playSound(sound) {

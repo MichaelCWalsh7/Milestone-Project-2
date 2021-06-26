@@ -203,7 +203,7 @@ function initEasyDifficulty() {
     vowelNumber = 4;
     consonantNumber = 8;
     timer = 4;
-    score = 2;
+    score = 15;
     // Loads/removes the correct game screen elements
     gameStart(score);
     $(".letters-container").css("display", "block");

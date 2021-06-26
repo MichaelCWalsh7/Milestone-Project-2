@@ -175,10 +175,13 @@ function difficultyTracker() {
     // Initialises a variable for the difficulty span
     difficulty = $("#difficulty").text();
 
+    // Resets the event keyboard event listeners
+    turnOffListeners();
+
     /* Resets the display of the letter button containers in case the user 
     has restarted the game and changed the difficulty */
     letterButtonHide();
-    clearInput()
+    clearInput();
 
     if (difficulty == "Easy") {
         // Calls a function to initialise the game in Easy mode
@@ -200,7 +203,7 @@ function initEasyDifficulty() {
     vowelNumber = 4;
     consonantNumber = 8;
     timer = 4;
-    score = 15;
+    score = 2;
     // Loads/removes the correct game screen elements
     gameStart(score);
     $(".letters-container").css("display", "block");
@@ -268,6 +271,7 @@ function gameStart(score) {
     for (var x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
     }
+
 
     // Calls the timer
     // startTimer()
@@ -353,8 +357,10 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
 }
 
 function keyboardLetterEvent(anagramArray, difficulty) {
+    // Converts the anagram array to lower case to compare against the event.key function
     anagramArray = anagramArray.map(v => v.toLowerCase());
-    $(document).on("keydown", function() {
+
+    $(document).on("keydown", function() {      
         // Finds out what letter has been pressed and initializes it as a variable
         let buttonPressed = event.key;
         // Initializes variables to check if letter pressed has already been entered
@@ -793,6 +799,9 @@ function clearInput() {
 
 function gameWin() {
 
+    turnOffListeners();
+
+
     // Plays success audio if sounds are enabled
     gameWinSound();
 
@@ -848,6 +857,9 @@ function incorrectIncremenet(newLives) {
 
 
 function gameLose() {
+
+    turnOffListeners();
+
     // Changes the game screen to the game defeat screen
     $(".game-container").css("display", "none");
     $(".game-lose-screen").css("display", "block");
@@ -872,6 +884,10 @@ function playSound(sound) {
         //  Plays the appropriate sound
         sound.play();
     }
+}
+
+function turnOffListeners() {
+    $(document).off("keydown");
 }
 
 function letterButtonSound() {

@@ -352,6 +352,7 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     $(".enter-delete-buttons").css("display", "flex");
 
     keyboardLetterEvent(anagramArray, difficulty);
+    enterDeleteLetterEvent();
 }
 
 function keyboardLetterEvent(anagramArray, difficulty) {
@@ -369,6 +370,16 @@ function keyboardLetterEvent(anagramArray, difficulty) {
             addLetterToInput(inputId);
         }
     } );
+}
+
+function enterDeleteLetterEvent() {
+    $(document).on("keydown", function() {
+        if (event.key === "Enter") {
+            wordValidator();
+        } else if (event.key === "Backspace") {
+            deleteLetter();
+        }
+    })
 }
 
 function setVolume() {

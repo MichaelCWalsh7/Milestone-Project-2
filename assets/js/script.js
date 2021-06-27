@@ -218,8 +218,8 @@ function initMediumDifficulty() {
     // Sets up variables for callbacks to play the game on Medium mode
     vowelNumber = 4;
     consonantNumber = 7;
-    timerMinutes = 4;
-    timerSeconds = 00;
+    timerMinutes = 3;
+    timerSeconds = 45;
     score = 20;
     // Loads/removes the correct game screen elements
     gameStart(score, timerMinutes, timerSeconds);
@@ -305,15 +305,18 @@ function startTimer(score, timerMinutes, timerSeconds) {
     minute = timerMinutes;
     sec = timerSeconds;
 
+    // Sets event listeners so the timer stops if the game is reset in the UI
+    $("#navResetButton").on("click", function() {
+        clearTimeout(timer);
+    })
 
+     $("#settingsResetButton").on("click", function() {
+        clearTimeout(timer);
+    })
 
     let timer = setInterval(function () {
-        let currentScore = parseInt($("#currentScore").text());
-        let livesLeft = parseInt($("#livesLeft").text());;    
-
-        if(currentScore == score || livesLeft == 0) {
-            clearTimeout(timer);
-        }
+        
+        winLoseCheck(timer, score);
 
         if (sec < 10 && sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
@@ -321,8 +324,8 @@ function startTimer(score, timerMinutes, timerSeconds) {
         } else if (sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + sec;
             sec--;
-        }             
-        
+        }
+
         if (sec == 00 && minute != 0) {
             minute--;
             sec = 59;
@@ -332,6 +335,17 @@ function startTimer(score, timerMinutes, timerSeconds) {
         }
     }, 1000);
 }
+
+function winLoseCheck(timer, score) {
+        let currentScore = parseInt($("#currentScore").text());
+        let livesLeft = parseInt($("#livesLeft").text());;
+
+        if (currentScore == score || livesLeft == 0) {
+            clearTimeout(timer);
+        }
+
+}
+
 
 function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
 

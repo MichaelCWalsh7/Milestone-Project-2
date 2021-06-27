@@ -877,7 +877,8 @@ function gameLossImageSelect() {
     $(".game-lose-screen").css("display", "block");
     // Initializes variables to check what type of game over screen the user has incurred
     let currentScore = parseInt($("#currentScore").text());
-    let maxScore = parseInt($("maxScore").text());
+    let maxScore = parseInt($("#maxScore").text());
+    
 
     // DEV NOTE ******* THIS COULD BE A SWITCH STATEMENT?
     if (currentScore == 0) {

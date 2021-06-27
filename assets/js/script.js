@@ -309,15 +309,15 @@ function startTimer(score, timerMinutes, timerSeconds) {
     $("#navResetButton").on("click", function() {
         clearTimeout(timer);
     })
-
      $("#settingsResetButton").on("click", function() {
         clearTimeout(timer);
     })
 
     let timer = setInterval(function () {
-        
+        /*Checks if the user has won or lost so the timer doesn't continue after
+         the game ends */
         winLoseCheck(timer, score);
-
+        
         if (sec < 10 && sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
             sec--;

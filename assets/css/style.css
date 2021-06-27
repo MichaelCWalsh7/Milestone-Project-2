@@ -745,6 +745,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 }
 
+
 /* Large tablets */
 
 @media(min-width: 768px) {
@@ -768,6 +769,12 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
 @media(min-width: 1024px) {
     .enter-delete-buttons {
         margin-top: 50px;
+    }
+}
+
+@media(max-width: 1199px) {
+    .fail-0 {
+
     }
 }
 

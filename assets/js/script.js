@@ -882,19 +882,19 @@ function gameLossImageSelect() {
 
     // DEV NOTE ******* THIS COULD BE A SWITCH STATEMENT?
     if (currentScore == 0) {
-        $(".0-fail").css("display", "block");
+        $(".fail-0").css("display", "block");
     } else if (currentScore == maxScore - 1) {
-        $(".1-away-fail").css("display", "block");
+        $(".fail-1-away").css("display", "block");
     } else if (currentScore < 6) {
-        $(".1-5-fail").css("display", "block");
+        $(".fail-1-5").css("display", "block");
     } else if (currentScore < 11) {
-        $(".6-10-fail").css("display", "block");
+        $(".fail-6-10").css("display", "block");
     } else if (currentScore < 16) {
-        $(".11-15-fail").css("display", "block");
+        $(".fail-11-15").css("display", "block");
     } else if (currentScore < 21) {
-        $(".16-20-fail").css("display", "block");
+        $(".fail-16-20").css("display", "block");
     } else if (currentScore < 24) {
-        $(".21-24-fail").css("display", "block");
+        $(".fail-21-24").css("display", "block");
     }
 }
 

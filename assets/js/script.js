@@ -210,7 +210,7 @@ function initEasyDifficulty() {
     gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-easy").css("display", "block");
-    $("#timer").text(`${timerMinutes}` + ":" `${timerSeconds}`)
+    $("#timer").text(`${timerMinutes}:${timerSeconds}`)
     // Generates and anagram of the approrpiate length
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }

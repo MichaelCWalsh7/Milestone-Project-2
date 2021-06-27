@@ -31,20 +31,20 @@ $("#muteButton").on("change", unmuteSound);
 $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
 $("#increaseDifficultyArrow").on("click", increaseDifficulty);
-$(".letter-button").on("click", function findLetter() {    
+$(".letter-button").on("click", function findLetter() {
     let inputId = this.id;
-    addLetterToInput(inputId);   
+    addLetterToInput(inputId);
 })
 
 function addLetterToInput(inputId) {
 
-     // Clears the message area
+    // Clears the message area
     $("#message").text("");
     // Initialises a a variable of the letters currently present in the text input. 
     let currentLetters = $("#textInput").text();
 
     // Gets the id of the button pushed and it's contents to push to the inputLettersArray
-    
+
 
     // Disables the button to avoid duplicate letters appearing in string. 
     $(`#${inputId}`).prop('disabled', true);
@@ -210,7 +210,6 @@ function initEasyDifficulty() {
     gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-easy").css("display", "block");
-    $("#timer").text(`${timerMinutes}:${timerSeconds}`)
     // Generates and anagram of the approrpiate length
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
@@ -277,9 +276,9 @@ function gameStart(score, timerMinutes, timerSeconds) {
     for (var x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
     }
-   
+
     // Calls the timer
-    startTimer(timerMinutes, timerSeconds)
+    startTimer(score, timerMinutes, timerSeconds)
 
     // Sets the appropriate score according to difficulty
     $("#maxScore").text(score)
@@ -299,6 +298,39 @@ function gameStart(score, timerMinutes, timerSeconds) {
     $(".game-win-screen").css("display", "none");
     $(".game-lose-screen").css("display", "none");
 
+}
+
+function startTimer(score, timerMinutes, timerSeconds) {
+    // Sets variables needed to start the timer
+    minute = timerMinutes;
+    sec = timerSeconds;
+
+
+
+    let timer = setInterval(function () {
+        let currentScore = parseInt($("#currentScore").text());
+        let livesLeft = parseInt($("#livesLeft").text());;    
+
+        if(currentScore == score || livesLeft == 0) {
+            clearTimeout(timer);
+        }
+
+        if (sec < 10 && sec != 00) {
+            document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
+            sec--;
+        } else if (sec != 00) {
+            document.getElementById("timer").innerHTML = minute + ":" + sec;
+            sec--;
+        }             
+        
+        if (sec == 00 && minute != 0) {
+            minute--;
+            sec = 59;
+        } else if (sec == 00 && minute == 0) {
+            gameLose();
+            clearTimeout(timer);
+        }
+    }, 1000);
 }
 
 function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
@@ -354,8 +386,8 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     for (var k = 0; k <= anagramArray.length; k++) {
         $(`#${difficulty}Button${k + 1}`).text(anagramArray[k]);
     }
-    
-     // Shows the enter and delete buttons
+
+    // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
 
     keyboardLetterEvent(anagramArray, difficulty);
@@ -366,7 +398,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
     // Converts the anagram array to lower case to compare against the event.key function
     anagramArray = anagramArray.map(v => v.toLowerCase());
 
-    $(document).on("keydown", function() {      
+    $(document).on("keydown", function () {
         // Finds out what letter has been pressed and initializes it as a variable
         let buttonPressed = event.key;
         // Initializes variables to check if letter pressed has already been entered
@@ -378,11 +410,11 @@ function keyboardLetterEvent(anagramArray, difficulty) {
             let inputId = `${difficulty}Button${idNumber + 1}`;
             addLetterToInput(inputId);
         }
-    } );
+    });
 }
 
 function enterDeleteLetterEvent() {
-    $(document).on("keydown", function() {
+    $(document).on("keydown", function () {
         if (event.key === "Enter") {
             wordValidator();
         } else if (event.key === "Backspace") {
@@ -430,29 +462,6 @@ function deleteLetter() {
     // Play a sound if sounds are enabled
     deleteButtonSound();
 
-}
-
-
-function startTimer(timerMinutes, timerSeconds) {
-    minute = timerMinutes;
-    sec = timerSeconds;
-    setInterval(function () {
-        if (sec < 10 && sec != 00) {
-            document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
-            sec--;
-        } else if (sec != 00) {
-            document.getElementById("timer").innerHTML = minute + ":" + sec;
-            sec--;
-        }
-
-        if (sec == 00 && minute != 0) {
-            minute--;
-            sec = 59;
-        } else if (sec == 00 && minute == 0) {
-            gameLose();
-            return;
-        }
-    }, 1000);
 }
 
 function wordValidator(userInput) {
@@ -508,7 +517,8 @@ function invalidWord(errorMessage) {
 function noApiCheck(userInput) {
     // Initializes an array of words that the API mistakenly does not accept
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
-    " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", "BAT", "BATS"]
+        " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", "BAT", "BATS"
+    ]
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);
@@ -622,10 +632,10 @@ function storageInit(userInput) {
     // Checks if the local storage object exists
     if (localWordsCheck == null) {
         localStorage["word0"] = ` ${userInput} `;
-        localWords = localStorage;        
-    } else { 
+        localWords = localStorage;
+    } else {
         // Checks if the word has been locally stored already
-        localWords = localStorage;        
+        localWords = localStorage;
         storageCheck(userInput, localWords);
     }
 
@@ -652,7 +662,7 @@ function wordStore(userInput, localWords) {
     // Adds the new word to local storage
     localWords[`word${newLocalIndex}`] = ` ${userInput} `;
     // THIS IS DEV TESTING AND SHOULD BE REMOVED AT A LATER DATE**********************
-        console.log("Word has been added");
+    console.log("Word has been added");
 }
 
 
@@ -871,7 +881,7 @@ function gameLose() {
     $(".game-container").css("display", "none");
     // Dictates what type of image and message the player gets on game over
     gameLossImageSelect();
-    
+
 
     // Plays a failure sting if sounds are enabled
     gameOverSound();
@@ -883,7 +893,7 @@ function gameLossImageSelect() {
     // Initializes variables to check what type of game over screen the user has incurred
     let currentScore = parseInt($("#currentScore").text());
     let maxScore = parseInt($("#maxScore").text());
-    
+
 
     // DEV NOTE ******* THIS COULD BE A SWITCH STATEMENT?
     if (currentScore == 0) {

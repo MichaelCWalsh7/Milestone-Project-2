@@ -203,12 +203,14 @@ function initEasyDifficulty() {
     // Sets up variables for callbacks to play the game on Easy mode
     vowelNumber = 4;
     consonantNumber = 8;
-    timer = 4;
+    timerMinutes = 4;
+    timerSeconds = 00;
     score = 15;
     // Loads/removes the correct game screen elements
-    gameStart(score);
+    gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-easy").css("display", "block");
+    $("#timer").text(`${timerMinutes}` + ":" `${timerSeconds}`)
     // Generates and anagram of the approrpiate length
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
@@ -217,10 +219,11 @@ function initMediumDifficulty() {
     // Sets up variables for callbacks to play the game on Medium mode
     vowelNumber = 4;
     consonantNumber = 7;
-    timer = 4;
+    timerMinutes = 4;
+    timerSeconds = 00;
     score = 20;
     // Loads/removes the correct game screen elements
-    gameStart(score);
+    gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-medium").css("display", "block");
     // Generates and anagram of the approrpiate length
@@ -231,10 +234,11 @@ function initHardDifficulty() {
     // Sets up variables for callbacks to play the game on Hard mode
     vowelNumber = 3;
     consonantNumber = 7;
-    timer = 3;
+    timerMinutes = 3;
+    timerSeconds = 30;
     score = 25;
     // Loads/removes the correct game screen elements
-    gameStart(score);
+    gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-hard").css("display", "block");
     // Generates and anagram of the approrpiate length
@@ -245,10 +249,11 @@ function initGeniusDifficulty() {
     // Sets up variables for callbacks to play the game on Genius mode
     vowelNumber = 3;
     consonantNumber = 6;
-    timer = 3;
+    timerMinutes = 3;
+    timerSeconds = 15;
     score = 25;
     // Loads/removes the correct game screen elements
-    gameStart(score);
+    gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
     $(".letter-button-container-genius").css("display", "block");
     // Generates and anagram of the approrpiate length
@@ -266,7 +271,7 @@ function letterButtonHide() {
     $(".letter-button-container-genius").css("display", "none");
 }
 
-function gameStart(score) {
+function gameStart(score, timerMinutes, timerSeconds) {
 
     // Clears the table of words in the event that the user has started the game from the game over screen
     for (var x = 0; x <= 25; x++) {
@@ -274,7 +279,7 @@ function gameStart(score) {
     }
    
     // Calls the timer
-    // startTimer()
+    startTimer(timerMinutes, timerSeconds)
 
     // Sets the appropriate score according to difficulty
     $("#maxScore").text(score)
@@ -428,9 +433,9 @@ function deleteLetter() {
 }
 
 
-function startTimer() {
-    var minute = 0;
-    var sec = 5;
+function startTimer(timerMinutes, timerSeconds) {
+    minute = timerMinutes;
+    sec = timerSeconds;
     setInterval(function () {
         if (sec < 10 && sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;

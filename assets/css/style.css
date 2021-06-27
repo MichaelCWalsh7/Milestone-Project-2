@@ -353,6 +353,11 @@ input:checked+.slider:before {
     padding-right: 17px;
 }
 
+#timerContainer {
+    margin-top: 0;
+    display: block;
+}
+
 .timer-container {
     color: brown;
     display: inline;
@@ -368,7 +373,7 @@ input:checked+.slider:before {
 .score-container p,
 .timer-container p {
     margin-top: 6px;
-    margin-bottom: 3px;
+    margin-bottom: 0;
 }
 
 .score-container p {
@@ -584,7 +589,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     margin-right: 7px;
     margin-bottom: 7px;
     font-size: 25px;
-    margin-top: 20px
+    margin-top: 15px
 }
 
 #mediumButton3,

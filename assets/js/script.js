@@ -502,7 +502,7 @@ function invalidWord(errorMessage) {
 function noApiCheck(userInput) {
     // Initializes an array of words that the API mistakenly does not accept
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
-    " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY "]
+    " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", "BAT", "BATS"]
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);

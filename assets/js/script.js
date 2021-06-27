@@ -317,7 +317,7 @@ function startTimer(score, timerMinutes, timerSeconds) {
         /*Checks if the user has won or lost so the timer doesn't continue after
          the game ends */
         winLoseCheck(timer, score);
-        
+
         if (sec < 10 && sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
             sec--;
@@ -531,8 +531,8 @@ function invalidWord(errorMessage) {
 function noApiCheck(userInput) {
     // Initializes an array of words that the API mistakenly does not accept
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
-        " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", "BAT", "BATS"
-    ]
+        " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", "BAT", "BATS",
+    "DICE", "RAN"];
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);

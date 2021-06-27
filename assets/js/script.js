@@ -272,8 +272,7 @@ function gameStart(score) {
     for (var x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
     }
-
-
+   
     // Calls the timer
     // startTimer()
 

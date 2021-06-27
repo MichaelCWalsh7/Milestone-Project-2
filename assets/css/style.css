@@ -90,7 +90,11 @@ a {
 .fa-cog,
 .fa-redo-alt {
     font-size: 25px;
-    padding-right: 12px;
+    padding-right: 3px
+}
+
+.fa-cog {
+    padding-left: 10px;
 }
 
 #navbar,
@@ -628,8 +632,11 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
 }
 
 .bad-luck p {
-    font-size: 19px;
+    font-size: 21px;
     margin: 3px 6px;
+    font-weight: 600;
+    font-family: 'PT Sans', sans-serif;
+    margin-top: 21px;
 }
 
 .back-to-game {
@@ -688,7 +695,8 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     color: #003366 !important;
 }
 
-#modalSubmitBtn, #modalCloseBtn {
+#modalSubmitBtn,
+#modalCloseBtn {
     border: 2px solid #D6A419;
     box-shadow: inset 0px 0px 2px 1px white;
     background-color: #003366;
@@ -756,7 +764,18 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     #instructionsList {
         font-size: 24px;
     }
+
+    .fail-11-15 img {
+        width: 46%;
+    }
 }
+
+@media(min-width: 768px) and (max-width: 1160) {
+    .fail-11-15 img {
+        margin-top: 60px;
+    }
+}
+
 
 /* Desktops/Laptops */
 
@@ -772,9 +791,21 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 }
 
-@media(max-width: 1199px) {
-    .fail-0 {
+@media(max-width: 1129px) {
+    .fail-6-10 img {
+        margin-top: 100px;
+    }
+}
 
+@media(max-width: 1199px) {
+    .fail-0 img {
+        width: 64%;
+    }
+
+    .fail-1-5 img,
+    .fail-16-20 img,
+    .fail-21-24 img {
+        margin-top: 100px;
     }
 }
 
@@ -782,7 +813,16 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     .about {
         margin-top: 15%;
     }
+
+    .fail-0 img {
+        width: 46%;
+    }
+
+    .fail-21-24 img {
+        width: 61%;
+    }
 }
+
 
 @media(min-width: 1400px) {
     .words-blackboard {

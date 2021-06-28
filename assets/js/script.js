@@ -428,7 +428,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
 }
 
 function enterDeleteLetterEvent() {
-    $(document).on("keypress", function () {
+    $(document).on("keydown", function () {
         if (event.key === "Enter") {
             wordValidator();
         } else if (event.key === "Backspace") {
@@ -947,6 +947,7 @@ function playSound(sound) {
 
 function turnOffListeners() {
     $(document).off("keypress");
+    $(document).off("keydown");
 }
 
 function letterButtonSound() {

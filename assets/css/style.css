@@ -356,6 +356,10 @@ input:checked+.slider:before {
 #timerContainer {
     margin-top: 0;
     display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #d4a619;
+    text-align: center;
 }
 
 .timer-container {

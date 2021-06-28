@@ -681,6 +681,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     background-color: #003366;
     color: #D6A419;
     font-weight: 700;
+    padding: 7px;
 }
 
 #infoBackToHome {
@@ -688,6 +689,9 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     color: #003366;
     font-weight: 700;
     margin-top: 20px;
+    padding: 7px;
+    border: 1px black solid;
+    box-shadow: 0px 0px 2px 2px black;
 }
 
 /* ************MODAL************ */
@@ -727,6 +731,8 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     margin-top: 20px;
     font-family: 'PT Sans', sans-serif;
     font-size: 22px;
+    padding: 8px;
+    box-shadow: 0px 0px 2px 2px black;
 }
 
 

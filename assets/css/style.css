@@ -76,6 +76,7 @@ a {
 
 #navResetButton {
     color: #ff0000;
+    display: none;
 }
 
 #navbarButtons,
@@ -346,6 +347,10 @@ input:checked+.slider:before {
 
 /* ************GAME SCREEN************ */
 
+.game-container {
+    display: none;
+}
+
 .score-container {
     font-size: inherit;
     width: 100%;
@@ -447,6 +452,7 @@ td {
     margin-top: 2px;
     width: 95%;
     max-width: 600px;
+    display: none;
 }
 
 .ready-button {
@@ -481,10 +487,14 @@ td {
     color: white;
 }
 
+.enter-delete-buttons {
+    display: none;
+}
+
 .enter-delete-buttons button {
     font-size: 23px;
     color: white;
-    display: inline;
+    /* display: inline; */
 
 }
 
@@ -509,6 +519,16 @@ td {
     font-size: 26px;
 }
 
+/* LETTER BUTTONS */
+
+.letters-container,
+.letter-button-container-easy,
+.letter-button-container-medium,
+.letter-button-container-hard,
+.letter-button-container-genius {
+    display: none;
+}
+
 .letters-container {
     margin-left: 25px;
     margin-right: 25px;
@@ -530,6 +550,14 @@ td {
 .letter-button-container-hard .row button,
 .letter-button-container-genius .row button {
     max-width: 225px;
+}
+
+/* GAME WIN */
+
+.game-win-screen,
+.game-lose-screen,
+.bad-luck {
+    display: none;
 }
 
 .congratulations {

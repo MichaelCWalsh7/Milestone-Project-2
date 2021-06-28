@@ -1,18 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    $(".game-container").css("display", "none");
-    $(".letter-button-container-easy").css("display", "none");
-    $(".letter-button-container-medium").css("display", "none");
-    $(".letter-button-container-hard").css("display", "none");
-    $(".letter-button-container-genius").css("display", "none");
-    $("#navResetButton").css("display", "none");
-    $(".game-win-screen").css("display", "none");
-    $(".game-lose-screen").css("display", "none");
-    $(".bad-luck").css("display", "none");
-    $(".enter-delete-buttons").css("display", "none");
-    $(".text-input-container").css("display", "none");
     $("#lowerDifficultyArrow").prop("disabled", true);
     $("#lowerDifficultyArrow").css("opacity", ".5");
-    $(".letters-container").css("display", "none");
 })
 
 //  --------Event Listeners:

@@ -480,7 +480,7 @@ td {
 /* THE FOLLOWING BLINKING CURSOR CODE WAS TAKEN FROM
 https://codepen.io/ArtemGordinsky/pen/GnLBq */
 
-.blinking-cursor {
+/* .blinking-cursor {
     font-weight: 100;
     font-size: 25px;
     letter-spacing: 5px;
@@ -550,7 +550,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     50% {
         color: #D6A419;
     }
-}
+} */
 
 .enter-delete-buttons button {
     font-size: 23px;

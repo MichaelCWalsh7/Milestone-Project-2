@@ -412,7 +412,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
     // Converts the anagram array to lower case to compare against the event.key function
     anagramArray = anagramArray.map(v => v.toLowerCase());
 
-    $(document).on("keydown", function () {
+    $(document).on("keypress", function () {
         // Finds out what letter has been pressed and initializes it as a variable
         let buttonPressed = event.key;
         // Initializes variables to check if letter pressed has already been entered
@@ -428,7 +428,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
 }
 
 function enterDeleteLetterEvent() {
-    $(document).on("keydown", function () {
+    $(document).on("keypress", function () {
         if (event.key === "Enter") {
             wordValidator();
         } else if (event.key === "Backspace") {
@@ -946,7 +946,7 @@ function playSound(sound) {
 }
 
 function turnOffListeners() {
-    $(document).off("keydown");
+    $(document).off("keypress");
 }
 
 function letterButtonSound() {

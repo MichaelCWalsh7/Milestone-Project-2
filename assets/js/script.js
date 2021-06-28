@@ -718,7 +718,7 @@ function navResetAllow() {
     // Initializes a variable to check the score
     let score = parseInt($("#currentScore").text());
     // Checks if the reset button should be displayed
-    if (score > 1) {
+    if (score >= 1) {
         // Displays it if so
         $("#navResetButton").css("display", "inline-block");
     }

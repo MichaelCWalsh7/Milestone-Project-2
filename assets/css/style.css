@@ -447,7 +447,20 @@ td {
     font-weight: 700;
 }
 
+.pre-game-rules {
+    color: #D6A419;
+    padding: 10px;
+}
 
+.pre-game-rules p {
+    margin-bottom: 8px;
+}
+
+.rules-settings-button {
+    margin-left: 9px;
+    background-color: #ff0000;
+    color: white;
+}
 
 .text-input-container {
     font-size: 16px;

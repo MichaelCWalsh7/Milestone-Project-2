@@ -796,7 +796,7 @@ https://codepen.io/ArtemGordinsky/pen/GnLBq */
     }
 }
 
-@media(min-width: 768px) and (max-width: 1160) {
+@media(min-width: 768px) and (max-width: 1160px) {
     .fail-11-15 img {
         margin-top: 60px;
     }

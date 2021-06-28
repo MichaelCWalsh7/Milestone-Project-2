@@ -146,7 +146,7 @@ function displayMediumDifficulty() {
     information */
     $("#settingsLetters").text("11");
     $("#settingsScore").text("20");
-    $("#settingsTimer").text("4:00");
+    $("#settingsTimer").text("3:45");
 }
 
 function displayHardDifficulty() {

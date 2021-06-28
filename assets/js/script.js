@@ -24,32 +24,6 @@ $(".letter-button").on("click", function findLetter() {
     addLetterToInput(inputId);
 })
 
-function addLetterToInput(inputId) {
-
-    // Clears the message area
-    $("#message").text("");
-    // Initialises a a variable of the letters currently present in the text input. 
-    let currentLetters = $("#textInput").text();
-
-    // Gets the id of the button pushed and it's contents to push to the inputLettersArray
-
-
-    // Disables the button to avoid duplicate letters appearing in string. 
-    $(`#${inputId}`).prop('disabled', true);
-
-    // Adds the button pushed input to the text to be displayed to the user
-    let inputToPush = $(`#${inputId}`).text();
-    let newTextDisplay = `${currentLetters}${inputToPush}`
-    $("#textInput").text(`${newTextDisplay}`);
-
-    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted/deactivated later.
-    let i = newTextDisplay.length;
-    $(`#${inputId}`).addClass(`button-pressed-${i}`);
-
-    // Plays the letter button sound if sounds are enabled
-    letterButtonSound();
-}
-
 //  --------FUNCTIONS:
 
 
@@ -394,6 +368,32 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
 
     keyboardLetterEvent(anagramArray, difficulty);
     enterDeleteLetterEvent();
+}
+
+function addLetterToInput(inputId) {
+
+    // Clears the message area
+    $("#message").text("");
+    // Initialises a a variable of the letters currently present in the text input. 
+    let currentLetters = $("#textInput").text();
+
+    // Gets the id of the button pushed and it's contents to push to the inputLettersArray
+
+
+    // Disables the button to avoid duplicate letters appearing in string. 
+    $(`#${inputId}`).prop('disabled', true);
+
+    // Adds the button pushed input to the text to be displayed to the user
+    let inputToPush = $(`#${inputId}`).text();
+    let newTextDisplay = `${currentLetters}${inputToPush}`
+    $("#textInput").text(`${newTextDisplay}`);
+
+    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted/deactivated later.
+    let i = newTextDisplay.length;
+    $(`#${inputId}`).addClass(`button-pressed-${i}`);
+
+    // Plays the letter button sound if sounds are enabled
+    letterButtonSound();
 }
 
 function keyboardLetterEvent(anagramArray, difficulty) {

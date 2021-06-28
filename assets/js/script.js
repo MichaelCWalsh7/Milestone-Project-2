@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
 })
 
 //  --------Event Listeners:
-
+$("#navbarLink").on("click", homeScreenDisplay);
+$("#navbarLink").on("click", turnOffListeners);
 $("#playButton").on("click", gameScreenDisplay);
 $("#enterButton").on("click", wordValidator);
 $("#deleteButton").on("click", deleteLetter);
@@ -33,6 +34,38 @@ function gameScreenDisplay() {
     $(".home-menu-container").css("display", "none")
     $(".game-container").css("display", "block")
 
+}
+
+function homeScreenDisplay() {
+    // Hides all elements bar the banner and home menu container
+    $(".game-container").css("display", "none");
+    $(".game-win-screen").css("display", "none");
+    $(".game-lose-screen").css("display", "none");
+    $(".text-input-container").css("display", "none");
+    $(".enter-delete-buttons").css("display", "none");
+
+    // Shows banner and home menu container
+    $(".banner").css("display", "block");
+    $(".home-menu-container").css("display", "block");
+    $(".ready-button").css("display", "block");
+    
+
+    resetGameElements();
+}
+
+function resetGameElements() {
+    // Resets the event keyboard event listeners
+    turnOffListeners();
+
+    // Resets the display of the letter button containers/blackboard 
+    letterButtonHide();
+    clearInput();
+    // Clears the blackboard of words from previous games
+    blackBoardClear();
+
+
+    // Resets the scores, lives and timer if user hits play again
+    homeScreenDifficultyCheck();
 }
 
 //  --------Difficulty Handling Functions:
@@ -161,6 +194,26 @@ function difficultyTracker() {
     }
 }
 
+function homeScreenDifficultyCheck() {
+    let difficulty = $("#difficulty").text();
+    $("#currentScore").text('0');
+    $("#livesLeft").text('5');
+
+    if (difficulty == "Easy") {
+        $("#maxScore").text('15');
+        $("#timer").text('4:00');
+    } else if (difficulty == "Medium") {
+        $("#maxScore").text('20');
+        $("#timer").text('3:45');       
+    } else if (difficulty == "Hard") {
+       $("#maxScore").text('25');
+        $("#timer").text('3:30');
+    } else if (difficulty == "Genius") {
+        $("#maxScore").text('25');
+        $("#timer").text('3:15');
+    }
+}
+
 function initEasyDifficulty() {
     // Sets up variables for callbacks to play the game on Easy mode
     vowelNumber = 4;
@@ -235,9 +288,7 @@ function letterButtonHide() {
 function gameStart(score, timerMinutes, timerSeconds) {
 
     // Clears the table of words in the event that the user has started the game from the game over screen
-    for (var x = 0; x <= 25; x++) {
-        $(`.word-${x}`).text("");
-    }
+    blackBoardClear();
 
     // Calls the timer
     startTimer(score, timerMinutes, timerSeconds)
@@ -262,16 +313,26 @@ function gameStart(score, timerMinutes, timerSeconds) {
 
 }
 
+function blackBoardClear() {
+        for (var x = 0; x <= 25; x++) {
+        $(`.word-${x}`).text("");
+    }
+}
+
 function startTimer(score, timerMinutes, timerSeconds) {
     // Sets variables needed to start the timer
     minute = timerMinutes;
     sec = timerSeconds;
 
     // Sets event listeners so the timer stops if the game is reset in the UI
-    $("#navResetButton").on("click", function() {
+    // Could be refactored into a single function...
+    $("#navResetButton").on("click", function () {
         clearTimeout(timer);
     })
-     $("#settingsResetButton").on("click", function() {
+    $("#settingsResetButton").on("click", function () {
+        clearTimeout(timer);
+    })
+    $("#navbarLink").on("click", function () {
         clearTimeout(timer);
     })
 
@@ -299,12 +360,12 @@ function startTimer(score, timerMinutes, timerSeconds) {
 }
 
 function winLoseCheck(timer, score) {
-        let currentScore = parseInt($("#currentScore").text());
-        let livesLeft = parseInt($("#livesLeft").text());;
+    let currentScore = parseInt($("#currentScore").text());
+    let livesLeft = parseInt($("#livesLeft").text());;
 
-        if (currentScore == score || livesLeft == 0) {
-            clearTimeout(timer);
-        }
+    if (currentScore == score || livesLeft == 0) {
+        clearTimeout(timer);
+    }
 
 }
 
@@ -520,7 +581,8 @@ function noApiCheck(userInput) {
     // Initializes an array of words that the API mistakenly does not accept
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
         " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", "BAT", "BATS",
-    "DICE", "RAN"];
+        "DICE", "RAN"
+    ];
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);

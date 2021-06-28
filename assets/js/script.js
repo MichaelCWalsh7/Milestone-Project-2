@@ -43,6 +43,7 @@ function homeScreenDisplay() {
     $(".game-lose-screen").css("display", "none");
     $(".text-input-container").css("display", "none");
     $(".enter-delete-buttons").css("display", "none");
+    $("#navResetButton").css("display", "none");
 
     // Shows banner and home menu container
     $(".banner").css("display", "block");

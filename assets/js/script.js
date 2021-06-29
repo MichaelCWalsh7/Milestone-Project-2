@@ -524,9 +524,10 @@ function keyboardLetterEvent(anagramArray, difficulty) {
     $(document).on("keypress", function () {
         // Finds out what letter has been pressed and initializes it as a variable
         let buttonPressed = event.key;
+        buttonPressed = buttonPressed.toLowerCase();
         // Initializes variables to check if letter pressed has already been entered
         let textInput = $("#textInput").text().toLowerCase();
-        let letterPresent = textInput.includes(buttonPressed)
+        let letterPresent = textInput.includes(buttonPressed);
 
         if (anagramArray.includes(buttonPressed) && letterPresent == false) {
             let idNumber = anagramArray.indexOf(buttonPressed);

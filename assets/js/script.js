@@ -14,7 +14,7 @@ $("#clearButton").on("click", clearButtonSound);
 $(".ready-button").on("click", difficultyTracker);
 $("#navResetButton").on("click", difficultyTracker);
 $("#settingsResetButton").on("click", difficultyTracker);
-$("#settingsResetButton").on("click", gameScreenDisplay);
+$("#settingsResetButton").on("click", settingsResetGameDisplay);
 $(".back-to-game").on("click", difficultyTracker);
 $("#muteButton").on("change", unmuteSound);
 $("#volumeSlider").on("input", setVolume);
@@ -30,10 +30,20 @@ $(".letter-button").on("click", function findLetter() {
 
 function gameScreenDisplay() {
     // Displays the game screen and hides the menu
-    $(".banner").css("display", "none")
-    $(".home-menu-container").css("display", "none")
-    $(".game-container").css("display", "block")
+    $(".banner").css("display", "none");
+    $(".home-menu-container").css("display", "none");
+    $(".game-container").css("display", "block");
+    $(".pre-game-rules").css("display", "block");
+    $(".easy-rules").css("display", "block");
 
+}
+
+function settingsResetGameDisplay() {
+    // Displays the game screen and hides the menu
+    $(".banner").css("display", "none");
+    $(".home-menu-container").css("display", "none");
+    $(".game-container").css("display", "block");
+    $(".easy-rules").css("display", "block");
 }
 
 function homeScreenDisplay() {
@@ -44,12 +54,20 @@ function homeScreenDisplay() {
     $(".text-input-container").css("display", "none");
     $(".enter-delete-buttons").css("display", "none");
     $("#navResetButton").css("display", "none");
+    $(".easy-rules").css("display", "none");
+    $(".medium-rules").css("display", "none");
+    $(".hard-rules").css("display", "none");
+    $(".genius-rules").css("display", "none");
+
+    // Clears the message div
+    $("#message").text();
 
     // Shows banner and home menu container
     $(".banner").css("display", "block");
     $(".home-menu-container").css("display", "block");
     $(".ready-button").css("display", "block");
-    
+
+
 
     resetGameElements();
 }
@@ -140,6 +158,13 @@ function displayEasyDifficulty() {
     $("#settingsLetters").text("12");
     $("#settingsScore").text("15");
     $("#settingsTimer").text("4:00");
+    /* Changes the rules divs to display the correct difficulty
+    information */
+    $(".easy-rules").css("display", "block");
+    $(".medium-rules").css("display", "none");
+    $(".hard-rules").css("display", "none");
+    $(".genius-rules").css("display", "none");
+
 }
 
 function displayMediumDifficulty() {
@@ -148,6 +173,12 @@ function displayMediumDifficulty() {
     $("#settingsLetters").text("11");
     $("#settingsScore").text("20");
     $("#settingsTimer").text("3:45");
+    /* Changes the rules divs to display the correct difficulty
+    information */
+    $(".easy-rules").css("display", "none");
+    $(".medium-rules").css("display", "block");
+    $(".hard-rules").css("display", "none");
+    $(".genius-rules").css("display", "none");
 }
 
 function displayHardDifficulty() {
@@ -157,6 +188,12 @@ function displayHardDifficulty() {
     $("#settingsScore").text("25");
     $("#settingsTimer").text("3:30");
     $("#settingsConsonants").text("All consonants are allowed")
+    /* Changes the rules divs to display the correct difficulty
+    information */
+    $(".easy-rules").css("display", "none");
+    $(".medium-rules").css("display", "none");
+    $(".hard-rules").css("display", "block");
+    $(".genius-rules").css("display", "none");
 }
 
 function displayGeniusDifficulty() {
@@ -166,6 +203,12 @@ function displayGeniusDifficulty() {
     $("#settingsScore").text("25");
     $("#settingsTimer").text("3:15");
     $("#settingsConsonants").text("All consonants are allowed");
+    /* Changes the rules divs to display the correct difficulty
+    information */
+    $(".easy-rules").css("display", "none");
+    $(".medium-rules").css("display", "none");
+    $(".hard-rules").css("display", "none");
+    $(".genius-rules").css("display", "block");
 }
 
 function difficultyTracker() {
@@ -179,6 +222,10 @@ function difficultyTracker() {
     has restarted the game and changed the difficulty */
     letterButtonHide();
     clearInput();
+
+    // Hides the pre-game rules divs
+    $(".pre-game-rules").css("display", "none");
+
 
     if (difficulty == "Easy") {
         // Calls a function to initialise the game in Easy mode
@@ -205,9 +252,9 @@ function homeScreenDifficultyCheck() {
         $("#timer").text('4:00');
     } else if (difficulty == "Medium") {
         $("#maxScore").text('20');
-        $("#timer").text('3:45');       
+        $("#timer").text('3:45');
     } else if (difficulty == "Hard") {
-       $("#maxScore").text('25');
+        $("#maxScore").text('25');
         $("#timer").text('3:30');
     } else if (difficulty == "Genius") {
         $("#maxScore").text('25');
@@ -306,6 +353,8 @@ function gameStart(score, timerMinutes, timerSeconds) {
     // Ensures only the correct elements are being displayed.
     $("#navResetButton").css("display", "none");
     $(".ready-button").css("display", "none");
+    $(".easy-rules").css("display", "block");
+    $(".pre-game-rules").css("display", "none");
     $(".bad-luck").css("display", "none");
     $(".text-input-container").css("display", "block");
     $(".game-container").css("display", "block");
@@ -315,7 +364,7 @@ function gameStart(score, timerMinutes, timerSeconds) {
 }
 
 function blackBoardClear() {
-        for (var x = 0; x <= 25; x++) {
+    for (var x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
     }
 }

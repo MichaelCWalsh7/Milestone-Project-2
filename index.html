@@ -160,42 +160,49 @@
             <p id="message"></p>
         </div>
 
-        <div class="row g-0 justify-content-center">
+        <div class="row g-0 pre-game-container justify-content-center">
             <button class="ready-button">Let's go!</button>
-            <div class="pre-game-rules easy-rules">
-                <p>In Easy mode, you must make 15 words in 4 minutes!</p>
-                <p>5 strikes and you're out!</p>
-                <p>Words with 7 or more letters earn a bonus life!</p>
-                <p>You can change the difficulty at any time in<button class="rules-settings-button"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
-                        aria-controls="offcanvas">Settings</button>.</p>
-            </div>
-            <div class="pre-game-rules medium-rules">
-                <p>In Medium mode, you must make 20 words in 3 minutes and 45 seconds!</p>
-                <p>5 strikes and you're out!</p>
-                <p>Words with 7 or more letters earn a bonus life!</p>
-                <p>You can change the difficulty at any time in<button data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvas" aria-controls="offcanvas">settings</button>.</p>
-            </div>
-            <div class="pre-game-rules hard-rules">
-                <p>In Hard mode, you must make 25 words in 3 minutes and 30 seconds!</p>
-                <p>5 strikes and you're out!</p>
-                <p>Words with 7 or more letters earn a bonus life!</p>
-                <p>You can change the difficulty at any time in<button data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvas" aria-controls="offcanvas">settings</button>.</p>
-            </div>
-            <div class="pre-game-rules genius-rules">
-                <p>In Genius mode, you must make 25 words in 3 minutes and 15 seconds!</p>
-                <p>5 strikes and you're out!</p>
-                <p>There are no bonus lives available in this mode.</p>
-                <p>You can change the difficulty at any time in<button data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvas" aria-controls="offcanvas">settings</button>.</p>
-            </div>
-            <div class="pt-sans text-input-container">
-                <p id="textInput"></p>
-                <button id="deleteButton"><i class="fas fa-backspace"></i></button>
+            <div class="pre-game-rules">
+                <div class="easy-rules">
+                    <p>In Easy mode, you must make 15 words in 4 minutes!</p>
+                    <p>5 strikes and you're out!</p>
+                    <p>Words with 7 or more letters earn a bonus life!</p>
+                    <p>You can change the difficulty at any time in<button class="rules-settings-button"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                            aria-controls="offcanvas">Settings</button>.</p>
+                </div>
+
+                <div class="medium-rules">
+                    <p>In Medium mode, you must make 20 words in 3 minutes and 45 seconds!</p>
+                    <p>5 strikes and you're out!</p>
+                    <p>Words with 7 or more letters earn a bonus life!</p>
+                    <p>You can change the difficulty at any time in<button class="rules-settings-button"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                            aria-controls="offcanvas">Settings</button>.</p>
+                </div>
+                <div class="hard-rules">
+                    <p>In Hard mode, you must make 25 words in 3 minutes and 30 seconds!</p>
+                    <p>5 strikes and you're out!</p>
+                    <p>Words with 7 or more letters earn a bonus life!</p>
+                    <p>You can change the difficulty at any time in<button class="rules-settings-button"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                            aria-controls="offcanvas">Settings</button>.</p>
+                </div>
+                <div class="genius-rules">
+                    <p>In Genius mode, you must make 25 words in 3 minutes and 15 seconds!</p>
+                    <p>5 strikes and you're out!</p>
+                    <p>There are no bonus lives available in this mode.</p>
+                    <p>You can change the difficulty at any time in<button class="rules-settings-button"
+                            data-bs-toggle="offcanvas" data-bs-target="#offcanvas"
+                            aria-controls="offcanvas">Settings</button>.</p>
+                </div>
             </div>
 
+
+        </div>
+        <div class="pt-sans text-input-container">
+            <p id="textInput"></p>
+            <button id="deleteButton"><i class="fas fa-backspace"></i></button>
         </div>
         <div class="row g-0 justify-content-center hind-siliguri enter-delete-buttons">
             <button class="col-3" id="enterButton">ENTER</button>

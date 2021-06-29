@@ -450,10 +450,17 @@ td {
 .pre-game-rules {
     color: #D6A419;
     padding: 10px;
+    display: none;
 }
 
 .pre-game-rules p {
     margin-bottom: 8px;
+}
+
+.medium-rules,
+.hard-rules,
+.genius-rules {
+    display: none;
 }
 
 .rules-settings-button {

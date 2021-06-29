@@ -158,6 +158,8 @@ function displayEasyDifficulty() {
     $("#settingsLetters").text("12");
     $("#settingsScore").text("15");
     $("#settingsTimer").text("4:00");
+    $("#settingsConsonants").text("Certain consonants are excluded: J, Q, X & Z");
+    $(".genius-warning").css("display", "none");
     /* Changes the rules divs to display the correct difficulty
     information */
     $(".easy-rules").css("display", "block");
@@ -173,6 +175,8 @@ function displayMediumDifficulty() {
     $("#settingsLetters").text("11");
     $("#settingsScore").text("20");
     $("#settingsTimer").text("3:45");
+    $("#settingsConsonants").text("Certain consonants are excluded: J, Q, X & Z");
+    $(".genius-warning").css("display", "none");
     /* Changes the rules divs to display the correct difficulty
     information */
     $(".easy-rules").css("display", "none");
@@ -187,7 +191,8 @@ function displayHardDifficulty() {
     $("#settingsLetters").text("10");
     $("#settingsScore").text("25");
     $("#settingsTimer").text("3:30");
-    $("#settingsConsonants").text("All consonants are allowed")
+    $("#settingsConsonants").text("All consonants are allowed");
+    $(".genius-warning").css("display", "none");
     /* Changes the rules divs to display the correct difficulty
     information */
     $(".easy-rules").css("display", "none");
@@ -203,6 +208,7 @@ function displayGeniusDifficulty() {
     $("#settingsScore").text("25");
     $("#settingsTimer").text("3:15");
     $("#settingsConsonants").text("All consonants are allowed");
+    $(".genius-warning").css("display", "block");
     /* Changes the rules divs to display the correct difficulty
     information */
     $(".easy-rules").css("display", "none");

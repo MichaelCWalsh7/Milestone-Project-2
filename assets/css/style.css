@@ -236,13 +236,6 @@ input:checked+.slider:before {
     cursor: pointer;
 }
 
-/* #offcanvasCloseButton {
-    It's proving quite tricky to move the offcanvas 'x' button but that 
-    problem will have to be dealt with later. 
-    padding-bottom: 10px;
-    
-} */
-
 #difficultySet {
     margin-top: 21px;
 }

@@ -740,7 +740,10 @@ td {
 @media(min-width: 576px) {
     .menu-buttons {
         margin-top: 40px;
+    }
 
+    .pre-game-rules {
+        text-align: center;
     }
 }
 

@@ -493,22 +493,13 @@ td {
 }
 
 #textInput {
-    float: left;
     margin: 0;
     font-size: 25px;
     letter-spacing: 3px;
     padding-left: 10px;
     color: white;
-    padding-right: 0;
 }
 
-#cursorContainer {
-    float: left;
-    margin: 0;
-    font-size: 25px;
-    letter-spacing: 5px;
-    color: white;
-}
 
 .enter-delete-buttons {
     display: none;
@@ -517,8 +508,6 @@ td {
 .enter-delete-buttons button {
     font-size: 23px;
     color: white;
-    /* display: inline; */
-
 }
 
 #enterButton {
@@ -535,7 +524,6 @@ td {
     float: right;
     margin: 3px;
     margin-top: 3px;
-    margin-right: 0;
 }
 
 .fa-backspace {
@@ -797,9 +785,7 @@ td {
     }
 }
 
-@media(min-width: 992px) {
-   
-}
+@media(min-width: 992px) {}
 
 @media(min-width: 1024px) {
     .enter-delete-buttons {
@@ -838,7 +824,7 @@ td {
         width: 61%;
     }
 
-     .not-found-container {
+    .not-found-container {
         margin-top: 30%;
     }
 }

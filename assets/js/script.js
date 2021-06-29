@@ -34,7 +34,7 @@ function gameScreenDisplay() {
     $(".home-menu-container").css("display", "none");
     $(".game-container").css("display", "block");
     $(".pre-game-rules").css("display", "block");
-    $(".easy-rules").css("display", "block");
+    homeScreenDifficultyCheck();
 
 }
 
@@ -256,15 +256,19 @@ function homeScreenDifficultyCheck() {
     if (difficulty == "Easy") {
         $("#maxScore").text('15');
         $("#timer").text('4:00');
+        displayEasyDifficulty();
     } else if (difficulty == "Medium") {
         $("#maxScore").text('20');
         $("#timer").text('3:45');
+        displayMediumDifficulty();
     } else if (difficulty == "Hard") {
         $("#maxScore").text('25');
         $("#timer").text('3:30');
+        displayHardDifficulty();
     } else if (difficulty == "Genius") {
         $("#maxScore").text('25');
         $("#timer").text('3:15');
+        displayGeniusDifficulty();
     }
 }
 

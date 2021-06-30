@@ -104,20 +104,14 @@ words from a random selection of letters.
  *  ### Wireframes
 
     -   Home Page Wireframes 
-        - [Mobile](https://michaelcwalsh7.github.io/Milestone-Project-2/
-        assets/images/readme-images/wireframes/home-screen-mobile.png) 
-        - [Tablet](https://michaelcwalsh7.github.io/Milestone-Project-2/
-        assets/images/readme-images/wireframes/home-screen-tablet.png) 
-        - [Desktop](https://michaelcwalsh7.github.io/Milestone-Project-2/
-        assets/images/readme-images/wireframes/home-screen-desktop.png)
+        - [Mobile](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/wireframes/home-screen-mobile.png) 
+        - [Tablet](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/wireframes/home-screen-tablet.png) 
+        - [Desktop](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/wireframes/home-screen-desktop.png)
 
     -   Play Screen Wireframes
-        - [Mobile](https://michaelcwalsh7.github.io/Milestone-Project-2/
-        assets/images/readme-images/wireframes/play-screen-mobile.png) 
-        - [Tablet](https://michaelcwalsh7.github.io/Milestone-Project-2/
-        assets/images/readme-images/wireframes/play-screen-tablet.png) 
-        - [Desktop](https://michaelcwalsh7.github.io/Milestone-Project-2/
-        assets/images/readme-images/wireframes/play-screen-desktop.png)
+        - [Mobile](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/wireframes/play-screen-mobile.png) 
+        - [Tablet](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/wireframes/play-screen-tablet.png) 
+        - [Desktop](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/wireframes/play-screen-desktop.png)
 
 ## Features
 

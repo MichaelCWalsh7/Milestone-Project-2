@@ -156,4 +156,10 @@ words from a random selection of letters.
 ### APIs Used
 -   The [Free Dictionary API](https://dictionaryapi.dev/) was used to validate whether user inputs were real words or not.
 -   The [EmailJS API](https://www.emailjs.com/) was used to send messages to the creator should there be any words that
-are erroneously 
+are erroneously not accepted through the dictionary api the user wants to report, or if they want to get in touch for any 
+other reason. 
+
+## Testing
+- For the sake of brevity and concision, the documentation of all testing that has been conducted is located on a seprate 
+file. [Click anywhere on this sentence to be taken to the
+TESTING.md file.](https://github.com/MichaelCWalsh7/milestone-project-1/blob/master/TESTING.md)

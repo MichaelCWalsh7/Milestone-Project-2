@@ -116,8 +116,6 @@ a {
 
 .offcanvas-end {
     width: 250px;
-    /* DEVNOTE: subject to change will need media queries
-    Could also be modified using JavaScript?? */
 }
 
 .offcanvas-header,

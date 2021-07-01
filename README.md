@@ -28,12 +28,12 @@ words from a random selection of letters.
         2. As a Returning Visitor, I want to change the difficulty to test my skills at the game. 
         3. As a Returning Visitor, I want to contact the user with any questions or queries that I may have with the 
         information provided.
-        4. As a Returning Visitor, I want to reset the game at any time, if I win, lose or am in the middle of a game.  
-
+        4. As a Returning Visitor, I want to be able to play the game using my keyboard as well the letter buttons provided.
     -   #### Frequent User Goals
         1. As a Frequent User, I want to easily check to see if there are any newly added game modes or challenges
         2. As a Frequent User, I want to test my skill by trying longer words at harder difficulties.
-        3. As a Frequent User, I want to be able to play games at harder difficulties as fast as possible.  
+        3. As a Frequent User, I want to reset the game at any time, if I win, lose or am in the middle of a game.  
+
 
 *   ### Design
 
@@ -65,20 +65,11 @@ words from a random selection of letters.
         as a back-up to both 'Hind Siliguri' & 'PT Sans' for the same reason. 
 
     -   #### Imagery
-        - Aesthetics are obviously king on visual platforms, especially in a web game like this. Overall the game pages 
-        are quite busy. There's the board for the words, the enter button, letter buttons, timer navbar etc. With so many
-        visual elements already fighting for prime real estate, especially on smaller devices, a decision was made early
-        on to use images only when necessary or when they would truly improve user's experience.
-        - As a result of the above point, images are used for mainly one purpose in the game. A variety of images 
-        are used when showing the player a game over screen after losing. The images shown (and their accompanying
-        message) here vary upon the condition the player's loss, i.e how many points the player had when they lost. A 
-        noted difference in images on the game over screen is important, especially for younger players. Returning players,
-        especially those on harder difficulties, will see different 'fail images' as they get better and better at the 
-        game. This means the player will feel some positive feedback upon a loss where they've broken their higher score,
-        having a visual representation that they've done better, as well as a numerical one. 
-        - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero
-        correctly inputted answers, or finishing just one answer short of completeing the game. Changing and dynamic imagery
-        like this is important as it maintains the intereactivity and fluidity of the game experiece. 
+        - Aesthetics are obviously king on visual platforms, especially in a web game like this. Overall the game pages are quite busy. There's the board for the words, the enter button, letter buttons, timer navbar etc. With so many visual elements already fighting for prime real estate, especially on smaller devices, a decision was made early on to use images only when necessary or when they would truly improve user's experience.
+        - As a result of the above point, images are used in mainly two places in the game. 
+        - Firstly A variety of images are used when showing the player a game over screen after losing. The images shown (and their accompanying message) here vary upon the condition the player's loss, i.e how many points the player had when they lost. A noted difference in images on the game over screen is important, especially for younger players. Returning players, especially those on harder difficulties, will see different 'fail images' as they get better and better at the  game. This means the player will feel some positive feedback upon a loss where they've broken their higher score, having a visual representation that they've done better, as well as a numerical one. 
+        - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero correctly inputted answers, or finishing just one answer short of completeing the game. Changing and dynamic imagery like this is important as it maintains the intereactivity and fluidity of the game experiece.
+        - Secondly in icons. the game makes heavy use of familiar and appropriate icons throughout. The info circle icon takes the user to an info/contact page, the gear icon opens the settings menu, left & right carets change the difficulty etc. 
 
     -   #### Audio
         - Another important auditory experiece is the auditory one. There are many sounds in the game, however they are not on

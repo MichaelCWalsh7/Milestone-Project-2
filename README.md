@@ -24,7 +24,7 @@ words from a random selection of letters.
 
     -   #### Returning Visitor Goals
 
-        1. As a Returning Visitor, I want to understand further nuance in the game.
+        1. As a Returning Visitor, I want to understand further nuances in the game.
         2. As a Returning Visitor, I want to change the difficulty to test my skills at the game. 
         3. As a Returning Visitor, I want to contact the user with any questions or queries that I may have with the 
         information provided.
@@ -33,7 +33,7 @@ words from a random selection of letters.
     -   #### Frequent User Goals
         1. As a Frequent User, I want to easily check to see if there are any newly added game modes or challenges
         2. As a Frequent User, I want to test my skill by trying longer words at harder difficulties.
-        3. As a Frequent User, I want to be rewarded for completing the game at the hardest difficulty if I am able. 
+        3. As a Frequent User, I want to be able to play games at harder difficulties as fast as possible.  
 
 *   ### Design
 
@@ -69,8 +69,8 @@ words from a random selection of letters.
         are quite busy. There's the board for the words, the enter button, letter buttons, timer navbar etc. With so many
         visual elements already fighting for prime real estate, especially on smaller devices, a decision was made early
         on to use images only when necessary or when they would truly improve user's experience.
-        - As a result of the above point, images are used in two places in the game mainly. First, a variety of images 
-        are used when showing the player a game over screen after losing. The images shown (and theier accompanying
+        - As a result of the above point, images are used for mainly one purpose in the game. A variety of images 
+        are used when showing the player a game over screen after losing. The images shown (and their accompanying
         message) here vary upon the condition the player's loss, i.e how many points the player had when they lost. A 
         noted difference in images on the game over screen is important, especially for younger players. Returning players,
         especially those on harder difficulties, will see different 'fail images' as they get better and better at the 
@@ -79,8 +79,6 @@ words from a random selection of letters.
         - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero
         correctly inputted answers, or finishing just one answer short of completeing the game. Changing and dynamic imagery
         like this is important as it maintains the intereactivity and fluidity of the game experiece. 
-        - For similar reasons, there's also a different victory screen for a win on Genius mode. Genius mode can be 
-        extremely challenging, and so rewarding the user for toughing it out is an essential part of the user experice.
 
     -   #### Audio
         - Another important auditory experiece is the auditory one. There are many sounds in the game, however they are not on

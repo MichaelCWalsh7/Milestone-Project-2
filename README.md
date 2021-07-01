@@ -16,7 +16,7 @@ words from a random selection of letters.
          of the game.
         2. As a First Time Visitor, I want to be able to easily navigate through the site, find and interact with the content
          available.
-        3. As a First Time Visitor, I want to be play the game with minimal effort.
+        3. As a First Time Visitor, I want to play the game quickly, and with minimal effort.
         4. As a First Time Visitor, I want to be able to easily tell if I have succeeded or failed at the goal of the game. 
         5. As a First Time Visitor, I want to be able to adjust or mute the volume of the game as I so choose. 
         6. As a First Time Visitor, I want to control exactly when the game/timer starts so I'm not unduly thrust into a game

@@ -20,6 +20,7 @@ words from a random selection of letters.
         5. As a First Time Visitor, I want to be able to adjust or mute the volume of the game as I so choose. 
         6. As a First Time Visitor, I want to control exactly when the game/timer starts so I'm not unduly thrust into a game
         experience that I'm not prepared for. 
+        7. As a First Time visitor I want to clear track my progress through the game.
 
     -   #### Returning Visitor Goals
 
@@ -29,7 +30,7 @@ words from a random selection of letters.
         information provided.
         4. As a Returning Visitor, I want to be able to play the game using my keyboard as well the letter buttons provided.
     -   #### Frequent User Goals
-        1. As a Frequent User, I want to easily check to see if there are any newly added game modes or challenges
+        1. As a Frequent User, I want to easily check to see if there are any newly added game modes or challenges.
         2. As a Frequent User, I want to test my skill by trying longer words at harder difficulties.
         3. As a Frequent User, I want to reset the game at any time, if I win, lose or am in the middle of a game.  
 

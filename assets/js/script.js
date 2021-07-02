@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Adjusts the lower difficulty arrow to it's default position on load
     $("#lowerDifficultyArrow").prop("disabled", true);
     $("#lowerDifficultyArrow").css("opacity", ".5");
-})
+});
 
 //  --------Event Listeners:
 $("#navbarLink").on("click", homeScreenDisplay);
@@ -21,12 +22,14 @@ $("#volumeSlider").on("input", setVolume);
 $("#lowerDifficultyArrow").on("click", lowerDifficulty);
 $("#increaseDifficultyArrow").on("click", increaseDifficulty);
 $(".letter-button").on("click", function findLetter() {
+    // Finds ID of the letter button pushed to add it to the text input
     let inputId = this.id;
     addLetterToInput(inputId);
-})
+});
 
 //  --------FUNCTIONS:
 
+//  --Display Handling Functions:
 
 function gameScreenDisplay() {
     // Displays the game screen and hides the menu
@@ -34,6 +37,7 @@ function gameScreenDisplay() {
     $(".home-menu-container").css("display", "none");
     $(".game-container").css("display", "block");
     $(".pre-game-rules").css("display", "block");
+    // Ensure the correct difficulty settings  are being displayed
     homeScreenDifficultyCheck();
 
 }
@@ -67,27 +71,28 @@ function homeScreenDisplay() {
     $(".home-menu-container").css("display", "block");
     $(".ready-button").css("display", "block");
 
-
-
+    // Ensures there is no lingering elements from the previous game(s)
     resetGameElements();
+
+    // Resets the scores, lives and timer if user hits play again
+    homeScreenDifficultyCheck();
 }
 
 function resetGameElements() {
     // Resets the event keyboard event listeners
     turnOffListeners();
 
-    // Resets the display of the letter button containers/blackboard 
+    // Resets the display of the letter button containers/text input 
     letterButtonHide();
     clearInput();
+
     // Clears the blackboard of words from previous games
     blackBoardClear();
 
 
-    // Resets the scores, lives and timer if user hits play again
-    homeScreenDifficultyCheck();
 }
 
-//  --------Difficulty Handling Functions:
+//  --Difficulty Handling Functions:
 
 function increaseDifficulty() {
     // Enusres that the lower difficulty button is now active
@@ -149,7 +154,7 @@ function lowerDifficulty() {
         $("#lowerDifficultyArrow").prop("disabled", true);
         $("#lowerDifficultyArrow").css("opacity", ".5")
 
-    }
+    };
 }
 
 function displayEasyDifficulty() {
@@ -245,40 +250,46 @@ function difficultyTracker() {
     } else if (difficulty == "Genius") {
         // Calls a function to initialise the game in Genius mode
         initGeniusDifficulty();
-    }
+    };
 }
 
 function homeScreenDifficultyCheck() {
+    // Initializes a variables for difficulty
     let difficulty = $("#difficulty").text();
+    // Resets fields which are constant regardless of difficulty
     $("#currentScore").text('0');
     $("#livesLeft").text('5');
 
     if (difficulty == "Easy") {
+        // Sets fields for Easy mode
         $("#maxScore").text('15');
         $("#timer").text('4:00');
         displayEasyDifficulty();
     } else if (difficulty == "Medium") {
+        // Sets fields for Medium mode
         $("#maxScore").text('20');
         $("#timer").text('3:45');
         displayMediumDifficulty();
     } else if (difficulty == "Hard") {
+        // Sets fields for Hard mode
         $("#maxScore").text('25');
         $("#timer").text('3:30');
         displayHardDifficulty();
     } else if (difficulty == "Genius") {
+        // Sets fields for Genius mode
         $("#maxScore").text('25');
         $("#timer").text('3:15');
         displayGeniusDifficulty();
-    }
+    };
 }
 
 function initEasyDifficulty() {
     // Sets up variables for callbacks to play the game on Easy mode
-    vowelNumber = 4;
-    consonantNumber = 8;
-    timerMinutes = 4;
-    timerSeconds = 00;
-    score = 15;
+    let vowelNumber = 4;
+    let consonantNumber = 8;
+    let timerMinutes = 4;
+    let timerSeconds = 00;
+    let score = 15;
     // Loads/removes the correct game screen elements
     gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
@@ -289,11 +300,11 @@ function initEasyDifficulty() {
 
 function initMediumDifficulty() {
     // Sets up variables for callbacks to play the game on Medium mode
-    vowelNumber = 4;
-    consonantNumber = 7;
-    timerMinutes = 3;
-    timerSeconds = 45;
-    score = 20;
+    let vowelNumber = 4;
+    let consonantNumber = 7;
+    let timerMinutes = 3;
+    let timerSeconds = 45;
+    let score = 20;
     // Loads/removes the correct game screen elements
     gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
@@ -304,11 +315,11 @@ function initMediumDifficulty() {
 
 function initHardDifficulty() {
     // Sets up variables for callbacks to play the game on Hard mode
-    vowelNumber = 3;
-    consonantNumber = 7;
-    timerMinutes = 3;
-    timerSeconds = 30;
-    score = 25;
+    let vowelNumber = 3;
+    let consonantNumber = 7;
+    let timerMinutes = 3;
+    let timerSeconds = 30;
+    let score = 25;
     // Loads/removes the correct game screen elements
     gameStart(score, timerMinutes, timerSeconds);
     $(".letters-container").css("display", "block");
@@ -319,13 +330,14 @@ function initHardDifficulty() {
 
 function initGeniusDifficulty() {
     // Sets up variables for callbacks to play the game on Genius mode
-    vowelNumber = 3;
-    consonantNumber = 6;
-    timerMinutes = 3;
-    timerSeconds = 15;
-    score = 25;
-    // Loads/removes the correct game screen elements
+    let vowelNumber = 3;
+    let consonantNumber = 6;
+    let timerMinutes = 3;
+    let timerSeconds = 15;
+    let score = 25;
+    // Starts the game with the above parameters
     gameStart(score, timerMinutes, timerSeconds);
+    // Loads/removes the correct game screen elements
     $(".letters-container").css("display", "block");
     $(".letter-button-container-genius").css("display", "block");
     // Generates and anagram of the approrpiate length
@@ -345,14 +357,15 @@ function letterButtonHide() {
 
 function gameStart(score, timerMinutes, timerSeconds) {
 
-    // Clears the table of words in the event that the user has started the game from the game over screen
+    /* Clears the table of words in the event that the user has started the game
+    from the game over screen */
     blackBoardClear();
 
     // Calls the timer
-    startTimer(score, timerMinutes, timerSeconds)
+    startTimer(score, timerMinutes, timerSeconds);
 
     // Sets the appropriate score according to difficulty
-    $("#maxScore").text(score)
+    $("#maxScore").text(score);
 
     // Resets score & incorrect answers counters
     $("#currentScore").text("0");
@@ -374,45 +387,47 @@ function gameStart(score, timerMinutes, timerSeconds) {
 }
 
 function blackBoardClear() {
-    for (var x = 0; x <= 25; x++) {
+    // Clears any words on the blackboard from a previous game
+    for (let x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
-    }
+    };
 }
 
 function startTimer(score, timerMinutes, timerSeconds) {
     // Sets variables needed to start the timer
-    minute = timerMinutes;
-    sec = timerSeconds;
+    let minute = timerMinutes;
+    let sec = timerSeconds;
+    // Resets the timer colour if the game has been restarted
     $("#timerContainer").css("color", "#D6A419")
 
     // Sets event listeners so the timer stops if the game is reset in the UI
-    // Could be refactored into a single function...
     $("#navResetButton").on("click", function () {
         clearTimeout(timer);
-    })
+    });
     $("#settingsResetButton").on("click", function () {
         clearTimeout(timer);
-    })
+    });
     $("#navbarLink").on("click", function () {
         clearTimeout(timer);
-    })
+    });
 
     let timer = setInterval(function () {
         /*Checks if the user has won or lost so the timer doesn't continue after
          the game ends */
         winLoseCheck(timer, score);
+        // Sets the timer colour if time is running out
+        if (minute == 0 && sec < 10) {
+            $("#timerContainer").css("color", "red")
+        };
 
+        // Initializes the timer
         if (sec < 10 && sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
             sec--;
         } else if (sec != 00) {
             document.getElementById("timer").innerHTML = minute + ":" + sec;
             sec--;
-        }
-
-        if (minute == 0 && sec < 10) {
-            $("#timerContainer").css("color", "red")
-        }
+        };
 
         if (sec == 00 && minute != 0) {
             minute--;
@@ -420,15 +435,18 @@ function startTimer(score, timerMinutes, timerSeconds) {
         } else if (sec == 00 && minute == 0) {
             gameLose();
             clearTimeout(timer);
-        }
+        };
     }, 1000);
 }
 
 function winLoseCheck(timer, score) {
+    // Initializes variables to check if the user has won/lost
     let currentScore = parseInt($("#currentScore").text());
     let livesLeft = parseInt($("#livesLeft").text());;
 
+    // Checks if the user has won/lost
     if (currentScore == score || livesLeft == 0) {
+        // Stops the timer in the event that the user has won or lost
         clearTimeout(timer);
     }
 
@@ -436,7 +454,7 @@ function winLoseCheck(timer, score) {
 
 
 function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
-
+    // Initializes alphabetical array variables
     const vowels = ['A', 'E', 'I', 'O', 'U'];
     const consonantsEasy = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'L', 'M', 'N',
         'P', 'R', 'S', 'T', 'V', 'W', 'Y'
@@ -445,7 +463,7 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
         'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'
     ];
 
-    // Initialises block scope variables needed to succinctly generate an anagram. 
+    // Initialises block scope variables needed to sufficientlty generate an anagram 
     let anagramArray = [];
     let vowelsUsed = [];
     let consonantsUsed = [];
@@ -456,54 +474,57 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
         let vowelIndexer = Math.floor(Math.random() * 5);
         if (vowelsUsed.includes(vowels[vowelIndexer]) === false) {
             vowelsUsed.push(vowels[vowelIndexer])
-        }
-    }
+        };
+    };
     // Checks difficulty settings to determine which consonants will be used
     if (difficulty == "Easy" || difficulty == "Medium") {
         consonants = consonantsEasy;
     } else if (difficulty == "Hard" || difficulty == "Genius") {
         consonants = consonantsHard;
-    }
+    };
     // Generates a number of random non-repeating consonants
     while (consonantsUsed.length < consonantNumber) {
         let consonantIndexer = Math.floor(Math.random() * consonants.length);
         if (consonantsUsed.includes(consonants[consonantIndexer]) === false) {
             consonantsUsed.push(consonants[consonantIndexer])
-        }
-    }
+        };
+    };
 
     //The consonants and vowels generated are concatenated into an array
     anagramArray = vowelsUsed.concat(consonantsUsed);
 
 
-    // Then they are put through a Fisher-Yates algorithm to mix the vowels and consonants
-    for (var i = anagramArray.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1)); //random index
-        [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]]; // swap
-    }
+    /* Then they are put through a Fisher-Yates algorithm to mix the vowels 
+    and consonants */
+    for (let i = anagramArray.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1)); //random index
+        // swap
+        [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]];
+    };
 
-    // Changes the difficulty variable to lower case to match up with the button ids
+    // Changes difficulty variable to lower case to match the button ids
     difficulty = difficulty.toLowerCase();
     // Adds the content of the array to the buttons
-    for (var k = 0; k <= anagramArray.length; k++) {
-        $(`#${difficulty}Button${k + 1}`).text(anagramArray[k]);
-    }
+    for (let i = 0; i <= anagramArray.length; i++) {
+        $(`#${difficulty}Button${i + 1}`).text(anagramArray[i]);
+    };
 
     // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
 
+    // Adds event listeners for users with keyboards
     keyboardLetterEvent(anagramArray, difficulty);
     enterDeleteLetterEvent();
 }
 
 function addLetterToInput(inputId) {
-
     // Clears the message area
     $("#message").text("");
-    // Initialises a a variable of the letters currently present in the text input. 
+
+    // Initialises a a variable of the letters currently present in the text input
     let currentLetters = $("#textInput").text();
 
-    // Disables the buttons and the keyboard event listeners to avoid duplicate letters appearing in string. 
+    // Disables the buttons  to avoid duplicate  letters appearing in string
     $(`#${inputId}`).prop('disabled', true);
 
     // Adds the button pushed input to the text to be displayed to the user
@@ -511,7 +532,8 @@ function addLetterToInput(inputId) {
     let newTextDisplay = `${currentLetters}${inputToPush}`
     $("#textInput").text(`${newTextDisplay}`);
 
-    // Adds class of button-pushed-x to the button that was pressed so it can be easily deleted/deactivated later.
+    /* Adds class of button-pushed-x to the button that was pressed so it can be 
+    easily deleted/deactivated later. */
     let i = newTextDisplay.length;
     $(`#${inputId}`).addClass(`button-pressed-${i}`);
 
@@ -520,7 +542,8 @@ function addLetterToInput(inputId) {
 }
 
 function keyboardLetterEvent(anagramArray, difficulty) {
-    // Converts the anagram array to lower case to compare against the event.key function
+    /* Converts the anagram array to lower case to compare against the event.key 
+    function */
     anagramArray = anagramArray.map(v => v.toLowerCase());
 
     $(document).on("keypress", function () {

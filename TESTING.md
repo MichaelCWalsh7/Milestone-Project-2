@@ -92,7 +92,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Issues Along The Way
 
-<<<<<<< HEAD
 - **Blackboard Clearing Issues**
     1. [Click here to see an image of the issue.](blackboard-forloop-image-link-here)
     2. Above you can see the solution to a problem I was having for some time in relation to trying to clear the words blackboard. Initially I had used code that just cleared the words blackboard div. However, this had the unintended consequence of deleting all of the `<table>` html that that was necessary to display the words in the first place.
@@ -129,6 +128,3 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     2. This initially worked in theory, but a glaring problem soon became immediately apparent.
     3. The problem being that the .includes funciton in JavaScript checked for any instance of the `userInput` string. So, for example, the word "books" would not be accepted if the word "book" were already present, as they shared the string `book` despite being two different words. The same problem would arise with "the" and "thespian" with "foot" and "footing" etc.
     4. The solution to the problem was to inlcude a space before and after the `words-blacboard` text input and after the `userinput` template literal also. That way, the letters in each string would be compared individually, and not as part of larger words, plurals, root words etc. 
-=======
--
->>>>>>> f8e372219f0a00634d07b743453191a06d255d69

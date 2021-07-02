@@ -409,6 +409,10 @@ function startTimer(score, timerMinutes, timerSeconds) {
             sec--;
         }
 
+        if (minute == 0 && sec < 10) {
+            $("#timerContainer").css("color", "red")
+        }
+
         if (sec == 00 && minute != 0) {
             minute--;
             sec = 59;

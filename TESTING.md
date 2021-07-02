@@ -98,27 +98,27 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     3. Rather than write an individual line of code for every single possible table cell, I simply itereated through them with the for loop shown above. 
 
 - **Serious timer Issues**
-    1. [Click here to see an image of the issue.](-image-link-here)
+    1. [Click here to see an image of the issue.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/weird-timer-bug.png)
     2. When initially programming the timer I ran into a very frustrating and game breaking bug that can be seen above. I had tried to `return` or `break` out of the timer function, but niether of those seemed to fix that whenever the game ended, the timer continued counting into negatives.
     3. The essential piece of the puzzle that I then found out existed was the clearTimeout funciton in JavaScript.
     4. Assigning the setInterval code that began the timer a variable, allowed to pass that variable into various functions as callback so that the timer could be stopped or cleared at various points in the game. For example on game win, on game lose, on game reset etc.
 
 - **Volume Slider jQuery Issues**
-    1. [In the top part of this image you can see the results of console logging the 'slider' variable with jQuery, whereas in the bottom part you can see the results of console logging the 'slider' variable with native JavaScript.](console-log-slider)
-    2. [In this image you can see the solution](native-js-solution)
+    1. [In the top part of this image you can see the results of console logging the 'slider' variable with jQuery, whereas in the bottom part you can see the results of console logging the 'slider' variable with native JavaScript.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/slider-unresponsive-in-jquery-1.png)
+    2. [In this image you can see the solution](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/slider-unresponsive-in-jquery-2.png)
     3. An issue that gave me a serious headache was my continued and futile to attmepts to try and return the value of a the volume slider element and initilize it as a variable with which to adjust the volume according to the user's preference.
     4. I used jQuery whenever possible, both to help myself get more used to the framework and becasue it is less verbose than native JavaScript. 
     5. However, the .value method would not return a value with jQuery, and so the code shown in the image above was used initialize the variable instead.
 
 - **Letter Button Array Issues**
-    1. [Click here to see an image of this issue.](no-button-0)
+    1. [Click here to see an image of this issue.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/no-button-0.png)
     2. One issue that was encountered early on, was that when a new anagram was being generated one of the letters in the anagram would always fail to write to the letter buttons.
     3. The cause of this that after the anagram array was put through a Fisher-Yates shuffle to randomise it, I was writing `anagramArray[x]` to `letter-button-x` (where 'x' was 1), `anagramArray[x]` to `letter-button-x` (where 'x' was 2) and so on.
     4. But of course the `anagramArray` index started at 0, and not at one, whereas I had named the lettter buttons 1-9.
     5. The fix here was quite easy once I figured out what was going on and simply changed the above code to `anagramArray[x + 1]` to `letter-button-x`.
 
 - **Answer Duplication Bug**
-    1. [Click here to see an image of this issue.](enter-button-duplication)
+    1. [Click here to see an image of this issue.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/enter-button-duplication.png)
     2. One of the most fundamental pieces of code, that was written very early on to assure that the game wasn't broken, was lines of code that checked if the word the user had inputted was already on the blackboard before accepting it as an answer.
     3. Obviously without this code, the game would break and the user could just input the same word however many times they wanted. That code was in effect when the above screenshot was taken.
     4. So if there is code to avoid entering duplicative words, how is the above picture possible? The reason is that the enter button was not disabled after clicking it, and so in the wordValidator function the enter button had to be disabled and then renabled afterwards.
@@ -128,3 +128,4 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     2. This initially worked in theory, but a glaring problem soon became immediately apparent.
     3. The problem being that the .includes funciton in JavaScript checked for any instance of the `userInput` string. So, for example, the word "books" would not be accepted if the word "book" were already present, as they shared the string `book` despite being two different words. The same problem would arise with "the" and "thespian" with "foot" and "footing" etc.
     4. The solution to the problem was to inlcude a space before and after the `words-blacboard` text input and after the `userinput` template literal also. That way, the letters in each string would be compared individually, and not as part of larger words, plurals, root words etc. 
+    5. [Click here to see an image of the fix for this this issue.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/bud-tud-gud-wordcheckfix.png)

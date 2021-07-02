@@ -13,6 +13,11 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - These results are in the form of a picture rather than the links above, as when the site is passed through the validator, it also validates the entire bootstrap library, which as of bootstrap 5, throws 17 errors and fail validation. 
         - If needed, the css that I've written for the project can be valiated via file upload, or direct input [here.](https://jigsaw.w3.org/css-validator/)
 -   JSHint needs including...
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+    - The Google dev tool Lighthouse was used to ensure that the project followed best practices.
+    - Results
+        - [Click here to see an image of the results](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/)
+
 
 ### Testing User Stories from User Experience (UX) Section
 -   #### First Time Visitor Goals

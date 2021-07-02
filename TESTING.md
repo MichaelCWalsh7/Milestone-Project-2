@@ -88,12 +88,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ### Known Bugs
 
 - As of right now, there is one known bug with dictionary API that is used. There are some valid word entries, that it does not accept, as it does not have an entry for them. 
-    - There is an array in the games code of these words, (at least all the ones I've been able to find so far,) that searches the users input for these words before calling the API. I've been adding words to this array as they're being discovered in testing. thus far the array is 20 words long, and can be found on line 643 of the script.js page.
+    - There is an array in the games code of these words, (at least all the ones I've been able to find so far,) that searches the users input for these words before calling the API. I've been adding words to this array as they're being discovered in testing. Thus far, the array is 20 words long, and can be found on line 643 of the script.js page.
 
 ### Issues Along The Way
 
 - **Blackboard Clearing Issues**
-    1. [Click here to see an image of the issue.](blackboard-forloop-image-link-here)
+    1. [Click here to see an image of the issue.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/blackboard-forloop-bug.png)
     2. Above you can see the solution to a problem I was having for some time in relation to trying to clear the words blackboard. Initially I had used code that just cleared the words blackboard div. However, this had the unintended consequence of deleting all of the `<table>` html that that was necessary to display the words in the first place.
     3. Rather than write an individual line of code for every single possible table cell, I simply itereated through them with the for loop shown above. 
 

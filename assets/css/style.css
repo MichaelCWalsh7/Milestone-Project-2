@@ -789,7 +789,13 @@ td {
     }
 }
 
-@media(min-width: 992px) {}
+@media(min-width: 992px) {
+    #Score,
+    #lives,
+    #timerContainer {
+        font-size: 25px;
+    }
+}
 
 @media(min-width: 1024px) {
     .enter-delete-buttons {

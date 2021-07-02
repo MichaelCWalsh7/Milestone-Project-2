@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     // Adjusts the lower difficulty arrow to it's default position on load
     $("#lowerDifficultyArrow").prop("disabled", true);
@@ -152,9 +154,9 @@ function lowerDifficulty() {
 
         // Disables the lower difficulty button
         $("#lowerDifficultyArrow").prop("disabled", true);
-        $("#lowerDifficultyArrow").css("opacity", ".5")
+        $("#lowerDifficultyArrow").css("opacity", ".5");
 
-    };
+    }
 }
 
 function displayEasyDifficulty() {
@@ -224,7 +226,7 @@ function displayGeniusDifficulty() {
 
 function difficultyTracker() {
     // Initialises a variable for the difficulty span
-    difficulty = $("#difficulty").text();
+    let difficulty = $("#difficulty").text();
 
     // Resets the event keyboard event listeners
     turnOffListeners();
@@ -250,7 +252,7 @@ function difficultyTracker() {
     } else if (difficulty == "Genius") {
         // Calls a function to initialise the game in Genius mode
         initGeniusDifficulty();
-    };
+    }
 }
 
 function homeScreenDifficultyCheck() {
@@ -280,7 +282,7 @@ function homeScreenDifficultyCheck() {
         $("#maxScore").text('25');
         $("#timer").text('3:15');
         displayGeniusDifficulty();
-    };
+    }
 }
 
 function initEasyDifficulty() {
@@ -288,7 +290,7 @@ function initEasyDifficulty() {
     let vowelNumber = 4;
     let consonantNumber = 8;
     let timerMinutes = 4;
-    let timerSeconds = 00;
+    let timerSeconds = 0;
     let score = 15;
     // Loads/removes the correct game screen elements
     gameStart(score, timerMinutes, timerSeconds);
@@ -390,7 +392,7 @@ function blackBoardClear() {
     // Clears any words on the blackboard from a previous game
     for (let x = 0; x <= 25; x++) {
         $(`.word-${x}`).text("");
-    };
+    }
 }
 
 function startTimer(score, timerMinutes, timerSeconds) {
@@ -398,7 +400,7 @@ function startTimer(score, timerMinutes, timerSeconds) {
     let minute = timerMinutes;
     let sec = timerSeconds;
     // Resets the timer colour if the game has been restarted
-    $("#timerContainer").css("color", "#D6A419")
+    $("#timerContainer").css("color", "#D6A419");
 
     // Sets event listeners so the timer stops if the game is reset in the UI
     $("#navResetButton").on("click", function () {
@@ -417,32 +419,33 @@ function startTimer(score, timerMinutes, timerSeconds) {
         winLoseCheck(timer, score);
         // Sets the timer colour if time is running out
         if (minute == 0 && sec < 10) {
-            $("#timerContainer").css("color", "red")
-        };
+            $("#timerContainer").css("color", "red");
+        }
 
         // Initializes the timer
-        if (sec < 10 && sec != 00) {
+        if (sec < 10 && sec != 0) {
             document.getElementById("timer").innerHTML = minute + ":" + "0" + sec;
             sec--;
-        } else if (sec != 00) {
+        } else if (sec != 0) {
             document.getElementById("timer").innerHTML = minute + ":" + sec;
             sec--;
-        };
+        }
 
-        if (sec == 00 && minute != 0) {
+        if (sec == 0 && minute != 0) {
+            document.getElementById("timer").innerHTML = minute + ":00";
             minute--;
             sec = 59;
-        } else if (sec == 00 && minute == 0) {
+        } else if (sec == 0 && minute == 0) {
             gameLose();
             clearTimeout(timer);
-        };
+        }
     }, 1000);
 }
 
 function winLoseCheck(timer, score) {
     // Initializes variables to check if the user has won/lost
     let currentScore = parseInt($("#currentScore").text());
-    let livesLeft = parseInt($("#livesLeft").text());;
+    let livesLeft = parseInt($("#livesLeft").text());
 
     // Checks if the user has won/lost
     if (currentScore == score || livesLeft == 0) {
@@ -473,22 +476,22 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     while (vowelsUsed.length < vowelNumber) {
         let vowelIndexer = Math.floor(Math.random() * 5);
         if (vowelsUsed.includes(vowels[vowelIndexer]) === false) {
-            vowelsUsed.push(vowels[vowelIndexer])
-        };
-    };
+            vowelsUsed.push(vowels[vowelIndexer]);
+        }
+    }
     // Checks difficulty settings to determine which consonants will be used
     if (difficulty == "Easy" || difficulty == "Medium") {
         consonants = consonantsEasy;
     } else if (difficulty == "Hard" || difficulty == "Genius") {
         consonants = consonantsHard;
-    };
+    }
     // Generates a number of random non-repeating consonants
     while (consonantsUsed.length < consonantNumber) {
         let consonantIndexer = Math.floor(Math.random() * consonants.length);
         if (consonantsUsed.includes(consonants[consonantIndexer]) === false) {
-            consonantsUsed.push(consonants[consonantIndexer])
-        };
-    };
+            consonantsUsed.push(consonants[consonantIndexer]);
+        }
+    }
 
     //The consonants and vowels generated are concatenated into an array
     anagramArray = vowelsUsed.concat(consonantsUsed);
@@ -500,14 +503,14 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
         let j = Math.floor(Math.random() * (i + 1)); //random index
         // swap
         [anagramArray[i], anagramArray[j]] = [anagramArray[j], anagramArray[i]];
-    };
+    }
 
     // Changes difficulty variable to lower case to match the button ids
     difficulty = difficulty.toLowerCase();
     // Adds the content of the array to the buttons
     for (let i = 0; i <= anagramArray.length; i++) {
         $(`#${difficulty}Button${i + 1}`).text(anagramArray[i]);
-    };
+    }
 
     // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
@@ -529,7 +532,7 @@ function addLetterToInput(inputId) {
 
     // Adds the button pushed input to the text to be displayed to the user
     let inputToPush = $(`#${inputId}`).text();
-    let newTextDisplay = `${currentLetters}${inputToPush}`
+    let newTextDisplay = `${currentLetters}${inputToPush}`;
     $("#textInput").text(`${newTextDisplay}`);
 
     /* Adds class of button-pushed-x to the button that was pressed so it can be 
@@ -561,7 +564,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
             let idNumber = anagramArray.indexOf(buttonPressed);
             let inputId = `${difficulty}Button${idNumber + 1}`;
             addLetterToInput(inputId);
-        };
+        }
     });
 }
 
@@ -581,7 +584,7 @@ function enterDeleteLetterEvent() {
 
 function setVolume() {
     // Changes the volume display figure on the offcanvas UI
-    sliderValue = document.getElementById("volumeSlider").value;
+    let sliderValue = document.getElementById("volumeSlider").value;
     $("#volumeLevel").text(sliderValue + "%");
 
     // Calls a function to change the gradient of the range slider
@@ -633,17 +636,17 @@ function wordValidator() {
     // Checks if the user has, in fact, entered a word
     if (userInput == "") {
         // Prompts the user to enter a word
-        let errorMessage = "Please enter a word."
+        let errorMessage = "Please enter a word.";
         invalidWord(errorMessage);
       // Checks if the word is already present on the answers blackboard
     } else if (repeatingWord) {
         // Prompts the user to enter a new word
-        let errorMessage = "Sorry, you've already inputted this word."
+        let errorMessage = "Sorry, you've already inputted this word.";
         invalidWord(errorMessage);
       // Checks that the word is a least 3 letters long
     } else if (userInput.length < 3) {
         // Prompts the user to enter a longer word
-        let errorMessage = "Words must be at least three letters long."
+        let errorMessage = "Words must be at least three letters long.";
         invalidWord(errorMessage);
         
     } else {
@@ -686,7 +689,7 @@ function noApiCheck(userInput) {
         /* If the word does NOT meet the requirements the API is called to 
         analyze the word */
         validWordCheck(userInput);
-    };
+    }
 }
 
 function validWordCheck(userInput) {
@@ -707,9 +710,9 @@ function validWordCheck(userInput) {
 
             // Checks if the word is an abbreviation
         } else if (this.readyState == 4 && this.status == 200) {
-            abbreviationCheck(apiData, userInput)
+            abbreviationCheck(apiData, userInput);
         }
-    }
+    };
 }
 
 function abbreviationCheck(apiData, userInput) {
@@ -722,12 +725,12 @@ function abbreviationCheck(apiData, userInput) {
     and stores the number of these in the previously initialized variable */
     if (apiData.includes("abbreviation")) {
         abbreviationCount = apiData.match(/abbreviation/g).length;
-    };
+    }
 
     // Checks that the 'partOfSpeech' tag appears to avoid breaking the game
     if (apiData.includes("partOfSpeech")) {
-        definitionCount = apiData.match(/partOfSpeech/g).length
-    };
+        definitionCount = apiData.match(/partOfSpeech/g).length;
+    }
 
     /* Checks if the number of abbreviative definitions a word has is equal to the number 
     of definitions it has in general. This way, the user is not punished if they input a 
@@ -739,7 +742,7 @@ function abbreviationCheck(apiData, userInput) {
     } else {
         // Adds the word to the blackboard and increments the score. 
         wordSuccess(userInput);
-    };
+    }
 }
 
 
@@ -780,7 +783,7 @@ function storageInit(userInput) {
         // Checks if the word has been locally stored already
         let localWords = localStorage;
         storageCheck(userInput, localWords);
-    };
+    }
 
 }
 
@@ -794,7 +797,7 @@ function storageCheck(userInput, localWords) {
     if (wordLocallyPresent == false) {
         // If the word isn't stored, it is added to the localStorage object
         wordStore(userInput, localWords);
-    };
+    }
 }
 
 function wordStore(userInput, localWords) {
@@ -818,12 +821,12 @@ function lifeGain(userInput) {
     // Gives the user an extra life if their word is longer than 7 letters
     if (difficulty != "Genius" && userInput.length > 6) {
         // Increments the life counter
-        $("#livesLeft").text(`${lives + 1}`)
+        $("#livesLeft").text(`${lives + 1}`);
         // Informs the user they've gained a life
         lifeGainMessage();
         // Plays the life gain sound if sounds are enabled
         lifeGainSound();
-    };
+    }
 }
 
 function lifeGainMessage() {
@@ -847,7 +850,7 @@ function lifeGainMessage() {
     } else {
         // Adds the new message to the message div.
         $("#message").css("color", "green").text(`${bonusMessages[x]}`);
-    };
+    }
 }
 
 function navResetAllow() {
@@ -872,18 +875,18 @@ function wordFail() {
 
     // Warns the user when they've only one incorrect guess remaining.
     if (newLives == 1) {
-        wrongMessage = "Only 1 life left! Be Careful!"
-        $("#message").css("color", "red").text(`${wrongMessage}`)
+        wrongMessage = "Only 1 life left! Be Careful!";
+        $("#message").css("color", "red").text(`${wrongMessage}`);
         // Warns the user when they've only two incorrect guesses remaining.
     } else if (newLives == 2) {
-        wrongMessage = "Heads up, just 2 lives remaining!"
-        $("#message").css("color", "red").text(`${wrongMessage}`)
+        wrongMessage = "Heads up, just 2 lives remaining!";
+        $("#message").css("color", "red").text(`${wrongMessage}`);
         /*  Generates a random error message that is different to the previous one,
           so that the user knows their guess is incorrect without having to refer
           to the Lives Left tracker. */
     } else if (newLives >= 3) {
         wrongMessagePicker();
-    };
+    }
 
     // Increments incorrect answers counter
     incorrectIncremenet(newLives);
@@ -916,7 +919,7 @@ function wrongMessagePicker() {
     } else {
         // Adds the new message to the message div.
         $("#message").css("color", "red").text(`${wrongMessages[x]}`);
-    };
+    }
 }
 
 function clearInput() {
@@ -924,11 +927,11 @@ function clearInput() {
     $("#enterButton").prop('disabled', false);
     for (var n = 0; n <= 12; n++) {
         $(`.button-pressed-${n}`).prop("disabled", false);
-        $(".letter-button").removeClass(`button-pressed-${n}`)
+        $(".letter-button").removeClass(`button-pressed-${n}`);
 
         // Clears text input field
         $("#textInput").text("");
-    };
+    }
 }
 
 function scoreIncrement(userInput) {
@@ -942,7 +945,7 @@ function scoreIncrement(userInput) {
     let maxPossible = parseInt($("#settingsLetters").text());
 
     // Checks if user has won
-    let maxScore = parseInt($("#maxScore").text())
+    let maxScore = parseInt($("#maxScore").text());
     if (newScore == maxScore) {
         // Calls the game win function
         gameWin();
@@ -952,7 +955,7 @@ function scoreIncrement(userInput) {
     } else {
         // Plays successful word sound if audio is enabled.
         wordSuccessSound();
-    };
+    }
 }
 
 function gameWin() {
@@ -976,7 +979,7 @@ function incorrectIncremenet(newLives) {
     } else {
         // Plays failure sound if sounds are enabled.
         wordFailSound();
-    };
+    }
 }
 
 
@@ -1021,13 +1024,13 @@ function playSound(sound) {
     // Initializes a variable to check if sound is turned on
     let soundOn = false;
     if (document.getElementById('muteButton').checked == true) {
-        soundOn = true
+        soundOn = true;
     }
     // Checks if sound is turned on
     if (soundOn == true) {
         // If so, sets the appropriate volume for souns
-        let setVolume = document.getElementById("volumeSlider").value
-        let volume = (setVolume / 100)
+        let setVolume = document.getElementById("volumeSlider").value;
+        let volume = (setVolume / 100);
         sound.volume = volume;
         //  Plays the appropriate sound
         sound.play();
@@ -1042,7 +1045,7 @@ function turnOffListeners() {
 
 function letterButtonSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/letter-button.mp3');
+    let sound = new Audio('assets/sounds/letter-button.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1050,7 +1053,7 @@ function letterButtonSound() {
 
 function deleteButtonSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/delete-button.mp3');
+    let sound = new Audio('assets/sounds/delete-button.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1058,7 +1061,7 @@ function deleteButtonSound() {
 
 function clearButtonSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/clear-button.mp3');
+    let sound = new Audio('assets/sounds/clear-button.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1066,7 +1069,7 @@ function clearButtonSound() {
 
 function unmuteSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/sound-on.mp3');
+    let sound = new Audio('assets/sounds/sound-on.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1074,7 +1077,7 @@ function unmuteSound() {
 
 function wordSuccessSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/correct-word.mp3');
+    let sound = new Audio('assets/sounds/correct-word.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1082,7 +1085,7 @@ function wordSuccessSound() {
 
 function wordFailSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/wrong-word.mp3');
+    let sound = new Audio('assets/sounds/wrong-word.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1090,7 +1093,7 @@ function wordFailSound() {
 
 function lifeGainSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/life-gain.mp3');
+    let sound = new Audio('assets/sounds/life-gain.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1098,7 +1101,7 @@ function lifeGainSound() {
 
 function gameOverSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/game-over.mp3');
+    let sound = new Audio('assets/sounds/game-over.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1106,7 +1109,7 @@ function gameOverSound() {
 
 function gameWinSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/game-win.mp3');
+    let sound = new Audio('assets/sounds/game-win.mp3');
 
     // Calls the playSound function
     playSound(sound);
@@ -1114,7 +1117,7 @@ function gameWinSound() {
 
 function maxWordSound() {
     // Initiliazes the correct sound file as a variable for the playSound function
-    sound = new Audio('assets/sounds/max-word.mp3');
+    let sound = new Audio('assets/sounds/max-word.mp3');
 
     // Calls the playSound function
     playSound(sound);

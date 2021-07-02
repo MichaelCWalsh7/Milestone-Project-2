@@ -383,6 +383,7 @@ function startTimer(score, timerMinutes, timerSeconds) {
     // Sets variables needed to start the timer
     minute = timerMinutes;
     sec = timerSeconds;
+    $("#timerContainer").css("color", "#D6A419")
 
     // Sets event listeners so the timer stops if the game is reset in the UI
     // Could be refactored into a single function...

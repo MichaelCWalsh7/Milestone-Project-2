@@ -498,10 +498,7 @@ function addLetterToInput(inputId) {
     // Initialises a a variable of the letters currently present in the text input. 
     let currentLetters = $("#textInput").text();
 
-    // Gets the id of the button pushed and it's contents to push to the inputLettersArray
-
-
-    // Disables the button to avoid duplicate letters appearing in string. 
+    // Disables the buttons and the keyboard event listeners to avoid duplicate letters appearing in string. 
     $(`#${inputId}`).prop('disabled', true);
 
     // Adds the button pushed input to the text to be displayed to the user
@@ -538,7 +535,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
 }
 
 function enterDeleteLetterEvent() {
-    $(document).on("keydown", function () {
+    $(document).on("keyup", function () {
         if (event.key === "Enter") {
             wordValidator();
         } else if (event.key === "Backspace") {
@@ -546,6 +543,7 @@ function enterDeleteLetterEvent() {
         }
     })
 }
+
 
 function setVolume() {
     // Changes the volume display figure on the offcanvas UI
@@ -642,7 +640,8 @@ function noApiCheck(userInput) {
     // Initializes an array of words that the API mistakenly does not accept
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
         " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", " BAT ", " BATS ",
-        " DICE " , " RAN ", " CLEM ", " RAPES "];
+        " DICE ", " RAN ", " CLEM ", " RAPES "
+    ];
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);
@@ -742,11 +741,6 @@ function wordSuccess(userInput) {
 
     // Checks if the word can be added to local storage
     storageInit(userInput);
-
-    // Informs user of their success by flashing pushed buttons a green colour
-    // colourChangeGreen(); 
-
-
 }
 
 function storageInit(userInput) {

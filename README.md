@@ -14,26 +14,26 @@ words from a random selection of letters.
     -   #### First Time Visitor Goals
         1. As a First Time Visitor, I want to be able to easily understand the purpose of the site and understand the rules
          of the game.
-        2. As a First Time Visitor, I want to be able to easily navigate through the site, find and interact with the content
-         available.
-        3. As a First Time Visitor, I want to be play the game with minimal effort.
+        2. As a First Time Visitor, I want to be able to easily navigate through the site, find and interact with the content available.
+        3. As a First Time Visitor, I want to play the game quickly, and with minimal effort.
         4. As a First Time Visitor, I want to be able to easily tell if I have succeeded or failed at the goal of the game. 
         5. As a First Time Visitor, I want to be able to adjust or mute the volume of the game as I so choose. 
         6. As a First Time Visitor, I want to control exactly when the game/timer starts so I'm not unduly thrust into a game
         experience that I'm not prepared for. 
+        7. As a First Time visitor I want to clear track my progress through the game.
 
     -   #### Returning Visitor Goals
 
-        1. As a Returning Visitor, I want to understand further nuance in the game.
+        1. As a Returning Visitor, I want to understand further nuances in the game.
         2. As a Returning Visitor, I want to change the difficulty to test my skills at the game. 
         3. As a Returning Visitor, I want to contact the user with any questions or queries that I may have with the 
         information provided.
-        4. As a Returning Visitor, I want to reset the game at any time, if I win, lose or am in the middle of a game.  
-
+        4. As a Returning Visitor, I want to be able to play the game using my keyboard as well the letter buttons provided.
     -   #### Frequent User Goals
-        1. As a Frequent User, I want to easily check to see if there are any newly added game modes or challenges
+        1. As a Frequent User, I want to easily check to see if there are any newly added game modes or challenges.
         2. As a Frequent User, I want to test my skill by trying longer words at harder difficulties.
-        3. As a Frequent User, I want to be rewarded for completing the game at the hardest difficulty if I am able. 
+        3. As a Frequent User, I want to reset the game at any time, if I win, lose or am in the middle of a game.  
+
 
 *   ### Design
 
@@ -65,30 +65,15 @@ words from a random selection of letters.
         as a back-up to both 'Hind Siliguri' & 'PT Sans' for the same reason. 
 
     -   #### Imagery
-        - Aesthetics are obviously king on visual platforms, especially in a web game like this. Overall the game pages 
-        are quite busy. There's the board for the words, the enter button, letter buttons, timer navbar etc. With so many
-        visual elements already fighting for prime real estate, especially on smaller devices, a decision was made early
-        on to use images only when necessary or when they would truly improve user's experience.
-        - As a result of the above point, images are used in two places in the game mainly. First, a variety of images 
-        are used when showing the player a game over screen after losing. The images shown (and theier accompanying
-        message) here vary upon the condition the player's loss, i.e how many points the player had when they lost. A 
-        noted difference in images on the game over screen is important, especially for younger players. Returning players,
-        especially those on harder difficulties, will see different 'fail images' as they get better and better at the 
-        game. This means the player will feel some positive feedback upon a loss where they've broken their higher score,
-        having a visual representation that they've done better, as well as a numerical one. 
-        - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero
-        correctly inputted answers, or finishing just one answer short of completeing the game. Changing and dynamic imagery
-        like this is important as it maintains the intereactivity and fluidity of the game experiece. 
-        - For similar reasons, there's also a different victory screen for a win on Genius mode. Genius mode can be 
-        extremely challenging, and so rewarding the user for toughing it out is an essential part of the user experice.
+        - Aesthetics are obviously king on visual platforms, especially in a web game like this. Overall the game pages are quite busy. There's the board for the words, the enter button, letter buttons, timer navbar etc. With so many visual elements already fighting for prime real estate, especially on smaller devices, a decision was made early on to use images only when necessary or when they would truly improve user's experience.
+        - As a result of the above point, images are used in mainly two places in the game. 
+        - Firstly A variety of images are used when showing the player a game over screen after losing. The images shown (and their accompanying message) here vary upon the condition the player's loss, i.e how many points the player had when they lost. A noted difference in images on the game over screen is important, especially for younger players. Returning players, especially those on harder difficulties, will see different 'fail images' as they get better and better at the  game. This means the player will feel some positive feedback upon a loss where they've broken their higher score, having a visual representation that they've done better, as well as a numerical one. 
+        - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero correctly inputted answers, or finishing just one answer short of completeing the game. Changing and dynamic imagery like this is important as it maintains the intereactivity and fluidity of the game experiece.
+        - Secondly in icons. the game makes heavy use of familiar and appropriate icons throughout. The info circle icon takes the user to an info/contact page, the gear icon opens the settings menu, left & right carets change the difficulty etc. 
 
     -   #### Audio
-        - Another important auditory experiece is the auditory one. There are many sounds in the game, however they are not on
-        by default, as this would be a poor user experience.
-        - The audio can be turned on/off in the settings menu, which is an offcanvas element the user can access from many 
-        places. From the home page to starting the game, there are three separate calls to action for the user to click on 
-        the settings off canvas: on the settings button on the home page, on the settings button in the pre-game rules and
-        the ever-present settings cog icon in the top right hand corner of the navbar on every resolution.
+        - Another important auditory experiece is the auditory one. There are many sounds in the game, however they are not on by default, as this would be a poor user experience.
+        - The audio can be turned on/off in the settings menu, which is an offcanvas element the user can access from many  places. From the home page to starting the game, there are three separate calls to action for the user to click on  the settings off canvas: on the settings button on the home page, on the settings button in the pre-game rules and the ever-present settings cog icon in the top right hand corner of the navbar on every resolution.
         - There are appropriate and familiar audio sounds that play for:
             1. Clearing the text input field
             2. Typing in a correct word
@@ -215,23 +200,15 @@ Click [Here
 
 ### Code
 
--  [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/): Bootstrap Library used throughout the project to 
-make site responsive using the Bootstrap Grid System. It was used in many different places all over the site, but in particular for the
-modals and the offcanvas.
+-  [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/): Bootstrap Library used throughout the project to make site responsive using the Bootstrap Grid System. It was used in many different places all over the site, but in particular for the modals and the offcanvas.
 
--   [DelftStack](https://www.delftstack.com/howto/javascript/shuffle-array-javascript/): Introduced me to and provided with some of the base 
-code for a [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) which I used to randomise the order of the 
-letters generated by the anagram generator funciton.
+-   [DelftStack](https://www.delftstack.com/howto/javascript/shuffle-array-javascript/): Introduced me to and provided with some of the base code for a [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) which I used to randomise the order of the letters generated by the anagram generator funciton.
 
--    [Stack Overflow](https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript): Provided the basis of the 
-code for which I used the games timer. 
+-    [Stack Overflow](https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript): Provided the basis of the code for which I used the games timer. 
 
--   [W3 Schools](https://www.w3schools.com/howto/howto_css_switch.asp): As noted in the stylesheet  this code provided the basis of the code
-that I used to design and style the volume toggle bar. It is not too dissimilar from the default Bootstrap toggle switch, however, it is 
-much easier to apply custom colours and styles.
+-   [W3 Schools](https://www.w3schools.com/howto/howto_css_switch.asp): As noted in the stylesheet  this code provided the basis of the code that I used to design and style the volume toggle bar. It is not too dissimilar from the default Bootstrap toggle switch, however, it is much easier to apply custom colours and styles.
 
--   [Bananacoding](https://www.youtube.com/channel/UCXvIGbH6QsPJYtwzQvwhFyw): The code that I used to style and create the volume slider
-was inspired mainly from [this Youtube tutorial video](https://www.youtube.com/watch?v=BrpiNUf2XCk).
+-   [Bananacoding](https://www.youtube.com/channel/UCXvIGbH6QsPJYtwzQvwhFyw): The code that I used to style and create the volume slider was inspired mainly from [this Youtube tutorial video](https://www.youtube.com/watch?v=BrpiNUf2XCk).
 
 
 ### Content

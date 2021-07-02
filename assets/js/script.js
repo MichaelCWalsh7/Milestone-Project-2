@@ -524,7 +524,7 @@ function addLetterToInput(inputId) {
     // Initialises a a variable of the letters currently present in the text input
     let currentLetters = $("#textInput").text();
 
-    // Disables the buttons  to avoid duplicate  letters appearing in string
+    // Disables the buttons to avoid duplicate letters appearing in string
     $(`#${inputId}`).prop('disabled', true);
 
     // Adds the button pushed input to the text to be displayed to the user
@@ -549,27 +549,33 @@ function keyboardLetterEvent(anagramArray, difficulty) {
     $(document).on("keypress", function () {
         // Finds out what letter has been pressed and initializes it as a variable
         let buttonPressed = event.key;
+        // Returns the variable in lower case so caps lock buttons will work
         buttonPressed = buttonPressed.toLowerCase();
         // Initializes variables to check if letter pressed has already been entered
         let textInput = $("#textInput").text().toLowerCase();
         let letterPresent = textInput.includes(buttonPressed);
 
+        // Checks if a valid letter pushed
         if (anagramArray.includes(buttonPressed) && letterPresent == false) {
+            // If so, initializes variables to call the add letter function
             let idNumber = anagramArray.indexOf(buttonPressed);
             let inputId = `${difficulty}Button${idNumber + 1}`;
             addLetterToInput(inputId);
-        }
+        };
     });
 }
 
 function enterDeleteLetterEvent() {
-    $(document).on("keyup", function () {
+    // Checks if the letter pressed was enter/backspace
+    $(document).on("keyup", function () {        
         if (event.key === "Enter") {
+            // If enter was pressed, the word validator function runs
             wordValidator();
         } else if (event.key === "Backspace") {
+            // If backspace was pressed, the delete letter funcitons runs
             deleteLetter();
         }
-    })
+    });
 }
 
 
@@ -585,16 +591,13 @@ function setVolume() {
 function rangeGradientSet(sliderValue) {
     // Sets the gradient colour of the slider to the same as the range value
     $("#volumeSlider").css("background",
-        `linear-gradient(90deg, rgb(0, 51, 102) ${sliderValue}%, rgb(166, 171, 189) ${sliderValue}%)`)
-
-    // Calls a function to change the audio volume
-    // VolumeSet(sliderValue);
+        `linear-gradient(90deg, rgb(0, 51, 102) 
+        ${sliderValue}%, rgb(166, 171, 189) ${sliderValue}%)`);
 }
 
 function deleteLetter() {
-    // THIS FUNCTION IS JANK AND NEEDS TWEEKING
-
-    // Converts the text input into an array so the final entry can be popped and it's array letter stored. 
+        /* Converts the text input into an array so the final entry can be popped 
+    and it's array letter stored */
     let currentLetters = $("#textInput").text();
     let inputLettersArray = currentLetters.split('');
 
@@ -604,7 +607,7 @@ function deleteLetter() {
 
     // Removes the letter from the text input div    
     inputLettersArray.pop();
-    let anagramString = ""
+    let anagramString = "";
     let anagramStringToModify = inputLettersArray.toString();
     anagramString = anagramStringToModify.replace(/,/g, "");
     $("#textInput").text(`${anagramString}`);
@@ -614,13 +617,12 @@ function deleteLetter() {
 
 }
 
-function wordValidator(userInput) {
-
+function wordValidator() {
     // Disables the enter button to avoid double clicking errors
     $("#enterButton").prop('disabled', true);
 
-    // Stroes user input as a variable
-    userInput = $("#textInput").text();
+    // Stores user input as a variable
+    let userInput = $("#textInput").text();
 
     // Stores the words on the black board as a variable
     let wordPresent = $(".words-blackboard").text();
@@ -631,34 +633,28 @@ function wordValidator(userInput) {
     // Checks if the user has, in fact, entered a word
     if (userInput == "") {
         // Prompts the user to enter a word
-        errorMessage = "Please enter a word."
+        let errorMessage = "Please enter a word."
         invalidWord(errorMessage);
-
-        // Checks if the word is already present on the answers blackboard
+      // Checks if the word is already present on the answers blackboard
     } else if (repeatingWord) {
         // Prompts the user to enter a new word
-        errorMessage = "Sorry, you've already inputted this word."
+        let errorMessage = "Sorry, you've already inputted this word."
         invalidWord(errorMessage);
-
-        // Checks that the word is a least 3 letters long
+      // Checks that the word is a least 3 letters long
     } else if (userInput.length < 3) {
         // Prompts the user to enter a longer word
-        errorMessage = "Words must be at least three letters long."
+        let errorMessage = "Words must be at least three letters long."
         invalidWord(errorMessage);
-        // Checks if the API must be called to proceed
+        
     } else {
+        // Checks if the API must be called to proceed
         noApiCheck(userInput);
-        // validWordCheck(userInput);
     }
 }
 
 function invalidWord(errorMessage) {
-    // Clears any lingering css effects
-    // $("#message").css("");
     // Displays the appropriate error message to the user    
-    $("#message").css("color", "#FF7900").text(`${errorMessage}`)
-    // Look into using the FadeOut feature to make this text smoother. 
-    // The problem with it right now is that after one message it breaks.
+    $("#message").css("color", "#FF7900").text(`${errorMessage}`);
 
     // Resets the buttons so the user doesn't have to manually do so
     clearInput();
@@ -667,9 +663,9 @@ function invalidWord(errorMessage) {
 function noApiCheck(userInput) {
     // Initializes an array of words that the API mistakenly does not accept
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
-        " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ", " BAT ", " BATS ",
-        " DICE ", " RAN ", " CLEM ", " RAPES "
-    ];
+        " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ",
+        " BAT ", " BATS ", " DICE ", " RAN ", " CLEM ", " RAPES ", " BOAR ",
+        " BOARS ", " DICK ", " DICKS "];
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);
@@ -678,24 +674,26 @@ function noApiCheck(userInput) {
     let wordLocallyPresent = localArray.includes(`${userInput}`);
     let errorWordSuccess = errorWords.includes(` ${userInput} `);
 
-    if (errorWordSuccess) {
+    // Checks if the word is erroneously not included in the dictionary API
+    if (errorWordSuccess) { 
+        // Calls the word success funciton    
         wordSuccess(userInput);
-        // DEV CODE PLEASE DELETE**********
-        console.log("No API was called as this is an 'error word'");
+      // Checks if the word has been stored in local storage  
     } else if (wordLocallyPresent) {
+        // Calls the word success funciton   
         wordSuccess(userInput);
-        // DEV CODE PLEASE DELETE**********
-        console.log("No API was called as this word was locally stored");
     } else {
-        // If the word does NOT meet the requirements the API is called to analyze the word
+        /* If the word does NOT meet the requirements the API is called to 
+        analyze the word */
         validWordCheck(userInput);
-    }
+    };
 }
 
 function validWordCheck(userInput) {
-
+    // Initializes a new XMLHttp request
     var xhr = new XMLHttpRequest();
 
+    // Calls the API with the user's input
     xhr.open("GET", `https://api.dictionaryapi.dev/api/v2/entries/en_GB/${userInput}`);
     xhr.send();
 
@@ -716,24 +714,24 @@ function validWordCheck(userInput) {
 
 function abbreviationCheck(apiData, userInput) {
     /* Initializes a variable to check how many times "abbreviation" occurs
-    in the response text. */
+    in the response text */
     let abbreviationCount = 0;
     let definitionCount = 1;
 
     /* Checks if the word entered has any definitions that constitute as an abbreviation
-    and stores the number of these in the previously initialized variable. */
+    and stores the number of these in the previously initialized variable */
     if (apiData.includes("abbreviation")) {
         abbreviationCount = apiData.match(/abbreviation/g).length;
-    }
+    };
 
     // Checks that the 'partOfSpeech' tag appears to avoid breaking the game
     if (apiData.includes("partOfSpeech")) {
         definitionCount = apiData.match(/partOfSpeech/g).length
-    }
+    };
 
     /* Checks if the number of abbreviative definitions a word has is equal to the number 
     of definitions it has in general. This way, the user is not punished if they input a 
-    word that exists in the dictionary, but also has an abbreviative definition.*/
+    word that exists in the dictionary, but also has an abbreviative definition */
     if (abbreviationCount == definitionCount) {
         // Informs the user when a word has only abbreviative definitions.
         $("#message").css("color", "#FF7900").text("Sorry, no abbreviations allowed.");
@@ -741,12 +739,11 @@ function abbreviationCheck(apiData, userInput) {
     } else {
         // Adds the word to the blackboard and increments the score. 
         wordSuccess(userInput);
-    }
+    };
 }
 
 
 function wordSuccess(userInput) {
-
     // Finds out what position in the blackboard the answer should be written
     let currentScore = parseInt($("#currentScore").text());
     let newScore = currentScore + 1;
@@ -772,18 +769,18 @@ function wordSuccess(userInput) {
 }
 
 function storageInit(userInput) {
-    // Initiates a variable to check if the local storage object exists or not
+    // Initiates a variable to check if the local storage object contains words or not
     let localWordsCheck = localStorage.getItem("word0");
 
-    // Checks if the local storage object exists
+    // Checks if the local storage object contains words
     if (localWordsCheck == null) {
+        // If it doesn't contain words, the first word is added to the object
         localStorage["word0"] = ` ${userInput} `;
-        localWords = localStorage;
     } else {
         // Checks if the word has been locally stored already
-        localWords = localStorage;
+        let localWords = localStorage;
         storageCheck(userInput, localWords);
-    }
+    };
 
 }
 
@@ -792,23 +789,21 @@ function storageCheck(userInput, localWords) {
     // Initializes variables to check if the word is already stored locally
     let localArray = Object.values(localWords);
     let wordLocallyPresent = localArray.includes(`${userInput}`);
+
     // Checks if the word has been locally stored already
     if (wordLocallyPresent == false) {
+        // If the word isn't stored, it is added to the localStorage object
         wordStore(userInput, localWords);
-    } else if (wordLocallyPresent) {
-        // THIS IS DEV TESTING AND SHOULD BE REMOVED AT A LATER DATE**********************
-        console.log("Word is locally present.");
-    }
+    };
 }
 
 function wordStore(userInput, localWords) {
     // Initializes variables to add a new word to local storage
     let localArray = Object.keys(localWords);
     let newLocalIndex = localArray.length;
+
     // Adds the new word to local storage
     localWords[`word${newLocalIndex}`] = ` ${userInput} `;
-    // THIS IS DEV TESTING AND SHOULD BE REMOVED AT A LATER DATE**********************
-    console.log("Word has been added");
 }
 
 
@@ -816,8 +811,10 @@ function wordStore(userInput, localWords) {
 function lifeGain(userInput) {
     // Initializes a variable to check difficulty
     let difficulty = $("#difficulty").text();
+
     // Initializes variables to increment the life counter
     let lives = parseInt($("#livesLeft").text());
+
     // Gives the user an extra life if their word is longer than 7 letters
     if (difficulty != "Genius" && userInput.length > 6) {
         // Increments the life counter
@@ -826,16 +823,15 @@ function lifeGain(userInput) {
         lifeGainMessage();
         // Plays the life gain sound if sounds are enabled
         lifeGainSound();
-    }
+    };
 }
 
 function lifeGainMessage() {
-    // 
+    // Initializes an array of life gain messages to push to the user
     let bonusMessages = ["Nice! You earned a life!", "Great job! Have a bonus life!",
         "Good spot, that got you a new life!", "Very impressive!! +1 lives!",
         "Excellent vocab, here's a bonus life!!",
-        "*low whistle* One more life for that one!!"
-    ]
+        "*low whistle* One more life for that one!!"];
 
     // Generates a random number between zero and 5
     let x = Math.floor(Math.random() * 5);
@@ -844,15 +840,11 @@ function lifeGainMessage() {
     if ($("#message").text() == bonusMessages[x]) {
         // Removes the error message from the array
         bonusMessages.splice(x, 1);
-        // Generates a new random number between zero and nine
-        x = Math.floor(Math.random() * 9);
-        // // Gives the div a celebratory rainbow colour
-        // rainbowColour();
+        // Generates a new random number between zero and four
+        x = Math.floor(Math.random() * 4);
         // Adds the new message to the message div.
         $("#message").css("color", "green").text(`${bonusMessages[x]}`);
     } else {
-        // // Gives the div a celebratory rainbow colour
-        // rainbowColour();
         // Adds the new message to the message div.
         $("#message").css("color", "green").text(`${bonusMessages[x]}`);
     };
@@ -868,21 +860,12 @@ function navResetAllow() {
     }
 }
 
-// function rainbowColour() {
-//     $("#message").css("background-image", `linear-gradient(to left, violet, indigo,
-//         blue, green, orange, red)`);
-//     $("#message").css("-webkit-background-clip", "text");
-//     $("#message").css("-webkit-text-fill-color", "transparent");
-//     $("#message").css("background-repeat", "repeat");
-
-// }
-
 function wordFail() {
     // Initialises a variable to push to the user for later
     let wrongMessage = "";
 
     // Turns the current lives left into a variable
-    livesLeft = parseInt($("#livesLeft").text());
+    let livesLeft = parseInt($("#livesLeft").text());
 
     // Subtracts the variables 
     let newLives = livesLeft - 1;
@@ -891,7 +874,7 @@ function wordFail() {
     if (newLives == 1) {
         wrongMessage = "Only 1 life left! Be Careful!"
         $("#message").css("color", "red").text(`${wrongMessage}`)
-        // Warns the user when they've only twoincorrect guesses remaining.
+        // Warns the user when they've only two incorrect guesses remaining.
     } else if (newLives == 2) {
         wrongMessage = "Heads up, just 2 lives remaining!"
         $("#message").css("color", "red").text(`${wrongMessage}`)
@@ -900,28 +883,16 @@ function wordFail() {
           to the Lives Left tracker. */
     } else if (newLives >= 3) {
         wrongMessagePicker();
-    }
-
+    };
 
     // Increments incorrect answers counter
     incorrectIncremenet(newLives);
 
-    // Flashes buttons pressed a red colour to immediately inform the user that word doesn't exist.
-    // colourchangeRed();
-
-
-
     // Reactivates buttons & clears the text input
     clearInput();
-
-
 }
 
 function wrongMessagePicker() {
-
-    // Clears any lingering css effects
-    // $("#message").css("");
-
     // Initialises an array of eleven error messages
     let wrongMessages = ["Sorry, that word doesn't exist.", "Not a word, try again!",
         "Nope, not according to our dictionary.", "Unfortunately, that's not a word...",
@@ -957,13 +928,36 @@ function clearInput() {
 
         // Clears text input field
         $("#textInput").text("");
-    }
+    };
+}
+
+function scoreIncrement(userInput) {
+    // Increments score
+    let currentScore = parseInt($("#currentScore").text());
+    let newScore = currentScore + 1;
+    $("#currentScore").text(`${newScore}`);
+
+    // Initializes variables to check how long the users word was 
+    let userInputLength = userInput.length;
+    let maxPossible = parseInt($("#settingsLetters").text());
+
+    // Checks if user has won
+    let maxScore = parseInt($("#maxScore").text())
+    if (newScore == maxScore) {
+        // Calls the game win function
+        gameWin();
+    } else if (userInputLength == maxPossible) {
+        // Plays a special sound for making word with every available letter
+        maxWordSound();
+    } else {
+        // Plays successful word sound if audio is enabled.
+        wordSuccessSound();
+    };
 }
 
 function gameWin() {
-
+    // Turns off event listeners in the event of a win
     turnOffListeners();
-
 
     // Plays success audio if sounds are enabled
     gameWinSound();
@@ -972,40 +966,7 @@ function gameWin() {
     $(".game-container").css("display", "none");
     $(".game-win-screen").css("display", "block");
 }
-
-function messageFadeGreen() {
-
-}
-
-function messageFadeRed() {
-
-}
-
-function scoreIncrement(userInput) {
-
-    // Increments score
-    let currentScore = parseInt($("#currentScore").text());
-    let newScore = currentScore + 1;
-    $("#currentScore").text(`${newScore}`)
-
-    // Initializes a variable to check how long the users word was 
-    let userInputLength = userInput.length;
-    let maxPossible = parseInt($("#settingsLetters").text());
-
-    // Checks if user has won
-    let maxScore = parseInt($("#maxScore").text())
-    if (newScore == maxScore) {
-        gameWin();
-    } else if (userInputLength == maxPossible) {
-        maxWordSound();
-    } else {
-        // Plays successful word sound if audio is enabled.
-        wordSuccessSound();
-    }
-}
-
 function incorrectIncremenet(newLives) {
-
     // Increments incorrect answers
     $("#livesLeft").text(`${newLives}`);
 
@@ -1015,19 +976,18 @@ function incorrectIncremenet(newLives) {
     } else {
         // Plays failure sound if sounds are enabled.
         wordFailSound();
-    }
+    };
 }
 
 
 function gameLose() {
-
+    // Turns off event listeners in the event of a loss
     turnOffListeners();
 
     // Removes the game screen to prepare the game over screen
     $(".game-container").css("display", "none");
     // Dictates what type of image and message the player gets on game over
     gameLossImageSelect();
-
 
     // Plays a failure sting if sounds are enabled
     gameOverSound();
@@ -1040,8 +1000,6 @@ function gameLossImageSelect() {
     let currentScore = parseInt($("#currentScore").text());
     let maxScore = parseInt($("#maxScore").text());
 
-
-    // DEV NOTE ******* THIS COULD BE A SWITCH STATEMENT?
     if (currentScore == 0) {
         $(".fail-0").css("display", "block");
     } else if (currentScore == maxScore - 1) {
@@ -1065,7 +1023,6 @@ function playSound(sound) {
     if (document.getElementById('muteButton').checked == true) {
         soundOn = true
     }
-
     // Checks if sound is turned on
     if (soundOn == true) {
         // If so, sets the appropriate volume for souns
@@ -1078,6 +1035,7 @@ function playSound(sound) {
 }
 
 function turnOffListeners() {
+    // Disables keyboard event listeners
     $(document).off("keypress");
     $(document).off("keydown");
 }

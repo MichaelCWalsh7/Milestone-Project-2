@@ -105,6 +105,7 @@ words from a random selection of letters.
 -   Adjustable difficulty
 -   Sounds that can activated/deactivated at any time
 -   Volume that can be adjusted at any time
+-   Makes use of local storage to save data
 
 ## Planned Future Features
 - Survival Mode
@@ -119,8 +120,24 @@ words from a random selection of letters.
     - When I go back to this project after assessment, the plan is to create a list of swear words & slurs that are inappropriate for children, and disallow them from the game if 'Family Friendly Mode' is activated. 
 
 - Dyslexic Friendly Mode
-    - As a word/vocabulary game, the project has a lot of merit as a learning 
+    - As a word/vocabulary game, the project has a lot of merit as a learning tool. I live in the south of Spain, and many of my friends who live here locally who have English as a second language, said the gamne was a good test of vocabulary.
+    - Thinking about their advice made me consider the merits of the game for younger learners, and how it could be made even more accessible as an educative tool.
+    - There has been a lot of advances in recent times for people who suffer from dyslexia, such as [this font developed by Christian Boer](https://www.dyslexiefont.com/en/typeface/), amongst others. 
+    - When I return to the app after development, the plan is to have a toggle switch that will change all of the text in the app to a more dyslexic friendly font. 
 
+- Other languages
+    - Another goal that got pushed to stretch due to time was the option of having other lagnuages available. 
+    - The free dicitonary API that I use has a few other languages included in it, Spanish, Italian, German etc.
+    - While having the dictionary API call words in other languages isn't too hard, (nor is adding the letter buttons from non-English alphabets) the plan for other languages is more ambitious than that. 
+    - The plan, when the lagnuage setting is changed is to take the user to a whole new page where rules, messages, offcanvas, everything will be in the language selected.
+    - Living in Spain and speaking some Spanish myself means a translation to Spanish shouldn't be too hard, as for what other languages and how many, that will depend on future circumstances.
+
+- Backup APIs
+    - At one stage during development, the Free Dictionary API went offline for a few hours, rendering the game unplayable.
+    - Now there is code in the game that stores all successful words in local storage, and calls on that object before even calling the API, so there would still be some functionality for long time players should the API go offline. However, it owuld be very limited.
+    - There are other APIs that could be used as a backup, but they have some strict limits on how often they can be called. For example, the Merriam Webster API has a call limit of jsut 1000 per day, which may seem like a lot, but because every word entered needs to be checked (unless it's already present in local storage), is really quite a low number.
+    - That said, as back-up API, and with local storage object to check, the Merriam-Webster API I believe would serve as a useful back-up.
+    - This is a fallback that was pushed to future features due to time contraints.
 
 ## Technologies Used
 

@@ -513,6 +513,9 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
 
+    // Disbles any lingering event listeners from prior games
+    turnOffListeners();
+
     // Adds event listeners for users with keyboards
     keyboardLetterEvent(anagramArray, difficulty);
     enterDeleteLetterEvent();
@@ -566,15 +569,12 @@ function keyboardLetterEvent(anagramArray, difficulty) {
     });
 }
 
-// Establishes a variable to avoid word duplication
-// var allowWord = true;
 
 function enterDeleteLetterEvent() {
     // Checks if the letter pressed was enter/backspace
     $(document).on("keyup", function () {
-
-        if (event.key === "Enter") {
-            allowWord = false;
+        if (event.key === "Enter") {  
+            $(document).off("keyup");          
             // If enter was pressed, the word validator function runs
             wordValidator();
         } else if (event.key === "Backspace") {
@@ -656,8 +656,6 @@ function wordValidator() {
         // Checks if the API must be called to proceed
         noApiCheck(userInput);
     }
-    // Reallows words to be entered
-    allowWord = true;
 }
 
 function invalidWord(errorMessage) {
@@ -1049,6 +1047,7 @@ function turnOffListeners() {
     // Disables keyboard event listeners
     $(document).off("keypress");
     $(document).off("keydown");
+    $(document).off("keyup");
 }
 
 function letterButtonSound() {

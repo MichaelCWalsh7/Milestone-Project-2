@@ -14,12 +14,12 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
         - If needed, the CSS that I've written for the project can be validated via file upload, or direct input [here.](https://jigsaw.w3.org/css-validator/)
 -   [JSHint Linter](https://jshint.com/)
     - Results:
-        - [script.js](scriptjs-linter-image)
-        - [sendEmail.js](emailjs-linter-image)
+        - [script.js](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/linter-results.png)
+        - [sendEmail.js](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/emailjs-linter.png)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     - The Google dev tool Lighthouse was used to ensure that the project followed best practices.
     - Results
-        - [Click here to see an image of the results](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/)
+        - [Click here to see an image of the results](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/lighthouse-test.png)
 
 
 ### Testing User Stories from User Experience (UX) Section

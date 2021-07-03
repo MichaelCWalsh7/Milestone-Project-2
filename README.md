@@ -139,6 +139,10 @@ words from a random selection of letters.
     - That said, as back-up API, and with local storage object to check, the Merriam-Webster API I believe would serve as a useful back-up.
     - This is a fallback that was pushed to future features due to time constraints.
 
+- 404 Page
+    - A responsive 404 error page for this website was actually created. However, having a 404 page on something hosted on git pages is a more difficult process than I was expecting. As a result of this and some serious time constraints due to personal reasons, the 404 page was unfortunately pushed back to planned future features. 
+    - [Click here to have a look at the 404 page!](https://michaelcwalsh7.github.io/Milestone-Project-2/404.html)
+
 ## Technologies Used
 
 ### Languages Used

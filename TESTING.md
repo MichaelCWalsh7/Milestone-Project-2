@@ -15,6 +15,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 -   [JSHint Linter](https://jshint.com/)
     - Results:
         - [script.js](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/linter-results.png)
+            - Here the linter describes a warning, where something would be "better written in dot notation". However, this is erroneous, writing this in dot notation would have negative consequences on the functionality of the code.
         - [sendEmail.js](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/emailjs-linter.png)
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
     - The Google dev tool Lighthouse was used to ensure that the project followed best practices.
@@ -95,8 +96,11 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 ### Known Bugs
 
-- As of right now, there is one known bug with dictionary API that is used. There are some valid word entries, that it does not accept, as it does not have an entry for them. 
+- As of right now, there is a bug with dictionary API that is used. There are some valid word entries, that it does not accept, as it does not have an entry for them. 
     - There is an array in the games code of these words, (at least all the ones I've been able to find so far,) that searches the users input for these words before calling the API. I've been adding words to this array as they're being discovered in testing. Thus far, the array is 20 words long, and can be found on line 643 of the script.js page.
+- The other known bug, is that if the user is on keyboard, and hits the enter button in rapid succession they can sometimes duplicate an answer.
+    - This does not happen on mobile or tablet, as the button clicked is immediately disabled. Many fixes were attempted to squash this bug. The `keydown` event was changed to `keyup` to make the firing of the event slower, a global boolean enabling and disabling the word validation process.
+    - However, none of these actions were able to eradicate this bug. Other ideas to squash this bug were unable to be implemented due to time contraints. 
 
 ### Issues Along The Way
 

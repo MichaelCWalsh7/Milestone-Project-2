@@ -567,22 +567,20 @@ function keyboardLetterEvent(anagramArray, difficulty) {
 }
 
 // Establishes a variable to avoid word duplication
-var allowWord = true;
+// var allowWord = true;
 
 function enterDeleteLetterEvent() {
     // Checks if the letter pressed was enter/backspace
     $(document).on("keyup", function () {
-        if (allowWord) {
-            if (event.key === "Enter") {
-                allowWord = false;
-                // If enter was pressed, the word validator function runs
-                wordValidator();
-            } else if (event.key === "Backspace") {
-                // If backspace was pressed, the delete letter funcitons runs
-                deleteLetter();
-            }
-        }
 
+        if (event.key === "Enter") {
+            allowWord = false;
+            // If enter was pressed, the word validator function runs
+            wordValidator();
+        } else if (event.key === "Backspace") {
+            // If backspace was pressed, the delete letter funcitons runs
+            deleteLetter();
+        }
     });
 }
 

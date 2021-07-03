@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
     // Adjusts the lower difficulty arrow to it's default position on load
     $("#lowerDifficultyArrow").prop("disabled", true);
@@ -515,9 +513,6 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
 
-    // Disables any lingering event listeneres on keyboards
-    turnOffListeners();
-
     // Adds event listeners for users with keyboards
     keyboardLetterEvent(anagramArray, difficulty);
     enterDeleteLetterEvent();
@@ -571,16 +566,24 @@ function keyboardLetterEvent(anagramArray, difficulty) {
     });
 }
 
+// Establishes a variable to avoid word duplication
+var allowWord = true;
+
 function enterDeleteLetterEvent() {
     // Checks if the letter pressed was enter/backspace
-    $(document).on("keyup", function () {        
-        if (event.key === "Enter") {
-            // If enter was pressed, the word validator function runs
-            wordValidator();
-        } else if (event.key === "Backspace") {
-            // If backspace was pressed, the delete letter funcitons runs
-            deleteLetter();
+    $(document).on("keyup", function () {
+        if (allowWord) {
+            if (event.key === "Enter") {
+                allowWord = false;
+                console.log("not allowed");
+                // If enter was pressed, the word validator function runs
+                wordValidator();
+            } else if (event.key === "Backspace") {
+                // If backspace was pressed, the delete letter funcitons runs
+                deleteLetter();
+            }
         }
+
     });
 }
 
@@ -602,7 +605,7 @@ function rangeGradientSet(sliderValue) {
 }
 
 function deleteLetter() {
-        /* Converts the text input into an array so the final entry can be popped 
+    /* Converts the text input into an array so the final entry can be popped 
     and it's array letter stored */
     let currentLetters = $("#textInput").text();
     let inputLettersArray = currentLetters.split('');
@@ -641,21 +644,23 @@ function wordValidator() {
         // Prompts the user to enter a word
         let errorMessage = "Please enter a word.";
         invalidWord(errorMessage);
-      // Checks if the word is already present on the answers blackboard
+        // Checks if the word is already present on the answers blackboard
     } else if (repeatingWord) {
         // Prompts the user to enter a new word
         let errorMessage = "Sorry, you've already inputted this word.";
         invalidWord(errorMessage);
-      // Checks that the word is a least 3 letters long
+        // Checks that the word is a least 3 letters long
     } else if (userInput.length < 3) {
         // Prompts the user to enter a longer word
         let errorMessage = "Words must be at least three letters long.";
         invalidWord(errorMessage);
-        
+
     } else {
         // Checks if the API must be called to proceed
         noApiCheck(userInput);
     }
+    // Reallows words to be entered
+    allowWord = true;
 }
 
 function invalidWord(errorMessage) {
@@ -671,7 +676,8 @@ function noApiCheck(userInput) {
     let errorWords = [" MET ", " BUS ", " DEW ", " COG ", " COGS ", " BIDE ",
         " ALE ", " CHIN ", " DIME ", " CLEAT ", " COT ", " BEAN ", " CAY ",
         " BAT ", " BATS ", " DICE ", " RAN ", " CLEM ", " RAPES ", " BOAR ",
-        " BOARS ", " DICK ", " DICKS "];
+        " BOARS ", " DICK ", " DICKS "
+    ];
     // Initializes variables to check if the word is already present in local storage
     let localWords = localStorage;
     let localArray = Object.values(localWords);
@@ -681,10 +687,10 @@ function noApiCheck(userInput) {
     let errorWordSuccess = errorWords.includes(` ${userInput} `);
 
     // Checks if the word is erroneously not included in the dictionary API
-    if (errorWordSuccess) { 
+    if (errorWordSuccess) {
         // Calls the word success funciton    
         wordSuccess(userInput);
-      // Checks if the word has been stored in local storage  
+        // Checks if the word has been stored in local storage  
     } else if (wordLocallyPresent) {
         // Calls the word success funciton   
         wordSuccess(userInput);
@@ -837,7 +843,8 @@ function lifeGainMessage() {
     let bonusMessages = ["Nice! You earned a life!", "Great job! Have a bonus life!",
         "Good spot, that got you a new life!", "Very impressive!! +1 lives!",
         "Excellent vocab, here's a bonus life!!",
-        "*low whistle* One more life for that one!!"];
+        "*low whistle* One more life for that one!!"
+    ];
 
     // Generates a random number between zero and 5
     let x = Math.floor(Math.random() * 5);
@@ -972,6 +979,7 @@ function gameWin() {
     $(".game-container").css("display", "none");
     $(".game-win-screen").css("display", "block");
 }
+
 function incorrectIncremenet(newLives) {
     // Increments incorrect answers
     $("#livesLeft").text(`${newLives}`);
@@ -1044,7 +1052,6 @@ function turnOffListeners() {
     // Disables keyboard event listeners
     $(document).off("keypress");
     $(document).off("keydown");
-    $(document).off("keyup");
 }
 
 function letterButtonSound() {

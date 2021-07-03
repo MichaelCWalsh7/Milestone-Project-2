@@ -134,3 +134,5 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     3. The problem being that the .includes funciton in JavaScript checked for any instance of the `userInput` string. So, for example, the word "books" would not be accepted if the word "book" were already present, as they shared the string `book` despite being two different words. The same problem would arise with "the" and "thespian" with "foot" and "footing" etc.
     4. The solution to the problem was to inlcude a space before and after the `words-blacboard` text input and after the `userinput` template literal also. That way, the letters in each string would be compared individually, and not as part of larger words, plurals, root words etc. 
     5. [Click here to see an image of the fix for this this issue.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/bud-tud-gud-wordcheckfix.png)
+
+### [Click here to return to the README section.](https://github.com/MichaelCWalsh7/Milestone-Project-2/blob/master/README.md)

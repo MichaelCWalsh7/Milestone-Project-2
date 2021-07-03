@@ -5,6 +5,6 @@ function sendMail(contactForm) {
         "message": contactForm.message.value
     }) .then(
         $("#modal").modal('toggle')
-    )
+    );
     return false;
 }

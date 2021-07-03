@@ -355,6 +355,8 @@ function letterButtonHide() {
     $(".letter-button-container-genius").css("display", "none");
 }
 
+//  --Game Initialization Handling Functions:
+
 function gameStart(score, timerMinutes, timerSeconds) {
 
     /* Clears the table of words in the event that the user has started the game
@@ -453,6 +455,7 @@ function winLoseCheck(timer, score) {
 
 }
 
+//  --Anagram Handling Functions:
 
 function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     // Initializes alphabetical array variables
@@ -623,6 +626,8 @@ function deleteLetter() {
 
 }
 
+//  --Word Validation Functions:
+
 function wordValidator() {
     // Disables the enter button to avoid double clicking errors
     $("#enterButton").prop('disabled', true);
@@ -791,6 +796,8 @@ function storageInit(userInput) {
 
 }
 
+//  --Local Storage Functions:
+
 function storageCheck(userInput, localWords) {
     localWords = localStorage;
     // Initializes variables to check if the word is already stored locally
@@ -813,7 +820,14 @@ function wordStore(userInput, localWords) {
     localWords[`word${newLocalIndex}`] = ` ${userInput} `;
 }
 
+//  --Word Success/Fail Handling Functions:
 
+function turnOffListeners() {
+    // Disables keyboard event listeners
+    $(document).off("keypress");
+    $(document).off("keydown");
+    $(document).off("keyup");
+}
 
 function lifeGain(userInput) {
     // Initializes a variable to check difficulty
@@ -963,6 +977,8 @@ function scoreIncrement(userInput) {
     }
 }
 
+//  --Game Win/Lose Handling Functions:
+
 function gameWin() {
     // Turns off event listeners in the event of a win
     turnOffListeners();
@@ -1026,6 +1042,8 @@ function gameLossImageSelect() {
     }
 }
 
+//  --Sound Handling Functions:
+
 function playSound(sound) {
     // Initializes a variable to check if sound is turned on
     let soundOn = false;
@@ -1041,13 +1059,6 @@ function playSound(sound) {
         //  Plays the appropriate sound
         sound.play();
     }
-}
-
-function turnOffListeners() {
-    // Disables keyboard event listeners
-    $(document).off("keypress");
-    $(document).off("keydown");
-    $(document).off("keyup");
 }
 
 function letterButtonSound() {

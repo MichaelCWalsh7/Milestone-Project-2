@@ -165,7 +165,7 @@ words from a random selection of letters.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
 1. [Balsamiq:](https://balsamiq.com/)
-    - Balsamiq was used to create the [wireframes](https://github.com/) during the design process.
+    - Balsamiq was used to create the wireframes during the design process.
 
 ### APIs Used
 -   The [Free Dictionary API](https://dictionaryapi.dev/) was used to validate whether user inputs were real words or not.

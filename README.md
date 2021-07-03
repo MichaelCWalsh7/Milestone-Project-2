@@ -106,6 +106,22 @@ words from a random selection of letters.
 -   Sounds that can activated/deactivated at any time
 -   Volume that can be adjusted at any time
 
+## Planned Future Features
+- Survival Mode
+    - Someway through development I had the idea to make a survival mode of the game. In this mode there would be no max score to aim for, rather the player would be given a 1 minute time limit at the the beginning of the round.
+    - For every correct word, the number of letters in the word would be added to the timer, so 'cat' would yield 3 extra seconds, 'flavours' would yield 8 extra seconds and so on.
+    - There would also be no lives in this mode, rather a second timer that counted how long the user was able to last. 
+    - The idea will further be expanded into a leaderboard, when I know more back-end development.
+
+- Family Friendly Mode
+    - I had the coding chops to include a mode like this, but not the time.
+    - Right now in the game all swear words & slurs are currently allowed. Essentially, if it appears in the dictionary API, you will get a point for it.
+    - When I go back to this project after assessment, the plan is to create a list of swear words & slurs that are inappropriate for children, and disallow them from the game if 'Family Friendly Mode' is activated. 
+
+- Dyslexic Friendly Mode
+    - As a word/vocabulary game, the project has a lot of merit as a learning 
+
+
 ## Technologies Used
 
 ### Languages Used

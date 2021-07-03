@@ -515,6 +515,9 @@ function anagramGenerator(vowelNumber, consonantNumber, difficulty) {
     // Shows the enter and delete buttons
     $(".enter-delete-buttons").css("display", "flex");
 
+    // Disables any lingering event listeneres on keyboards
+    turnOffListeners();
+
     // Adds event listeners for users with keyboards
     keyboardLetterEvent(anagramArray, difficulty);
     enterDeleteLetterEvent();
@@ -1041,6 +1044,7 @@ function turnOffListeners() {
     // Disables keyboard event listeners
     $(document).off("keypress");
     $(document).off("keydown");
+    $(document).off("keyup");
 }
 
 function letterButtonSound() {

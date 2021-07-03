@@ -242,16 +242,16 @@ function difficultyTracker() {
 
     if (difficulty == "Easy") {
         // Calls a function to initialise the game in Easy mode
-        initEasyDifficulty();
+        initEasyDifficulty(difficulty);
     } else if (difficulty == "Medium") {
         // Calls a function to initialise the game in Medium mode
-        initMediumDifficulty();
+        initMediumDifficulty(difficulty);
     } else if (difficulty == "Hard") {
         // Calls a function to initialise the game in Hard mode
-        initHardDifficulty();
+        initHardDifficulty(difficulty);
     } else if (difficulty == "Genius") {
         // Calls a function to initialise the game in Genius mode
-        initGeniusDifficulty();
+        initGeniusDifficulty(difficulty);
     }
 }
 
@@ -285,7 +285,7 @@ function homeScreenDifficultyCheck() {
     }
 }
 
-function initEasyDifficulty() {
+function initEasyDifficulty(difficulty) {
     // Sets up variables for callbacks to play the game on Easy mode
     let vowelNumber = 4;
     let consonantNumber = 8;
@@ -300,7 +300,7 @@ function initEasyDifficulty() {
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
 
-function initMediumDifficulty() {
+function initMediumDifficulty(difficulty) {
     // Sets up variables for callbacks to play the game on Medium mode
     let vowelNumber = 4;
     let consonantNumber = 7;
@@ -315,7 +315,7 @@ function initMediumDifficulty() {
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
 
-function initHardDifficulty() {
+function initHardDifficulty(difficulty) {
     // Sets up variables for callbacks to play the game on Hard mode
     let vowelNumber = 3;
     let consonantNumber = 7;
@@ -330,7 +330,7 @@ function initHardDifficulty() {
     anagramGenerator(vowelNumber, consonantNumber, difficulty);
 }
 
-function initGeniusDifficulty() {
+function initGeniusDifficulty(difficulty) {
     // Sets up variables for callbacks to play the game on Genius mode
     let vowelNumber = 3;
     let consonantNumber = 6;

@@ -2,7 +2,7 @@
 
 [View the live project here.](https://michaelcwalsh7.github.io/Milestone-Project-2/)
 
-This is a web application game that tests the users vocabulary by asking them to make 
+This is a web application game that tests the user's vocabulary by asking them to make 
 words from a random selection of letters.
 
 <h2 align="center"><img src="./assets/images/readme-images/readme-hero-image.png"</h2>
@@ -18,7 +18,7 @@ words from a random selection of letters.
         3. As a First Time Visitor, I want to play the game quickly, and with minimal effort.
         4. As a First Time Visitor, I want to be able to easily tell if I have succeeded or failed at the goal of the game. 
         5. As a First Time Visitor, I want to be able to adjust or mute the volume of the game as I so choose. 
-        6. As a First Time Visitor, I want to control exactly when the game/timer starts so I'm not unduly thrust into a game
+        6. As a First Time Visitor, I want to control exactly when the game/timer starts, so I'm not unduly thrust into a game
         experience that I'm not prepared for. 
         7. As a First Time visitor I want to clear track my progress through the game.
 
@@ -38,11 +38,11 @@ words from a random selection of letters.
 *   ### Design
 
     -   #### Colour Scheme
-        - The two main colours used for the games theme are midnight blue (sometimes called dark midnight blue) for the 
+        - The two main colours used for the game's theme are midnight blue (sometimes called dark midnight blue) for the 
         background and a light yellowish/orange colour that pairs with it quite nicely for other elements. They have a muted,
-        yet playful tone that is approrpiate for this type of word game.
-        -   The midnight blue colour was the first one that was conceptualised drawing inspiration from the popular televsion
-        show [Countdown](https://en.wikipedia.org/wiki/Countdown_(game_show)), which predominantly uses a very simliar colour
+        yet playful tone that is appropriate for this type of word game.
+        -   The midnight blue colour was the first one that was conceptualised drawing inspiration from the popular television
+        show [Countdown](https://en.wikipedia.org/wiki/Countdown_(game_show)), which predominantly uses a very similar colour.
         -  The muted tone of the two main colours contrasts nicely with the bright red and green colours used for several 
         other elements throughout the game. Bright reds and greens are used functionally here, rather than stylistically. 
         Most users of any application will be familiar with the green for good, red for bad, concomitant with traffic lights
@@ -51,14 +51,14 @@ words from a random selection of letters.
 
     -   #### Typography
         - There are three main fonts in use throughout the project. 
-        - The first and most noticeable font is 'Lakki ready'. It is a fun, zaney font, not good for long-form text, but
+        - The first and most noticeable font is 'Lakki ready'. It is a fun, zany font, not good for long-form text, but
         very eye-catching. It is used sparingly and only on special elements, for example the navbar home link, the rules 
         heading etc. 
-        - The second font on display is 'PT Sans'. It is used for the majority of text elements accross the website, letter 
+        - The second font on display is 'PT Sans'. It is used for the majority of text elements across the website, letter 
         buttons, the words blackboard, the rules etc. It is a sharp modern looking font, it is not distracting and is 
-        approrpiate for a word game such as this one.
+        appropriate for a word game such as this one.
         - The third and final font used throughout the project is 'Hind Siliguri'. On lower case especially it is very 
-        similar to the 'PT Sans' font mention above. As a result it is used very sparingly on lower case elements throughout
+        similar to the 'PT Sans' font mention above. As a result, it is used very sparingly on lower case elements throughout
         the project. Instead being implemented in upper case elements and buttons, where it contrasts nicely and provides a
         traditional 'button' feel that 'PT Sans' does not. 
         - 'Cursive' is employed as back-up to 'Lakki Ready' should Google Fonts fail to load, the font 'sans-serif' is used 
@@ -68,12 +68,12 @@ words from a random selection of letters.
         - Aesthetics are obviously king on visual platforms, especially in a web game like this. Overall the game pages are quite busy. There's the board for the words, the enter button, letter buttons, timer navbar etc. With so many visual elements already fighting for prime real estate, especially on smaller devices, a decision was made early on to use images only when necessary or when they would truly improve user's experience.
         - As a result of the above point, images are used in mainly two places in the game. 
         - Firstly A variety of images are used when showing the player a game over screen after losing. The images shown (and their accompanying message) here vary upon the condition the player's loss, i.e how many points the player had when they lost. A noted difference in images on the game over screen is important, especially for younger players. Returning players, especially those on harder difficulties, will see different 'fail images' as they get better and better at the  game. This means the player will feel some positive feedback upon a loss where they've broken their higher score, having a visual representation that they've done better, as well as a numerical one. 
-        - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero correctly inputted answers, or finishing just one answer short of completeing the game. Changing and dynamic imagery like this is important as it maintains the intereactivity and fluidity of the game experiece.
-        - Secondly in icons. the game makes heavy use of familiar and appropriate icons throughout. The info circle icon takes the user to an info/contact page, the gear icon opens the settings menu, left & right carets change the difficulty etc. 
+        - There a some special case unique 'fail images' the player can be shown, for example, finishing a game with zero correctly inputted answers, or finishing just one answer short of completing the game. Changing and dynamic imagery like this is important as it maintains the interactivity and fluidity of the game experience.
+        - Secondly in icons. The game makes heavy use of familiar and appropriate icons throughout. The info circle icon takes the user to an info/contact page, the gear icon opens the settings menu, left & right carets change the difficulty etc. 
 
     -   #### Audio
-        - Another important auditory experiece is the auditory one. There are many sounds in the game, however they are not on by default, as this would be a poor user experience.
-        - The audio can be turned on/off in the settings menu, which is an offcanvas element the user can access from many  places. From the home page to starting the game, there are three separate calls to action for the user to click on  the settings off canvas: on the settings button on the home page, on the settings button in the pre-game rules and the ever-present settings cog icon in the top right hand corner of the navbar on every resolution.
+        - Another important auditory experience is the auditory one. There are many sounds in the game, however they are not on by default, as this would be a poor user experience.
+        - The audio can be turned on/off in the settings menu, which is an offcanvas element the user can access from many  places. From the home page to starting the game, there are three separate calls to action for the user to click on  the settings off canvas: on the settings button on the home page, on the settings button in the pre-game rules and the ever-present settings cog icon in the top-right hand corner of the navbar on every resolution.
         - There are appropriate and familiar audio sounds that play for:
             1. Clearing the text input field
             2. Typing in a correct word
@@ -84,7 +84,7 @@ words from a random selection of letters.
             7. Gaining a life
             8. Making a word with all of the available letters
             9. Turning the sound on
-            10. And finally inputting an incorrect word
+            10. And finally, inputting an incorrect word
 
  *  ### Wireframes
 
@@ -109,7 +109,7 @@ words from a random selection of letters.
 
 ## Planned Future Features
 - Survival Mode
-    - Someway through development I had the idea to make a survival mode of the game. In this mode there would be no max score to aim for, rather the player would be given a 1 minute time limit at the the beginning of the round.
+    - Someway through development I had the idea to make a survival mode of the game. In this mode there would be no max score to aim for, rather the player would be given a 1 minute time limit at the beginning of the round.
     - For every correct word, the number of letters in the word would be added to the timer, so 'cat' would yield 3 extra seconds, 'flavours' would yield 8 extra seconds and so on.
     - There would also be no lives in this mode, rather a second timer that counted how long the user was able to last. 
     - The idea will further be expanded into a leaderboard, when I know more back-end development.
@@ -120,13 +120,13 @@ words from a random selection of letters.
     - When I go back to this project after assessment, the plan is to create a list of swear words & slurs that are inappropriate for children, and disallow them from the game if 'Family Friendly Mode' is activated. 
 
 - Dyslexic Friendly Mode
-    - As a word/vocabulary game, the project has a lot of merit as a learning tool. I live in the south of Spain, and many of my friends who live here locally who have English as a second language, said the gamne was a good test of vocabulary.
+    - As a word/vocabulary game, the project has a lot of merit as a learning tool. I live in the south of Spain, and many of my friends who live here locally who have English as a second language, said the game was a good test of vocabulary.
     - Thinking about their advice made me consider the merits of the game for younger learners, and how it could be made even more accessible as an educative tool.
     - There has been a lot of advances in recent times for people who suffer from dyslexia, such as [this font developed by Christian Boer](https://www.dyslexiefont.com/en/typeface/), amongst others. 
     - When I return to the app after development, the plan is to have a toggle switch that will change all of the text in the app to a more dyslexic friendly font. 
 
 - Other languages
-    - Another goal that got pushed to stretch due to time was the option of having other lagnuages available. 
+    - Another goal that got pushed to stretch due to time was the option of having other languages available. 
     - The free dicitonary API that I use has a few other languages included in it, Spanish, Italian, German etc.
     - While having the dictionary API call words in other languages isn't too hard, (nor is adding the letter buttons from non-English alphabets) the plan for other languages is more ambitious than that. 
     - The plan, when the lagnuage setting is changed is to take the user to a whole new page where rules, messages, offcanvas, everything will be in the language selected.
@@ -134,10 +134,10 @@ words from a random selection of letters.
 
 - Backup APIs
     - At one stage during development, the Free Dictionary API went offline for a few hours, rendering the game unplayable.
-    - Now there is code in the game that stores all successful words in local storage, and calls on that object before even calling the API, so there would still be some functionality for long time players should the API go offline. However, it owuld be very limited.
-    - There are other APIs that could be used as a backup, but they have some strict limits on how often they can be called. For example, the Merriam Webster API has a call limit of jsut 1000 per day, which may seem like a lot, but because every word entered needs to be checked (unless it's already present in local storage), is really quite a low number.
+    - Now there is code in the game that stores all successful words in local storage, and calls on that object before even calling the API, so there would still be some functionality for long time players should the API go offline. However, it would be very limited.
+    - There are other APIs that could be used as a backup, but they have some strict limits on how often they can be called. For example, the Merriam Webster API has a call limit of just 1000 per day, which may seem like a lot, but because every word entered needs to be checked (unless it's already present in local storage), is really quite a low number.
     - That said, as back-up API, and with local storage object to check, the Merriam-Webster API I believe would serve as a useful back-up.
-    - This is a fallback that was pushed to future features due to time contraints.
+    - This is a fallback that was pushed to future features due to time constraints.
 
 ## Technologies Used
 
@@ -170,11 +170,11 @@ words from a random selection of letters.
 ### APIs Used
 -   The [Free Dictionary API](https://dictionaryapi.dev/) was used to validate whether user inputs were real words or not.
 -   The [EmailJS API](https://www.emailjs.com/) was used to send messages to the creator should there be any words that
-are erroneously not accepted through the dictionary api the user wants to report, or if they want to get in touch for any 
+are erroneously not accepted through the dictionary API the user wants to report, or if they want to get in touch for any 
 other reason. 
 
 ## Testing
-- For the sake of brevity and concision, the documentation of all testing that has been conducted is located on a seprate 
+- For the sake of brevity and concision, the documentation of all testing that has been conducted is located on a separate 
 file. [Click anywhere on this sentence to be taken to the
 TESTING.md file.](https://github.com/MichaelCWalsh7/milestone-project-1/blob/master/TESTING.md)
 
@@ -235,7 +235,7 @@ Click [Here
 
 -  [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/): Bootstrap Library used throughout the project to make site responsive using the Bootstrap Grid System. It was used in many different places all over the site, but in particular for the modals and the offcanvas.
 
--   [DelftStack](https://www.delftstack.com/howto/javascript/shuffle-array-javascript/): Introduced me to and provided with some of the base code for a [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) which I used to randomise the order of the letters generated by the anagram generator funciton.
+-   [DelftStack](https://www.delftstack.com/howto/javascript/shuffle-array-javascript/): Introduced me to and provided with some of the base code for a [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle) which I used to randomise the order of the letters generated by the anagram generator function.
 
 -    [Stack Overflow](https://stackoverflow.com/questions/20618355/how-to-write-a-countdown-timer-in-javascript): Provided the basis of the code for which I used the games timer. 
 
@@ -254,7 +254,7 @@ Click [Here
 
 -   Those that were not clearly fall under the moniker of 'Fair Use' as put forward in Section 107 of the Copyright Act.
 
--   All sounds were taken from [Freesound](https://freesound.org/) and are licesned under the Creative Commons Act.
+-   All sounds were taken from [Freesound](https://freesound.org/) and are licensed under the Creative Commons Act.
 A list of the sounds and their creators can be found [here](https://freesound.org/people/Michael_Walsh/downloaded_sounds/). 
 
 ### Inspirations 

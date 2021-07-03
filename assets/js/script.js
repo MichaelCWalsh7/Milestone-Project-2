@@ -576,8 +576,7 @@ function keyboardLetterEvent(anagramArray, difficulty) {
 function enterDeleteLetterEvent() {
     // Checks if the letter pressed was enter/backspace
     $(document).on("keyup", function () {
-        if (event.key === "Enter") {  
-            $(document).off("keyup");          
+        if (event.key === "Enter") {           
             // If enter was pressed, the word validator function runs
             wordValidator();
         } else if (event.key === "Backspace") {

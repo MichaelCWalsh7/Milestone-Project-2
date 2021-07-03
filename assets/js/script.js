@@ -575,7 +575,6 @@ function enterDeleteLetterEvent() {
         if (allowWord) {
             if (event.key === "Enter") {
                 allowWord = false;
-                console.log("not allowed");
                 // If enter was pressed, the word validator function runs
                 wordValidator();
             } else if (event.key === "Backspace") {

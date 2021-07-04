@@ -115,7 +115,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     - In a last ditch effort, I reached out to Tutor Assistance and ended up in touch with a tutor (Igor Basuga) at the [Code Institute,](https://codeinstitute.net/) who fair play to him, must have spent at least an hour trawling through the code, trying to find a solution.
     - After console logging the [text input variable](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-3.png) to try and figure it out, he noted that while the [text input was logged correctly on Chrome,](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-4.png) the same could not be said while [logging the text input on Firefox.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-5.png)
     - For some reason, the text input was being cleared before the wordValidation function triggered properly.
-    - Why this occurs, or why it fires an event to re-roll the letters for the current game, are at a time of writing, unknown.
+    - Why this occurs, or why it fires an event to re-roll the letters for the current game, are at time of writing, unknown.
     - An odd bug that will need to be tackled at a later date, when my understanding of browser compatibility is stronger.
 
 

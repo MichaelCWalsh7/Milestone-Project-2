@@ -97,11 +97,23 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 ### Known Bugs
 
 - **Correct Words Being Rejected** 
-    - As of right now, there is a bug with dictionary API that is used. There are some valid word entries, that it does not accept, as it does not have an entry for them. 
+    - As of right now, there is a problem with dictionary API that is used. There are some valid word entries, that it does not accept, as it does not have an entry for them. 
     - There is an array in the games code of these words, (at least all the ones I've been able to find so far,) that searches the users input for these words before calling the API. I've been adding words to this array as they're being discovered in testing. Thus far, the array is 20 words long, and can be found on line 643 of the script.js page.
-- The other known bug, is that if the user is on keyboard, and hits the enter button in rapid succession they can sometimes duplicate an answer.
+- **Word Dupication Bug**
+    - If the user is on keyboard, and hits the enter button in rapid succession they can sometimes duplicate an answer.
     - This does not happen on mobile or tablet, as the button clicked is immediately disabled. Many fixes were attempted to squash this bug. The `keydown` event was changed to `keyup` to make the firing of the event slower, a global boolean enabling and disabling the word validation process, the event listeners for those specific buttons were turned off etc.
     - However, none of these actions were able to eradicate this bug. Other, much more complex ideas to squash this bug were unable to be implemented due to time contraints. 
+- **Firefox Game Restart Keyboard Bug**
+    - The final known bug is one that is exclusive to Firefox. I was unable to recreate this bug on Chrome, Opera, or even Edge. 
+    - The bug is quite specific, firs the user must start a game (any difficulty will suffice). Then if the difficulty is changed in the middle of the game, and the game is reset and the user enters a valid word using their keyboard(it must be their first word), the word will not be accepted, and instead the letter will be randomized again. 
+    - Entering you first word with the "ENTER" button in the game app will not trigger this bug.
+    - Using the keyboard for any word other than the first of a restarted game will not trigger this bug. 
+    - The glitch will end and the user will be able to continue the game if the "ENTER" button on the game is used to input a word at any time instead of the keyboard "Enter" button. 
+    - A look at the Firefox console shows [this error message](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-1.png). background.js is not a local file that I have written, it is a firefox extension or add-on of some kind. 
+    - When clicked, the error log on the console takes you to [this extension, showing a lengthy text document.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-2.png)
+    - I consulted my mentor at the [Code Institute](https://codeinstitute.net/) about the bug, as I'm not too familiar with the differences in developer environments between Firefox and Chrome. He wasn't sure what was causing it either, and recommended simply adding it to the README.
+    - In a last ditch effort, I reached out to Tutor Assistance and ended up in touch with Igor Basuga, a tutor with the [Code Institute,](https://codeinstitute.net/) who fair play to him, must have spent at least an hour trawling through the code, trying to find a solution.
+
 
 ### Issues Along The Way
 

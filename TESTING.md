@@ -105,14 +105,18 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
     - However, none of these actions were able to eradicate this bug. Other, much more complex ideas to squash this bug were unable to be implemented due to time contraints. 
 - **Firefox Game Restart Keyboard Bug**
     - The final known bug is one that is exclusive to Firefox. I was unable to recreate this bug on Chrome, Opera, or even Edge. 
-    - The bug is quite specific, firs the user must start a game (any difficulty will suffice). Then if the difficulty is changed in the middle of the game, and the game is reset and the user enters a valid word using their keyboard(it must be their first word), the word will not be accepted, and instead the letter will be randomized again. 
+    - The bug is quite specific, first the user must start a game (any difficulty will suffice). Then, if the difficulty is changed in the middle of the game, and the game is reset and the user enters a valid word using their keyboard (it must be their first word), the word will not be accepted, and instead the letters will be randomized again. 
     - Entering you first word with the "ENTER" button in the game app will not trigger this bug.
     - Using the keyboard for any word other than the first of a restarted game will not trigger this bug. 
     - The glitch will end and the user will be able to continue the game if the "ENTER" button on the game is used to input a word at any time instead of the keyboard "Enter" button. 
     - A look at the Firefox console shows [this error message](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-1.png). background.js is not a local file that I have written, it is a firefox extension or add-on of some kind. 
     - When clicked, the error log on the console takes you to [this extension, showing a lengthy text document.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-2.png)
     - I consulted my mentor at the [Code Institute](https://codeinstitute.net/) about the bug, as I'm not too familiar with the differences in developer environments between Firefox and Chrome. He wasn't sure what was causing it either, and recommended simply adding it to the README.
-    - In a last ditch effort, I reached out to Tutor Assistance and ended up in touch with Igor Basuga, a tutor with the [Code Institute,](https://codeinstitute.net/) who fair play to him, must have spent at least an hour trawling through the code, trying to find a solution.
+    - In a last ditch effort, I reached out to Tutor Assistance and ended up in touch with a tutor (Igor Basuga) at the [Code Institute,](https://codeinstitute.net/) who fair play to him, must have spent at least an hour trawling through the code, trying to find a solution.
+    - After console logging the [text input variable](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-3.png) to try and figure it out, he noted that while the [text input was logged correctly on Chrome,](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-4.png) the same could not be said while [logging the text input on Firefox.](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-5.png)
+    - For some reason, the text input was being cleared before the wordValidation function triggered properly.
+    - Why this occurs, or why it fires an event to re-roll the letters for the current game, are at a time of writing, unknown.
+    - An odd bug that will need to be tackled at a later date, when my understanding of browser compatibility is stronger.
 
 
 ### Issues Along The Way

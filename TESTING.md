@@ -106,7 +106,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 - **Firefox Game Restart Keyboard Bug**
     - The final known bug is one that is exclusive to Firefox. I was unable to recreate this bug on Chrome, Opera, or even Edge. 
     - The bug is quite specific, first the user must start a game (any difficulty will suffice). Then, if the difficulty is changed in the middle of the game, and the game is reset and the user enters a valid word using their keyboard (it must be their first word), the word will not be accepted, and instead the letters will be randomized again. 
-    - Entering you first word with the "ENTER" button in the game app will not trigger this bug.
+    - Entering the first word with the "ENTER" button in the game app will not trigger this bug.
     - Using the keyboard for any word other than the first of a restarted game will not trigger this bug. 
     - The glitch will end and the user will be able to continue the game if the "ENTER" button on the game is used to input a word at any time instead of the keyboard "Enter" button. 
     - A look at the Firefox console shows [this error message](https://michaelcwalsh7.github.io/Milestone-Project-2/assets/images/readme-images/testing/firefox-bug-1.png). background.js is not a local file that I have written, it is a firefox extension or add-on of some kind. 
